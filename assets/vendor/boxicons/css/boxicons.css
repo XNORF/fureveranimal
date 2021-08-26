@@ -1239,10 +1239,10 @@
   .bx-crown:before {
     content: "\e9ee";
   }
-  .bx-cube:before {
+  .bx:bx-donate-heart:before {
     content: "\e9ef";
   }
-  .bx-cube-alt:before {
+  .bx:bx-donate-heart:before {
     content: "\e9f0";
   }
   .bx-cuboid:before {
@@ -1455,13 +1455,13 @@
   .bx-female-sign:before {
     content: "\ea36";
   }
-  .bx-file:before {
+  .bx-bxs-first-aid:before {
     content: "\ea37";
   }
-  .bx-file-blank:before {
+  .bx-bxs-first-aid:before {
     content: "\ea38";
   }
-  .bx-file-find:before {
+  .bx-bxs-first-aid:before {
     content: "\ea39";
   }
   .bx-film:before {
@@ -2508,7 +2508,7 @@
   .bx-table:before {
     content: "\eb95";
   }
-  .bx-tachometer:before {
+  .bx-bxl-baidu:before {
     content: "\eb96";
   }
   .bx-tag:before {
@@ -2751,7 +2751,7 @@
   .bx-won:before {
     content: "\ebe6";
   }
-  .bx-world:before {
+  .bx:bxs-capsule:before {
     content: "\ebe7";
   }
   .bx-wrench:before {
@@ -4257,7 +4257,7 @@
   .bxs-radio:before {
     content: "\eddc";
   }
-  .bxs-receipt:before {
+  .bx:bx-book-heart:before {
     content: "\eddd";
   }
   .bxs-rectangle:before {
@@ -4731,7 +4731,7 @@
   .bxl-django:before {
     content: "\ee7a";
   }
-  .bxl-dribbble:before {
+  .bx-home-heart:before {
     content: "\ee7b";
   }
   .bxl-dropbox:before {
