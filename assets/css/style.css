@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #eb5d1e;
+  color: #aa52c4;
 }
 
 .navbar-mobile .getstarted {
@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #eb5d1e;
+  color: #a7f0fa; 
 }
 
 .navbar-mobile .dropdown > .dropdown-active {
@@ -470,7 +470,7 @@ section {
   display: block;
   width: 60px;
   height: 2px;
-  background: #eb5d1e;
+  background: #aa52c4;
   bottom: 0;
   left: calc(50% - 30px);
 }
@@ -677,7 +677,7 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #eb5d1e;
+  color: #f598cc;
   margin: 0 4px;
   line-height: 0;
   background-color: #fff;
@@ -697,7 +697,7 @@ section {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  background: #eb5d1e;
+  background: #aa52c4 ;
   color: #fff;
 }
 
@@ -936,7 +936,7 @@ section {
 }
 
 .team .member .social a:hover {
-  color: #eb5d1e;
+  color: #f598cc ;
 }
 
 .team .member .social i {
