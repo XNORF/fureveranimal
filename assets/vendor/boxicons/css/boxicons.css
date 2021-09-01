@@ -930,7 +930,7 @@
   .bx-camera-off:before {
     content: "\e987";
   }
-  .bx-capsule:before {
+  .bx-dollar-circle:before {
     content: "\e988";
   }
   .bx-captions:before {
@@ -2433,7 +2433,7 @@
   .bx-sort-z-a:before {
     content: "\eb7c";
   }
-  .bx-spa:before {
+  .bx-dollar-circle:before {
     content: "\eb7d";
   }
   .bx-space-bar:before {
@@ -2508,7 +2508,7 @@
   .bx-table:before {
     content: "\eb95";
   }
-  .bx-bxl-baidu:before {
+  .bx-bx-dollar-circle:before {
     content: "\eb96";
   }
   .bx-tag:before {
@@ -3663,7 +3663,7 @@
   .bxs-filter-alt:before {
     content: "\ed16";
   }
-  .bxs-first-aid:before {
+  .bx-dollar-circle:before {
     content: "\ed17";
   }
   .bxs-flag:before {
@@ -3777,7 +3777,7 @@
   .bxs-home-circle:before {
     content: "\ed3c";
   }
-  .bxs-home-heart:before {
+  .bx-dollar-circle:before {
     content: "\ed3d";
   }
   .bxs-home-smile:before {
@@ -4377,7 +4377,7 @@
   .bxs-sort-alt:before {
     content: "\ee04";
   }
-  .bxs-spa:before {
+  .bxs-dollar-circle:before {
     content: "\ee05";
   }
   .bxs-spray-can:before {

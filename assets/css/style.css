@@ -603,7 +603,18 @@ section {
   line-height: 28px;
   margin-bottom: 0;
 }
-
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+.registration {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 7%;
+}
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
@@ -1206,23 +1217,21 @@ section {
   width: calc(100% - 100px);
 }
 
-#footer .footer-newsletter form input[type="submit"] {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
+#footer .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  padding: 0 20px;
-  background: #aa52c4;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin-top: 30px;
   color: #fff;
-  transition: 0.3s;
-  border-radius: 4px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  background: #aa52c4;
 }
 
-#footer .footer-newsletter form input[type="submit"]:hover {
+#footer .btn-get-started:hover {
   background: #f598cc;
 }
 
