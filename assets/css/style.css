@@ -480,7 +480,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 15px 0;
-  background-color: #fef5f1;
+  background-color: #ffd9e5;
   min-height: 40px;
 }
 
@@ -770,11 +770,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #eb5d1e;
+  border: 1px solid #aa52c4;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #eb5d1e;
+  background-color:#aa52c4;
 }
 
 .portfolio-details .portfolio-info {
@@ -812,6 +812,23 @@ section {
 
 .portfolio-details .portfolio-description p {
   padding: 0;
+}
+.portfolio .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 15px 40px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin-top: 30px;
+  color: #fff;
+  background: #aa52c4;
+}
+
+.portfolio .btn-get-started:hover {
+  background: #f598cc;
 }
 
 /*--------------------------------------------------------------
