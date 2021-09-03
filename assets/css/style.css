@@ -1370,4 +1370,42 @@ section {
     padding: 3px 0;
 	
   }
+  /*--------------------------------------------------------------
+# Information
+--------------------------------------------------------------*/
+.information h3 {
+  font-weight: 700;
+  font-size: 34px;
+  color: #4e4039;
+}
+
+.information h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+  color: #7a6960;
+}
+
+.information i {
+  font-size: 48px;
+  margin-top: 15px;
+  color: #aa52c4;
+}
+
+.information p {
+  font-size: 15px;
+  color: #5a6570;
+}
+
+@media (max-width: 991px) {
+  .about .about-img img {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  .about .about-img img {
+    max-width: 90%;
+  }
+}
 }
