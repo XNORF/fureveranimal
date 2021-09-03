@@ -816,10 +816,10 @@ section {
 .portfolio .btn-get-started {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 8px 28px;
+  padding: 15px 40px;
   border-radius: 3px;
   transition: 0.5s;
   margin-top: 30px;
@@ -1370,4 +1370,42 @@ section {
     padding: 3px 0;
 	
   }
+  /*--------------------------------------------------------------
+# Information
+--------------------------------------------------------------*/
+.information h3 {
+  font-weight: 700;
+  font-size: 34px;
+  color: #4e4039;
+}
+
+.information h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 5px;
+  color: #7a6960;
+}
+
+.information i {
+  font-size: 48px;
+  margin-top: 15px;
+  color: #aa52c4;
+}
+
+.information p {
+  font-size: 15px;
+  color: #5a6570;
+}
+
+@media (max-width: 991px) {
+  .information .information-img img {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  .information .information-img img {
+    max-width: 90%;
+  }
+}
 }

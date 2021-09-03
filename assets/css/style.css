@@ -1398,13 +1398,13 @@ section {
 }
 
 @media (max-width: 991px) {
-  .about .about-img img {
+  .information .information-img img {
     max-width: 70%;
   }
 }
 
 @media (max-width: 767px) {
-  .about .about-img img {
+  .information .information-img img {
     max-width: 90%;
   }
 }
