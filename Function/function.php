@@ -18,7 +18,7 @@ function check_login($con)
   }
 	
 	//redirect to Log In 
-	header("Location: htdocs/masterfureveranimal/login/login.html");
+	header("Location: htdocs/masterfureveranimal/Admin/index.html");
 	die;
 	
 }	
