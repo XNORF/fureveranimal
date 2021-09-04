@@ -10,7 +10,7 @@ session_start();
   if($_SERVER['REQUEST_METHOD'] == "POST")
   {
 	  //something was posted
-	  $username = $_POST['email'];
+	  $email = $_POST['email'];
 	  $password = $_POST['password'];					 
 		  	 
 	  if(!empty($email) && !empty($password) &&  !is_numeric($email))
