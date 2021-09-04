@@ -6,7 +6,7 @@ function check_login($con)
   if(isset($_SESSION['email']))
   {
 	  
-	  $id = $_SESSION['email'];
+	  $email = $_SESSION['email'];
 	  $query = "select * from login where email = '$email' limit 1";
 	   
 	  $result = mysqli_query($con,$query);
@@ -18,7 +18,7 @@ function check_login($con)
   }
 	
 	//redirect to Log In 
-	header("Location: htdocs/masterfureveranimal/login/login.html ");
+	header("Location: htdocs/masterfureveranimal/Admin/login/login.html ");
 	
 	die;
 	
