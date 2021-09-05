@@ -53,19 +53,20 @@
                                     <input type="text" name="phone_number" id="phone_number" />
                                 </div>
 								<div class="form-input">
-                                    <label for="DOB">Date Of Birth</label>
+                                    <label for="DOB" class="required">Date Of Birth</label>
                                     <input type="date" name="dob" id="dob" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-select">
                                     <div class="label-flex">
-                                        <label for="gender">Gender</label>
+                                        <label for="gender" class="required">Gender</label>
                                         
                                     </div>
                                     <div class="select-list">
-                                        <select name="gender" id="meal_preference">
+                                        <select name="gender" id="meal_preference" class="required">
                                            <option value="Gender"></option>
+										    <option value="none"></option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
@@ -73,12 +74,12 @@
                                 </div>
                                 <div class="form-radio">
                                     <div class="label-flex">
-                                        <label for="payment">Have you owned a pet before?</label>
+                                        <label for="payment" class="required">Have you owned a pet before?</label>
                                         <a href="#" class="form-link"></a>
                                     </div>
                                     <div class="form-radio-group">            
                                         <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cash" checked>
+                                            <input type="radio" name="payment" id="cash" class="required" checked>
                                             <label for="cash">Yes</label>
                                             <span class="check"></span>
                                         </div>
@@ -91,19 +92,19 @@
                                     </div>
                                 </div>
                                 <div class="form-input">
-                                    <label for="address_1">Address 1</label>
+                                    <label for="address_1" class="required">Address 1</label>
                                     <input type="text" name="address_1" id="address_1" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="address_2">Address 2</label>
+                                    <label for="address_2" class="required">Address 2</label>
                                     <input type="text" name="address_2" id="address_2" />
                                 </div>
 								<div class="form-input">
-                                    <label for="postcode">Post Code</label>
+                                    <label for="postcode" class="required">Post Code</label>
                                     <input type="text" name="postcode" id="postcode" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="state">State</label>
+                                    <label for="state" class="required">State</label>
                                     <input type="text" name="state" id="state" />
                                 </div>
 								
