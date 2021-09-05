@@ -1,45 +1,31 @@
 <?php
- 
-function check_login($con)
-{
-	
-  if(isset($_SESSION['email']))
-  {
-	  
-	  $email = $_SESSION['email'];
-	  $query = "select * from login where email = '$email' limit 1";
-	   
-	  $result = mysqli_query($con,$query);
-	  if($result && mysqli_num_rows($result) > 0)
-	  {
-		  $user_data = mysqli_fetch_assoc($result);
-		  return $user_data;
-	  }
-  }
-	
-	//redirect to Log In 
-	header("Location: masterfureveranimal/Admin/login/login.html ");
-	
-	die;
-	
-}	
+session_start();
 
-function random_num($length)
-{
+if(isSet($_POST['login'])){
+    login ($_POST);
 	
-	$text = "";
-	if($length < 5)
-	{
-		$length = 5; 
-	}
-	
-	$len = rand(4,$length);
-	
-	for ($i=0; $i < $len; $i++) {
-		 
-		$text .= rand(0,9);
-	}
-	
-	return $text;
 }
+?>
+
+
+<?php 
+
+function login(){
+        $con = mysqli_connect("localhost", "pet2021", "sd2021", "fureveranimalshelter");
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        if(!$con){
+            echo "Not connected";
+        }else{
+            $sql = "select * from login WHERE email = '$email' AND password = '$password'";
+            $qry = mysqli_query($con,$sql);
+            $count = mysqli_num_rows($qry);
+            
+            echo "<script type='text/javascript'>
+            alert('Log Masuk Berjaya');
+            window.location.href = 'masterfureveranimal/Admin/Adminindex.html'
+            </script>";
+        }      
+    }
+
 ?>
