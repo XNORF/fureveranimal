@@ -23,7 +23,7 @@ function login(){
             
             echo "<script type='text/javascript'>
             alert('Log Masuk Berjaya');
-            window.location.href = 'masterfureveranimal/Admin/Adminindex.html'
+            window.location.href = '../Adminindex.html'
             </script>";
         }      
     }
