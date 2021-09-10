@@ -28,16 +28,21 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <form method="POST" class="register-form" id="register-form" action ="connect.php">
                         <div class="form-row">
                             <div class="form-group">
-                                <div class="form-input">
-                                    <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="first_name" id="first_name" />
+							
+							<div class="form-input">
+                                    <label for="username" class="required">Username</label>
+                                    <input type="text" name="username" id="username" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="last_name" id="last_name" />
+                                    <label for="firstname" class="required">First name</label>
+                                    <input type="text" name="firstname" id="firstname" />
+                                </div>
+                                <div class="form-input">
+                                    <label for="lastname" class="required">Last name</label>
+                                    <input type="text" name="lastname" id="lastname" />
                                 </div>
                                 
                                 <div class="form-input">
@@ -57,20 +62,39 @@
                                     <input type="date" name="dob" id="dob" />
                                 </div>
                             </div>
+							
                             <div class="form-group">
                                 <div class="form-select">
                                     <div class="label-flex">
                                         <label for="gender">Gender</label>
                                         
                                     </div>
-                                    <div class="select-list">
-                                        <select name="gender" id="meal_preference">
-                                           <option value="Gender"></option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
+                                    <div class="select-list" >
+                                        <select  name="gender"   id="meal_preference"> 
+                                           <option  value="gender"></option>
+                                            <option  value="Male" >Male</option>
+                                            <option  value="Female">Female</option>
                                         </select>
                                     </div>
                                 </div>
+								
+								<!-- <div class="form-select">
+                                    <div class="label-flex">
+                                        <label for="payment">Have you owned a pet before?</label>
+                                        
+                                    </div>
+                                    <div class="select-list">
+                                        <select  name="payment"  id="payment">
+                                           <option  value="payment"></option>
+                                            <option  value="Yes" >Yes</option>
+                                            <option  value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+								
+								
+								
+								
                                 <div class="form-radio">
                                     <div class="label-flex">
                                         <label for="payment">Have you owned a pet before?</label>
@@ -90,13 +114,17 @@
                                         
                                     </div>
                                 </div>
+								
+								
+								
+								
                                 <div class="form-input">
                                     <label for="address_1">Address 1</label>
-                                    <input type="text" name="address_1" id="address_1" />
+                                    <input type="text" name="address1" id="address1" />
                                 </div>
                                 <div class="form-input">
                                     <label for="address_2">Address 2</label>
-                                    <input type="text" name="address_2" id="address_2" />
+                                    <input type="text" name="address2" id="address2" />
                                 </div>
 								<div class="form-input">
                                     <label for="postcode">Post Code</label>
@@ -111,8 +139,8 @@
                         </div>
                         
                         <div class="form-submit">
-                            <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
-                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                            <input type="submit" value="Submit" class="submit" id="submit"  formmethod = "POST" name="submit" />
+                            <input type="reset" value="Reset" class="submit" id="reset"  name="reset" />
                         </div>
                     </form>
                 </div>
