@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form</title>
-
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
@@ -28,16 +27,16 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    <form method="POST" class="register-form" id="register-form">
+                    <form class="register-form" id="register-form" method="POST" action="../function.php">
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="first_name" id="first_name" />
+                                    <input type="text" name="firstname" id="firstname" />
                                 </div>
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="last_name" id="last_name" />
+                                    <input type="text" name="lastname" id="lastname" />
                                 </div>
                                 
                                 <div class="form-input">
@@ -50,7 +49,7 @@
                                 </div>
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
-                                    <input type="text" name="phone_number" id="phone_number" />
+                                    <input type="text" name="phoneNumber" id="phoneNumber" />
                                 </div>
 								<div class="form-input">
                                     <label for="DOB" class="required">Date Of Birth</label>
@@ -59,14 +58,10 @@
                             </div>
                             <div class="form-group">
                                 <div class="form-select">
-                                    <div class="label-flex">
-                                        <label for="gender" class="required">Gender</label>
-                                        
-                                    </div>
+                                    <label for="gender" class="required">Gender</label>                                    
                                     <div class="select-list">
-                                        <select name="gender" id="meal_preference" class="required">
-                                           <option value="Gender"></option>
-										    <option value="none"></option>
+                                        <select name="gender" id="meal_preference">
+                                            <option disabled selected value> -- select an option -- </option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
                                         </select>
@@ -92,12 +87,12 @@
                                     </div>
                                 </div>
                                 <div class="form-input">
-                                    <label for="address_1" class="required">Address 1</label>
-                                    <input type="text" name="address_1" id="address_1" />
+                                    <label for="address1" class="required">Address 1</label>
+                                    <input type="text" name="address1" id="address1" />
                                 </div>
                                 <div class="form-input">
-                                    <label for="address_2" class="required">Address 2</label>
-                                    <input type="text" name="address_2" id="address_2" />
+                                    <label for="address2" class="required">Address 2</label>
+                                    <input type="text" name="address2" id="address2" />
                                 </div>
 								<div class="form-input">
                                     <label for="postcode" class="required">Post Code</label>
@@ -112,7 +107,7 @@
                         </div>
                         
                         <div class="form-submit">
-                            <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+                            <input type="submit" value="Submit" class="submit" id="submit" name="signup" />
                             <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
                         </div>
                     </form>
