@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>FAS Sign-In</title>
+	<title>FAS Admin Sign-In</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -30,11 +30,11 @@
 <body>
 	
 	<section id="limiter" class="limiter">
-		<div class="container-login100" style="background-image: url('images/catdog.jpg');">
+		<div class="container-login100" style="background-image: url('images/catdogpark.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-			 <form method = "POST" action ="function.php" class="login100-form validate-form"> 
-			<span class="login100-form-title p-b-49">
-						Sign In
+				<form class="login100-form validate-form" action="function.php" method="POST">
+					<span class="login100-form-title p-b-49">
+						Sign In (ADMIN)
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
@@ -56,30 +56,22 @@
 						</a>
 					</div>
 					
-					<div class="container-login100-form-btn" name = "login">
+					<div class="container-login100-form-btn" name="login">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" type="submit"  value="login" name="login">
+							<button class="login100-form-btn" formmethod="POST" name="login">
 								Login
 							</button>
-					
-						
-							
 						</div>
 					</div>
 
-					<div class="txt1 text-center p-t-54 p-b-20">
-						<span>
-							Create new account? <a href="register/signup.html" class="txt2">
-							Sign Up
-						</span>
-					</div>
+					
 
 
 						
 						</a>
 					</div>
-				 </form> 
+				</form>
 			</div>
 		</div>
 	</div>
