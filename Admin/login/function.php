@@ -34,7 +34,7 @@ function login(){
 	}else{
 	
 	echo "<script type = 'text/javascript'>
-		window.location.href = 'login.html';
+		window.location.href = 'adminlogin.html';
 	</script>";
 	
 	} 
