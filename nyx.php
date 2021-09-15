@@ -56,6 +56,7 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
+		  
 		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
@@ -70,7 +71,6 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
@@ -95,24 +95,17 @@
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
-
                 <div>
                   <img src="assets/img/portfolio/cat7.jpg" alt="">
                 </div>
-
-             
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
           </div>
-
           <div class="col-lg-4">
             <div class="portfolio-info">
               <h3>Pet Information</h3>
@@ -121,7 +114,6 @@
                 <li><strong>Age</strong>: 1 Year</li>
                 <li><strong>Gender</strong>: Male</li>
 				<li><strong>Health Condition(s)</strong>: None</li>
-               
               </ul>
             </div>
 			
@@ -140,21 +132,15 @@
 		   
 			<a href="login/loginmain.php" class="btn-get-started scrollto"><b>ADOPT</b></a>
 			</div>
-            
           </div>
         </div>
       </div>
     </div>
             </div>
           </div>
-
         </div>
-
       </div>
-	  
     </section><!-- End Portfolio Details Section -->
-	
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -164,7 +150,6 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            
           </div>
         </div>
       </div>
@@ -173,7 +158,6 @@
      <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Fur-Ever Animal Shelter</h3>
             <p>
@@ -215,7 +199,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -224,7 +207,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -242,5 +224,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

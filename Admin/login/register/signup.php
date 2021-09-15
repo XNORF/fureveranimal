@@ -15,9 +15,7 @@
 <body>
 
     <div class="main" >
-
         <div class="container">
-		
             <div class="signup-content">
                 <div class="signup-img">
                     <img src="images/catto4.jpg" alt="">
@@ -26,6 +24,7 @@
                         <p>to become a member and adopt our fur buddies !</p>
                     </div>
                 </div>
+				
                 <div class="signup-form">
                     <form class="register-form" id="register-form" method="POST" action="../function.php">
                         <div class="form-row">
@@ -34,6 +33,7 @@
                                     <label for="first_name" class="required">First name</label>
                                     <input type="text" name="firstname" id="firstname" required/>
                                 </div>
+								
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
                                     <input type="text" name="lastname" id="lastname" required/>
@@ -43,10 +43,12 @@
                                     <label for="email" class="required">Email</label>
                                     <input type="text" name="email" id="email" required/>
                                 </div>
+								
 								 <div class="form-input">
                                     <label for="password" class="required">Password</label>
                                     <input type="password" name="password" id="password" required/>
                                 </div>
+								
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
                                     <input type="text" name="phoneNumber" id="phoneNumber" required/>
@@ -56,6 +58,7 @@
                                     <input type="date" name="dob" id="dob" required/>
                                 </div>
                             </div>
+							
                             <div class="form-group">
                                 <div class="form-select">
                                     <label for="gender" class="required">Gender</label>                                    
@@ -67,6 +70,7 @@
                                         </select>
                                     </div>
                                 </div>
+								
                                 <div class="form-radio">
                                     <div class="label-flex">
                                         <label for="payment" class="required">Have you owned a pet before?</label>
@@ -102,7 +106,6 @@
                                     <label for="state" class="required">State</label>
                                     <input type="text" name="state" id="state" required/>
                                 </div>
-								
                             </div>
                         </div>
                         
@@ -114,7 +117,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- JS -->
@@ -124,5 +126,6 @@
     <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
     <script src="js/main.js"></script>
+	
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

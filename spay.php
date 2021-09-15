@@ -58,6 +58,7 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
+		  
 		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
@@ -71,7 +72,6 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
@@ -135,7 +135,6 @@
             </div>
           </div>
         </div>
-
       </div>
 	  <img src="assets/img/injection.jpg" alt="injection" class="center">
     </section><!-- End Services Section -->
@@ -188,7 +187,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -197,7 +195,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -215,5 +212,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

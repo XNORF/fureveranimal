@@ -40,11 +40,8 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-
       <div class="logo">
         <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
-	
-		
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -58,6 +55,7 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
+		  
 		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
@@ -71,8 +69,8 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
+	
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -101,16 +99,15 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
-
         <div class="row justify-content-between">
           <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
             <img src="assets/img/catd2.png" class="img-fluid" alt="" data-aos="zoom-in">
           </div>
+		  
           <div class="col-lg-6 pt-5 pt-lg-0">
             <h3 data-aos="fade-up">Wanna know more about us?</h3>
-            <p data-aos="fade-up" data-aos-delay="100">
- 
-            </p>
+            <p data-aos="fade-up" data-aos-delay="100"></p>
+			
             <div class="row">
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <i class="bx bx-book-heart"></i>
@@ -118,6 +115,7 @@
                 <p>Fur-Ever Animal Shelter is a nonprofit organization that finds homes for abandoned cats and dogs throughout Kuala Lumpur and Selangor area and provides behavior intervention when needed to improve chances of adoption. Founded in 2021, we operate an animal shelter in Jalan Semarak, Kuala Lumpur. 
 				<br>We also provide programs that enhance the bond between animals and people.</p>
               </div>
+			  
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <i class="bx bx-donate-heart"></i>
                 <h4>Mission</h4>
@@ -173,16 +171,13 @@
               <p class="description">We make sure that our animals are neutered, vaccinated, dewormed,and kept as healthy as possible</p>
             </div>
           </div>
-
         </div>
-
       </div>
     </section><!-- End Services Section -->
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Gallery</h2>
           <p>Check out our beautiful animals</p>
@@ -199,14 +194,13 @@
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat5.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/cat5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Lily"><i class="bi bi-plus"></i></a>
-               
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Lily</h4>
                 <p>5 months old</p>
@@ -233,8 +227,8 @@
               <img src="assets/img/portfolio/cat7.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/cat7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Nyx"><i class="bi bi-plus"></i></a>
-                
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Nyx</h4>
                 <p>1 year old</p>
@@ -247,8 +241,8 @@
               <img src="assets/img/portfolio/dog9.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dog9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Peanut"><i class="bi bi-plus"></i></a>
-                
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Peanut</h4>
                 <p>9 months old</p>
@@ -261,8 +255,8 @@
               <img src="assets/img/portfolio/cat10_.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/cat10_.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Grey"><i class="bi bi-plus"></i></a>
-                
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Grey</h4>
                 <p>1.5 years old</p>
@@ -276,8 +270,8 @@
               <img src="assets/img/portfolio/dog2.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dog2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="King"><i class="bi bi-plus"></i></a>
-                
               </div>
+			  
               <div class="portfolio-info">
                 <h4>King</h4>
                 <p>10 months old</p>
@@ -290,8 +284,8 @@
               <img src="assets/img/portfolio/blindcat2.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/blindcat2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bailey"><i class="bi bi-plus"></i></a>
-                
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Bailey</h4>
                 <p>3 years old</p>
@@ -304,8 +298,8 @@
               <img src="assets/img/portfolio/blindog.jpeg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/blindog.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Cooper</h4>
                 <p>2 years old</p>
@@ -317,32 +311,28 @@
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat3.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
-                
+                <a href="assets/img/portfolio/cat3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a> 
               </div>
+			  
               <div class="portfolio-info">
                 <h4>Luna</h4>
                 <p>1 year old</p>
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
     </section><!-- End Portfolio Section -->
 
     <!-- ======= F.A.Q Section ======= -->
     <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>F.A.Q</h2>
           <p>Frequently Asked Questions</p>
         </div>
 
         <ul class="faq-list" data-aos="fade-up" data-aos-delay="100">
-
           <li>
             <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Where are you located? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
             <div id="faq1" class="collapse" data-bs-parent=".faq-list">
@@ -350,7 +340,7 @@
                 Fur-Ever Animal Shelter is located at Jalan Sultan Yahya Petra, Kampung Datuk Keramat, 54100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur
             </div>
           </li>
-
+		  
           <li>
             <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What are your hours? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
             <div id="faq2" class="collapse" data-bs-parent=".faq-list">
@@ -406,23 +396,20 @@
               </p>
             </div>
           </li>
-
         </ul>
-
       </div>
+	  
     </section><!-- End F.A.Q Section -->
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
       <div class="container">
-
         <div class="section-title" data-aos="fade-up">
           <h2>Team</h2>
           <p>Our team is always here to help</p>
         </div>
 
         <div class="row">
-
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="member">
               <img src="assets/img/team/jaehyun.jpeg" class="img-fluid" alt="">
@@ -520,7 +507,6 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
     </section><!-- End Clients Section -->
 
@@ -534,7 +520,6 @@
         </div>
 
         <div class="row">
-
           <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="info">
               <div class="address">
@@ -557,7 +542,6 @@
 
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.8508361002696!2d101.71983412045972!3d3.1730237187055654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37e8de0a443f%3A0x9e772d5b7ac66d27!2sUTM%20Kuala%20Lumpur!5e0!3m2!1sen!2smy!4v1629974102744!5m2!1sen!2smy" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
-
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
@@ -588,9 +572,7 @@
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div>
-
         </div>
-
       </div>
     </section><!-- End Contact Us Section -->
 
@@ -657,7 +639,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -666,7 +647,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -684,5 +664,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

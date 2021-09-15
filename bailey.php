@@ -40,7 +40,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-
       <div class="logo">
         <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -56,6 +55,7 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
+		  
 		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
@@ -70,7 +70,6 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
 
@@ -79,7 +78,6 @@
     <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
           <h2>Pet Information</h2>
           <ol>
@@ -88,16 +86,13 @@
             <li>Pet Information</li>
           </ol>
         </div>
-
       </div>
     </section><!-- Breadcrumbs Section -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
@@ -105,9 +100,6 @@
                 <div>
                   <img src="assets/img/portfolio/blindcat2.jpg" width=800 height=800 alt="">
                 </div>
-
-             
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -121,12 +113,10 @@
                 <li><strong>Age</strong>: 3 Years</li>
                 <li><strong>Gender</strong>: Female</li>
 				<li><strong>Health Condition(s)</strong>: Blind on left eye</li>
-               
               </ul>
             </div>
 			
             <div class="portfolio-description">
-			
               <h2>Story of Bailey's life</h2>
               <p>
                 Bailey was born in FAS and it experienced an unfortunate accident where it was born without an eye on the left. Bailey may not be able to see the world fully but she is full with lively spirit.
@@ -137,34 +127,27 @@
         <div class="row justify-content-center">
 		<div class="col-lg-6">
            <div class="portfolio">
-		   
 			<a href="login/loginmain.php" class="btn-get-started scrollto"><b>ADOPT</b></a>
 			</div>
-            
           </div>
         </div>
       </div>
     </div>
             </div>
           </div>
-
         </div>
-
       </div>
 	  
     </section><!-- End Portfolio Details Section -->
 	
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-
     <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            
           </div>
         </div>
       </div>
@@ -173,7 +156,6 @@
      <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Fur-Ever Animal Shelter</h3>
             <p>
@@ -215,7 +197,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -224,7 +205,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -242,5 +222,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

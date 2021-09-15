@@ -40,7 +40,6 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
-
       <div class="logo">
         <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -79,7 +78,6 @@
     <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
-
         <div class="d-flex justify-content-between align-items-center">
           <h2>Pet Information</h2>
           <ol>
@@ -88,26 +86,19 @@
             <li>Pet Information</li>
           </ol>
         </div>
-
       </div>
     </section><!-- Breadcrumbs Section -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
-
                 <div>
                   <img src="assets/img/portfolio/cat5.jpg" alt="">
                 </div>
-
-             
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -121,12 +112,10 @@
                 <li><strong>Age</strong>: 5 Months</li>
                 <li><strong>Gender</strong>: Female</li>
 				<li><strong>Health Condition(s)</strong>: None</li>
-               
               </ul>
             </div>
 			
             <div class="portfolio-description">
-			
               <h2>Story of Lily's life</h2>
               <p>
                 Found as an orphan kitten at 1 months old in an abandoned garage, now Lily is healthy and became an active kitten.
@@ -140,21 +129,17 @@
 		   
 			<a href="login/loginmain.php" class="btn-get-started scrollto"><b>ADOPT</b></a>
 			</div>
-            
           </div>
         </div>
       </div>
     </div>
             </div>
           </div>
-
         </div>
-
       </div>
 	  
     </section><!-- End Portfolio Details Section -->
 	
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -164,7 +149,6 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            
           </div>
         </div>
       </div>
@@ -173,7 +157,6 @@
      <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Fur-Ever Animal Shelter</h3>
             <p>
@@ -215,7 +198,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -224,7 +206,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -242,5 +223,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

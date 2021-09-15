@@ -51,8 +51,7 @@
 					
 					<div class="text-right p-t-8 p-b-31">
 						<a href="#">
-						Forgot password?
-							
+						Forgot password?	
 						</a>
 					</div>
 					
@@ -64,11 +63,6 @@
 							</button>
 						</div>
 					</div>
-
-					
-
-
-						
 						</a>
 					</div>
 				</form>

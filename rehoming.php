@@ -43,8 +43,6 @@
 
       <div class="logo">
         <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
-	
-		
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -71,8 +69,8 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
     </div>
+	
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -132,7 +130,6 @@
             </div>
           </div>
         </div>
-
       </div>
 	  <img src="assets/img/owner.png" alt="owner" class="center">
     </section><!-- End Services Section -->
@@ -143,7 +140,6 @@
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Fur-Ever Animal Shelter</h3>
             <p>
@@ -185,7 +181,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -194,7 +189,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -212,5 +206,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

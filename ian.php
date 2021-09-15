@@ -88,7 +88,6 @@
             <li>Pet Information</li>
           </ol>
         </div>
-
       </div>
     </section><!-- Breadcrumbs Section -->
 
@@ -97,17 +96,12 @@
       <div class="container">
 
         <div class="row gy-4">
-
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
-
                 <div>
                   <img src="assets/img/portfolio/dog3.jpg"  alt="">
                 </div>
-
-             
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -121,7 +115,6 @@
                 <li><strong>Age</strong>: 8 Months</li>
                 <li><strong>Gender</strong>: Male</li>
 				<li><strong>Health Condition(s)</strong>: None</li>
-               
               </ul>
             </div>
 			
@@ -140,21 +133,15 @@
 		   
 			<a href="login/loginmain.php" class="btn-get-started scrollto"><b>ADOPT</b></a>
 			</div>
-            
           </div>
         </div>
       </div>
     </div>
             </div>
           </div>
-
         </div>
-
       </div>
-	  
     </section><!-- End Portfolio Details Section -->
-	
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -164,7 +151,6 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            
           </div>
         </div>
       </div>
@@ -215,7 +201,6 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -224,7 +209,6 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
     </div>
   </footer><!-- End Footer -->
 
@@ -242,5 +226,4 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>
