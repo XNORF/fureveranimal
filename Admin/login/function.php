@@ -28,13 +28,13 @@ function login(){
 	if($count == 1){
 		$userRecord = mysqli_fetch_assoc($qry);
 		echo "<script type = 'text/javascript'>
-		window.location.href = '../index.html' 
+		window.location.href = '../index.php' 
 		</script>";
 	
 	}else{
 	
 	echo "<script type = 'text/javascript'>
-		window.location.href = 'adminlogin.html';
+		window.location.href = 'adminlogin.php';
 	</script>";
 	
 	} 
@@ -48,7 +48,7 @@ function logout(){
 	session_start();
 	unset($_SESSION["email"]);
 	unset($_SESSION["password"]);
-	header("Location: login.html");
+	header("Location: login.php");
 
 }
 		

@@ -12,7 +12,7 @@
         $vkey = signup($_POST);
         if($vkey!=NULL){
             mailverification($vkey);
-            header("Location: register/verification.html");
+            header("Location: register/verification.php");
         }        
     }else if(isset($_POST['login'])){
         login($_POST);
@@ -46,7 +46,7 @@
         }    
         if(!mysqli_query($con, $sql)){
             //echo mysqli_error($con);
-            header("Location: register/signup.html");
+            header("Location: register/signup.php");
         }else{
             return $vkey;
         }
@@ -65,11 +65,11 @@
             if($count == 1){
                 $userRecord = mysqli_fetch_assoc($qry);
                 echo "<script type='text/javascript'>
-                        window.location.href = '../Adopter/index.html'
+                        window.location.href = '../Adopter/index.php'
                         </script>";
             }else{
                 echo "<script type='text/javascript'>
-                        window.location.href = 'loginmain.html';
+                        window.location.href = 'loginmain.php';
                         </script>";
             }
         }
@@ -91,13 +91,13 @@
                 $sqlverify = "UPDATE adopter SET verified='1' WHERE email = '$user' AND vkey = '$vkey' AND verified = '0'";
                 if(mysqli_query($con,$sqlverify)){
                     echo "<script type='text/javascript'>
-                        window.location.href = 'loginmain.html'
+                        window.location.href = 'loginmain.php'
                         </script>";
                 }
                 
             }else{
                 echo "<script type='text/javascript'>
-                        window.location.href = 'register/verification.html';
+                        window.location.href = 'register/verification.php';
                         </script>";
             }
         }
