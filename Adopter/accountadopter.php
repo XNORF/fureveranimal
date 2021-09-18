@@ -1,3 +1,23 @@
+<?php
+    session_start();
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    $email = $_SESSION['adopter'];
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        $sql = "select * from adopter WHERE email = '$email'";        
+        $qry = mysqli_query($con,$sql);
+        $userRecord = mysqli_fetch_assoc($qry);
+        $username = $userRecord['username'];
+        $firstName = $userRecord['firstname'];
+        $lastName = $userRecord['lastname'];
+        $address1 = $userRecord['address1'];
+        $address2 = $userRecord['address2'];
+        $postcode = $userRecord['postcode'];
+        $city = $userRecord['city'];
+        $state = $userRecord['state'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +89,7 @@
                 
                 <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
                 <li><a class="nav-link scrollto" href="#about">Account</a></li>
-                <li><a class="getstarted scrollto" href="Admin/login.php">Log Out</a></li> 
+                <form action="adopterFunction.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form> 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -88,7 +108,7 @@
                                 <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 <ul class="meta list list-unstyled">
                                     <li class="name">
-                                        <label class="label label-info">Ali</label>
+                                        <?php echo "<label class='label label-info'>$username</label>"?>
                                     </li>
                                     <li class="email"><a href="#"></a></li>
                                     <li class="activity">Last logged in: Today at 2:18pm</li>
@@ -117,23 +137,29 @@
                                             <button type="submit" class="btn btn-primary">Update Image</button><br><br><br>
                                         </div>
                                     </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <?php echo "<input type='text' class='form-control' value='$username'><br>";?>
+                                        </div>
+                                    </div>                                    
                                     <div class="form-group">
                                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="email" class="form-control" value=""><br>
+                                            <?php echo "<input type='text' class='form-control' value='$email' readonly><br>";?>
                                         </div>
-                                    </div>
-                
+                                    </div>                
                                     <div class="form-group">
                                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$firstName' readonly><br>";?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$lastName' readonly><br>";?>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -144,31 +170,31 @@
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address 1</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$address1' name='address1'><br>";?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address 2</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$address2' name='address2'><br>";?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Postcode</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$postcode' name='postcode'><br>";?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">City</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$city' name='city'><br>";?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">State</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <?php echo "<input type='text' class='form-control' value='$state' name='state'><br>";?>
                                         </div>
                                     </div>
                                 </fieldset>

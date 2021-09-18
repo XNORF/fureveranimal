@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['verify'])){    
+    header("Location: ../loginmain.php");
+  }else{
+    //unset($_SESSION['verify']);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,49 +44,7 @@
   ======================================================== -->
 </head>
 
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span><img src="assets/img/logofur.png" class="img-fluid"></span></a></h1>
-	
-		
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto" href="index.html#about">About Us</a></li>
-          <li class="dropdown"><a href="#"><span>What We Do</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="rehoming.html">Shelter, Rehabilitation & Rehoming</a></li>
-              <li><a href="spay.html">Spay & Neuter</a></li>
-            </ul>
-          </li>
-		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="adopt.html">Adopt</a></li>
-              <li><a href="login/loginmain.html">Donate</a></li>
-			  <li><a href="volunteer.html">Volunteer</a></li>
-            </ul>
-          </li>
-		   
-          <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="login/loginmain.html">Login / Signup</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  
-  <main id="main">
-  
+<body>  
    <!-- ======= Information Section ======= -->
     <section id="information" class="about">
       
@@ -192,67 +158,6 @@
                         </html>
 
     </section><!-- End Information Section -->
-  
- <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Fur-Ever Animal Shelter</h3>
-            <p>
-              Jalan Sultan Yahya Petra,<br>
-              Kampung Datuk Keramat,<br>
-			   54100 Kuala Lumpur, <br>
-              Wilayah Persekutuan Kuala Lumpur  <br><br>
-              <strong>Phone:</strong> +03-4256 5312<br>
-              <strong>Email:</strong> fureveranimal@gmail.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Shelter</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Rehabilitation</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Rehoming</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Spay and Neuter</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container py-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
-      </div>
-      
-    </div>
-  </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

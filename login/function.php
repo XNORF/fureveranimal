@@ -18,6 +18,8 @@
         login($_POST);
     }else if(isset($_POST['verification'])){
         verification($_POST);
+    }else if(isset($_POST['reset'])){
+        header("Location: register/signup.php");
     }
 
     function signup(){
@@ -35,12 +37,13 @@
             $address1 = $_POST['address1'];
             $address2 = $_POST['address2'];
             $postcode = $_POST['postcode'];
+            $city = $_POST['city'];
             $state = $_POST['state'];
             $verified = 0;
             $vkey = random_int(100000, 999999);
 
-            $sql = "insert into adopter(firstname, lastname, email, password, phoneNumber, dob, address1, address2, postcode, state, verified, vkey, username)
-                    values('$firstname', '$lastname', '$email', '$password', '$phoneNumber', '$dob', '$address1', '$address2', '$postcode', '$state', '$verified', '$vkey', '$firstname')";
+            $sql = "insert into adopter(firstname, lastname, email, password, phoneNumber, dob, address1, address2, postcode, city, state, verified, vkey, username)
+                    values('$firstname', '$lastname', '$email', '$password', '$phoneNumber', '$dob', '$address1', '$address2', '$postcode', '$city', '$state', '$verified', '$vkey', '$firstname')";
             
             $_SESSION['newuser'] = $email;
         }    
@@ -59,18 +62,24 @@
         if(!$con){
             echo mysqli_error($con);
         }else{
-            $sql = "select * from adopter WHERE email = '$email' AND password = '$password' AND verified = '1'";
+            $sql = "select * from adopter WHERE email = '$email' AND password = '$password' AND verified = '1'"; //Registered & Verified
+            $sql2 = "select * from adopter WHERE email = '$email' AND password = '$password' AND verified = '0'"; //Registered & Unverified
+            
             $qry = mysqli_query($con,$sql);
+            $qry2 = mysqli_query($con,$sql2);
+            
             $count = mysqli_num_rows($qry);
+            $count2 = mysqli_num_rows($qry2);
+
             if($count == 1){
                 $userRecord = mysqli_fetch_assoc($qry);
-                echo "<script type='text/javascript'>
-                        window.location.href = '../Adopter/index.php'
-                        </script>";
+                $_SESSION['adopter'] = $email;
+                header("Location: ../Adopter/index.php");
+            }else if($count2 == 1){
+                $_SESSION['verify'] = $email;
+                header("Location: register/verification.php");
             }else{
-                echo "<script type='text/javascript'>
-                        window.location.href = 'loginmain.php';
-                        </script>";
+                header("Location: loginmain.php");
             }
         }
         
@@ -79,26 +88,23 @@
     function verification(){
         $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
         $vkey = $_POST['vkey'];
-        $user = $_SESSION['newuser'];
+        $user = $_SESSION['verify'];
         if(!$con){
             echo mysqli_error($con);
         }else{
             $sql = "select * from adopter WHERE email = '$user' AND vkey = '$vkey' AND verified = '0'";
             $qry = mysqli_query($con,$sql);
             $count = mysqli_num_rows($qry);
+
             if($count == 1){
                 $userRecord = mysqli_fetch_assoc($qry);
-                $sqlverify = "UPDATE adopter SET verified='1' WHERE email = '$user' AND vkey = '$vkey' AND verified = '0'";
+                $sqlverify = "UPDATE adopter SET verified = '1' WHERE email = '$user' AND vkey = '$vkey'";
                 if(mysqli_query($con,$sqlverify)){
-                    echo "<script type='text/javascript'>
-                        window.location.href = 'loginmain.php'
-                        </script>";
-                }
-                
+                    unset($_SESSION['verify']);
+                    header("Location: loginmain.php");
+                }                
             }else{
-                echo "<script type='text/javascript'>
-                        window.location.href = 'register/verification.php';
-                        </script>";
+                header("Location: register/verification.php");
             }
         }
     }

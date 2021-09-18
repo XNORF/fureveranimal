@@ -1,3 +1,12 @@
+<?php
+  session_start();
+  if(isset($_SESSION['admin'])){
+    
+  }else{
+    header("Location: ../index.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,8 +77,8 @@
 		   
           <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
 		  <li><a class="nav-link scrollto" href="accountadmin.php">Account</a></li>
-          <li><a class="getstarted scrollto" href="login/adminlogin.php">Log Out</a></li> 
-        </ul>
+          <form action="login/function.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form>
+          </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 

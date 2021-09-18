@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	if(isset($_SESSION['adopter']) || isset($_SESSION['admin'])){
+	  header("Location: ../index.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +79,7 @@
 						</span>
 						<div class="txt1 text-center p-t-54 p-b-20">
 						<span>
-							  <a href="Admin/login/Admin Login/adminLogin.php" class="txt3">
+							  <a href="../Admin/login/adminLogin.php" class="txt3">
 							    > Sign In for ADMIN <
 							
 						</span>

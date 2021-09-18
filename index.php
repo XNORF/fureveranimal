@@ -1,3 +1,13 @@
+<?php
+	session_start();
+	if(isset($_SESSION['adopter'])){
+	  header("Location: Adopter/index.php");
+	}else if(isset($_SESSION['admin'])){
+	  header("Location: Admin/index.php");
+	}{
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

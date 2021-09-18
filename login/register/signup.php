@@ -67,25 +67,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-radio">
-                                    <div class="label-flex">
-                                        <label for="payment" class="required">Have you owned a pet before?</label>
-                                        <a href="#" class="form-link"></a>
-                                    </div>
-                                    <div class="form-radio-group">            
-                                        <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cash" class="required" checked>
-                                            <label for="cash">Yes</label>
-                                            <span class="check"></span>
-                                        </div>
-                                        <div class="form-radio-item">
-                                            <input type="radio" name="payment" id="cheque">
-                                            <label for="cheque">No</label>
-                                            <span class="check"></span>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
                                 <div class="form-input">
                                     <label for="address1" class="required">Address 1</label>
                                     <input type="text" name="address1" id="address1" required/>
@@ -95,8 +76,12 @@
                                     <input type="text" name="address2" id="address2" required/>
                                 </div>
 								<div class="form-input">
-                                    <label for="postcode" class="required">Post Code</label>
+                                    <label for="postcode" class="required">Postcode</label>
                                     <input type="text" name="postcode" id="postcode" required/>
+                                </div>
+                                <div class="form-input">
+                                    <label for="city" class="required">City</label>
+                                    <input type="text" name="city" id="city" required/>
                                 </div>
                                 <div class="form-input">
                                     <label for="state" class="required">State</label>
@@ -108,7 +93,7 @@
                         
                         <div class="form-submit">
                             <input type="submit" value="Submit" class="submit" id="submit" name="signup" />
-                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+                            <input type="submit" value="Reset" class="submit" id="reset" name="reset" formnovalidate/>
                         </div>
                     </form>
                 </div>
