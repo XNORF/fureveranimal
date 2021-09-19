@@ -100,7 +100,7 @@
         					<li><a href="billingadmin.php"><span class="fa fa-credit-card"></span> Billing</a></li>
         					<li><a href="#"><span class="fa fa-envelope"></span> Adoption History</a></li>
 							<li><a href="user-drive.php"><span class="fa fa-th"></span> Adopter History</a></li>
-        					
+        					<li><a href="changepassadmin.php"><span class="fa fa-th"></span> Change Password</a></li>
         				</ul>
         			</nav>
                 </div>
