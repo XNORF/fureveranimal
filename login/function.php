@@ -9,17 +9,22 @@
 
     //Handles login & signup functions    
     if(isset($_POST['signup'])){
-        $vkey = signup($_POST);
-        if($vkey!=NULL){
-            mailverification($vkey);
-            header("Location: register/verification.php");
-        }        
+        if(strlen($_POST['password']) < 6){
+            header("Location: register/signup.php?signup=invalidPass");
+        }else{
+            $vkey = signup($_POST);
+            if($vkey!=NULL){
+                mailverification($vkey);
+                header("Location: loginmain.php?signup=success");
+                exit();
+            } 
+        }
+               
     }else if(isset($_POST['login'])){
         login($_POST);
-    }else if(isset($_POST['verification'])){
-        verification($_POST);
     }else if(isset($_POST['reset'])){
         header("Location: register/signup.php");
+        exit();
     }
 
     function signup(){
@@ -31,7 +36,7 @@
             $firstname = $_POST['firstname'];
             $lastname = $_POST['lastname'];
             $email = $_POST['email'];        
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $phoneNumber = $_POST['phoneNumber'];
             $dob = $_POST['dob'];
             $address1 = $_POST['address1'];
@@ -40,7 +45,7 @@
             $city = $_POST['city'];
             $state = $_POST['state'];
             $verified = 0;
-            $vkey = random_int(100000, 999999);
+            $vkey = md5(random_int(100000, 999999));
 
             $sql = "insert into adopter(firstname, lastname, email, password, phoneNumber, dob, address1, address2, postcode, city, state, verified, vkey, username)
                     values('$firstname', '$lastname', '$email', '$password', '$phoneNumber', '$dob', '$address1', '$address2', '$postcode', '$city', '$state', '$verified', '$vkey', '$firstname')";
@@ -49,7 +54,8 @@
         }    
         if(!mysqli_query($con, $sql)){
             //echo mysqli_error($con);
-            header("Location: register/signup.php");
+            header("Location: register/signup.php?signup=failed");
+            exit();
         }else{
             return $vkey;
         }
@@ -58,7 +64,7 @@
     function login(){
         $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
         if(!$con){
             echo mysqli_error($con);
         }else{
@@ -77,43 +83,21 @@
                 header("Location: ../Adopter/index.php");
             }else if($count2 == 1){
                 $_SESSION['verify'] = $email;
-                header("Location: register/verification.php");
+                header("Location: loginmain.php?login=unverified");
+                exit();
             }else{
-                header("Location: loginmain.php");
+                header("Location: loginmain.php?login=failed");
+                exit();
             }
         }
         
-    }
-    
-    function verification(){
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        $vkey = $_POST['vkey'];
-        $user = $_SESSION['verify'];
-        if(!$con){
-            echo mysqli_error($con);
-        }else{
-            $sql = "select * from adopter WHERE email = '$user' AND vkey = '$vkey' AND verified = '0'";
-            $qry = mysqli_query($con,$sql);
-            $count = mysqli_num_rows($qry);
-
-            if($count == 1){
-                $userRecord = mysqli_fetch_assoc($qry);
-                $sqlverify = "UPDATE adopter SET verified = '1' WHERE email = '$user' AND vkey = '$vkey'";
-                if(mysqli_query($con,$sqlverify)){
-                    unset($_SESSION['verify']);
-                    header("Location: loginmain.php");
-                }                
-            }else{
-                header("Location: register/verification.php");
-            }
-        }
     }
 
     function mailverification($vkey){
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-        $subject = "[$vkey] Fur-Ever Animal Verification Code";
-        $msg = '<center><img src="https://i.imgur.com/abvuT8n.png" title="source: imgur.com" /><br><h1>Your code is</h1><h1>'.$vkey.'</h1></center>';
+        $subject = "Fur-Ever Animal Verification";
+        $msg = '<center><img src="https://i.imgur.com/abvuT8n.png" title="source: imgur.com" /><br><a href="http://localhost/masterfureveranimal/login/register/verification.php?vkey='.$vkey.'"><h1>Click here to verify</h1></a></center>';
         try {
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -145,6 +129,7 @@
 
             $mail->send();
             echo 'Message has been sent';
+            $_SESSION['verify'] = $_SESSION['newuser'];
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

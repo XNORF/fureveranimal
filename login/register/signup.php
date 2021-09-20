@@ -1,3 +1,8 @@
+<?php
+    if(isset($_GET['signup'])){
+        $signupCheck = $_GET['signup'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +16,33 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Sweet Alert 2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+
+<?php
+		if(isset($signupCheck)){
+			if($signupCheck == "invalidPass"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Your password need to be at least 6 characters!',
+				  })
+				</script>";			
+			}else if($signupCheck == "failed"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Sign up failed',
+					text: 'You already have an account registered using that email',
+				  })
+				</script>";			
+			}
+		}
+	?>
 
     <div class="main" >
 
@@ -32,24 +62,25 @@
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="firstname" id="firstname" required/>
+                                    <input type="text" name="firstname" id="firstname" required placeholder="JOHN"/>
                                 </div>
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="lastname" id="lastname" required/>
+                                    <input type="text" name="lastname" id="lastname" required placeholder="DOE"/>
                                 </div>
                                 
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
-                                    <input type="text" name="email" id="email" required/>
+                                    <input type="text" name="email" id="email" required placeholder="johndoe@gmail.com"/>
                                 </div>
 								 <div class="form-input">
-                                    <label for="password" class="required">Password</label>
-                                    <input type="password" name="password" id="password" required/>
+                                    <label for="password" class="required">Password</label>                                    
+                                    <input type="password" name="password" id="password" required placeholder="PLEASE ENTER AT LEAST 6 CHARACTERS."/>
+                                                                      
                                 </div>
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
-                                    <input type="text" name="phoneNumber" id="phoneNumber" required/>
+                                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="0123456789"/>
                                 </div>
 								<div class="form-input">
                                     <label for="DOB" class="required">Date Of Birth</label>
@@ -69,23 +100,23 @@
                                 </div>
                                 <div class="form-input">
                                     <label for="address1" class="required">Address 1</label>
-                                    <input type="text" name="address1" id="address1" required/>
+                                    <input type="text" name="address1" id="address1" required placeholder="NO. 246 LRG ENAU OFF"/>
                                 </div>
                                 <div class="form-input">
                                     <label for="address2" class="required">Address 2</label>
-                                    <input type="text" name="address2" id="address2" required/>
+                                    <input type="text" name="address2" id="address2" required placeholder="JLN SULTAN AZLAN SHAH"/>
                                 </div>
 								<div class="form-input">
                                     <label for="postcode" class="required">Postcode</label>
-                                    <input type="text" name="postcode" id="postcode" required/>
+                                    <input type="text" name="postcode" id="postcode" required placeholder="11700"/>
                                 </div>
                                 <div class="form-input">
                                     <label for="city" class="required">City</label>
-                                    <input type="text" name="city" id="city" required/>
+                                    <input type="text" name="city" id="city" required placeholder="GELUGOR"/>
                                 </div>
                                 <div class="form-input">
                                     <label for="state" class="required">State</label>
-                                    <input type="text" name="state" id="state" required/>
+                                    <input type="text" name="state" id="state" required placeholder="PULAU PINANG"/>
                                 </div>
 								
                             </div>

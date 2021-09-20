@@ -1,7 +1,18 @@
 <?php
+
 	session_start();
 	if(isset($_SESSION['adopter']) || isset($_SESSION['admin'])){
 	  header("Location: ../index.php");
+	}else{
+		if(isset($_GET['login'])){
+			$loginCheck = $_GET['login'];
+		}
+		if(isset($_GET['signup'])){
+			$signupCheck = $_GET['signup'];
+		}
+		if(isset($_GET['verify'])){
+			$verifyCheck = $_GET['verify'];
+		}
 	}
 ?>
 
@@ -33,9 +44,56 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
+	<?php
+		if(isset($loginCheck)){
+			if($loginCheck == "failed"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'You inserted an invalid email or password!',
+				  })
+				</script>";			
+			}else if($loginCheck == "unverified"){
+				echo "<script>
+				Swal.fire(
+					'Unverified?',
+					'Please check your email including spam for verification',
+					'question'
+				  )
+				</script>";			
+			}
+		}
+
+		if(isset($signupCheck)){
+			if($signupCheck == "success"){
+				echo "<script>
+				Swal.fire(
+					'Success',
+					'Successfully registered, please check your email including spam for verification',
+					'success'
+				  )
+				</script>";			
+			}
+		}
+
+		if(isset($verifyCheck)){
+			if($verifyCheck == "success"){
+				echo "<script>
+				Swal.fire(
+					'Success',
+					'Successfully verified, you may now login',
+					'success'
+				  )
+				</script>";			
+			}
+		}
+	?>
 	
+
 	<section id="limiter" class="limiter">
 		<div class="container-login100" style="background-image: url('images/catdog.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
@@ -46,13 +104,13 @@
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate = "Email is required">
 						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Enter your email">
+						<input class="input100" type="text" name="email" placeholder="Enter your email" required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="password" name="password" placeholder="Type your password">
+						<input class="input100" type="password" name="password" placeholder="Type your password" required>
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					
@@ -113,6 +171,5 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
-
 </body>
 </html>
