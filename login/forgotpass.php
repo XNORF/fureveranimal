@@ -1,3 +1,9 @@
+<?php
+    if(isset($_GET[' forgotpasswordverification'])){
+        $forgotCheck = $_GET[' forgotpasswordverification'];
+    }
+?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -53,17 +59,38 @@
       </style>
    </head>
    <body>
+   <?php
+		if(isset($forgotCheck)){
+			if($forgotCheck == "invalidPass"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Your password need to be at least 6 characters!',
+				  })
+				</script>";			
+			}else if($forgotCheck == "failed"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Sign up failed',
+					text: 'You already have an account registered using that email',
+				  })
+				</script>";			
+			}
+		}
+	?>
       <div class="container d-flex justify-content-center align-items-center vh-100">
          <div class="bg-white text-center p-5 mt-3 center">
             <h3>Forgot Password </h3>
             <p>Check your email to reset your password.</p>
-            <form class="pb-3" action="#">
+            <form class="pb-3" action="function.php" method="post">
                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Your Email*" required>
+                  <input type="text" name="email" class="form-control" placeholder="Your Email*" required>
                </div>
 			   
             </form>
-            <button type="button" class="btn">Reset Password</button>
+            <button type="submit" id="reset" name="reset" class="btn">Reset Password</button>
          </div>
       </div>
    </body>
