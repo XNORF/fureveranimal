@@ -26,6 +26,21 @@
         header("Location: register/signup.php");
         exit();
     }
+	
+	//Handles forgot verification functions    
+    if(isset($_POST['reset'])){
+        if(strlen($_POST['email']) == "invalidemail" ){
+            header("Location: register/forgotpass.php?reset=invalidemail");
+        }else{
+            $vkey = reset($_POST);
+            if($vkey!=NULL){
+                forgotpasswordverification($vkey);
+                header("Location: forgotpass.php?reset=success");
+                exit();
+            } 
+        }
+               
+    }
 
     function signup(){
         $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
@@ -130,6 +145,48 @@
             $mail->send();
             echo 'Message has been sent';
             $_SESSION['verify'] = $_SESSION['newuser'];
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+	
+
+	function forgotpasswordverification($vkey){
+        //Create an instance; passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+        $subject = "Fur-Ever Animal Forgot Password";
+        $msg = '<center><img src="https://i.imgur.com/abvuT8n.png" title="source: imgur.com" /><br><a href="http://localhost/masterfureveranimal/Adopter/changepassadopter.php?vkey='.$vkey.'"><h1>Click here to change your password</h1></a></center>';
+        try {
+            //Server settings
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+            $mail->isSMTP();                                            //Send using SMTP
+            $mail->Host       = 'mail.fureveranimal.com';                     //Set the SMTP server to send through
+            $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+            $mail->Username   = 'noreply@fureveranimal.com';                     //SMTP username
+            $mail->Password   = 'fureveranimal';                               //SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+            $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+            //Recipients
+            $mail->setFrom('noreply@fureveranimal.com', 'Fur-Ever Animal Shelter');
+            //$mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
+            $mail->addAddress($_SESSION['newuser']);               //Name is optional
+            //$mail->addReplyTo('info@example.com', 'Information');
+            //$mail->addCC('cc@example.com');
+            //$mail->addBCC('bcc@example.com');
+
+            //Attachments
+            //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
+            //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    //Optional name
+
+            //Content
+            $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->Subject = $subject;
+            $mail->Body    = $msg;
+            //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            $mail->send();
+            echo 'Message has been sent';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
