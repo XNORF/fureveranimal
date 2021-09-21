@@ -17,6 +17,10 @@
         $city = $userRecord['city'];
         $state = $userRecord['state'];
     }
+
+    if(isset($_GET['update'])){
+        $updateCheck = $_GET['update'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,9 +58,34 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body>
+
+        <?php
+            if(isset($updateCheck)){
+                if($updateCheck == "failed"){
+                    echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                    })
+                    </script>";			
+                }else if($updateCheck == "success"){
+                    echo "<script>
+                    Swal.fire(
+                        'Success',
+                        'Update Successful',
+                        'success'
+                    )
+                    </script>";			
+                }
+            }
+        ?>
+
 
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top d-flex align-items-center">
@@ -125,7 +154,7 @@
                         </div>
                         <div class="content-panel">
                             <h2 class="title">Profile<span class="pro-label label label-warning">ADOPTER</span></h2>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="POST" action="function.php" autocomplete="off">
                                 <fieldset class="fieldset">
                                     <h3 class="fieldset-title">Personal Info</h3>
                                     <div class="form-group avatar">
@@ -134,20 +163,20 @@
                                         </figure>
                                         <div class="form-inline col-md-10 col-sm-9 col-xs-12">
                                             <input type="file" class="file-uploader pull-left">
-                                            <button type="submit" class="btn btn-primary">Update Image</button><br><br><br>
+                                            <button type="submit" class="btn btn-primary" name="updateImg">Update Image</button><br><br><br>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <?php echo "<input type='text' class='form-control' value='$username'><br>";?>
+                                            <?php echo "<input type='text' class='form-control' value='$username' name='username'><br>";?>
                                         </div>
                                     </div>                                    
                                     <div class="form-group">
                                         <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <?php echo "<input type='text' class='form-control' value='$email' readonly><br>";?>
+                                            <?php echo "<input type='text' class='form-control' value='$email' name='email' readonly><br>";?>
                                         </div>
                                     </div>                
                                     <div class="form-group">
@@ -201,7 +230,7 @@
                                 <hr>
                                 <div class="form-group">
                                     <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                        <input class="btn btn-primary" type="submit" value="Update Profile">
+                                        <input class="btn btn-primary" type="submit" value="Update Profile" name="updateProfile">
                                     </div>
                                 </div>
                             </form>
