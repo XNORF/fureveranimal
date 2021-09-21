@@ -9,7 +9,7 @@
 
     //Handles login & signup functions    
     if(isset($_POST['signup'])){
-        if(strlen($_POST['password']) < 6){
+        if(strlen($_POST['password']) < 6){ //Check if the password is less than 6 in signup form
             header("Location: register/signup.php?signup=invalidPass");
         }else{
             $vkey = signup($_POST);
@@ -18,31 +18,23 @@
                 header("Location: loginmain.php?signup=success");
                 exit();
             } 
-        }
-               
-    }else if(isset($_POST['login'])){
+        }               
+    }else if(isset($_POST['login'])){ //Handle login form
         login($_POST);
-    }else if(isset($_POST['reset'])){
+    }else if(isset($_POST['reset'])){ //Handle reset form in signup
         header("Location: register/signup.php");
         exit();
+    }else if(isset($_POST['resetPass'])){ //Handle reset password for forgot password
+        $vkey = getVkey($_POST);
+        resetPasswordMail($vkey);
+        header("Location: forgotpass.php?forgot=success");
+        exit();
+    }else if(isset($_POST['btnReset'])){
+        resetPassword($_POST);
     }
-	
-	//Handles forgot verification functions    
-    if(isset($_POST['reset'])){
-        if(strlen($_POST['email']) == "invalidemail" ){
-            header("Location: register/forgotpass.php?reset=invalidemail");
-        }else{
-            $vkey = reset($_POST);
-            if($vkey!=NULL){
-                forgotpasswordverification($vkey);
-                header("Location: forgotpass.php?reset=success");
-                exit();
-            } 
-        }
-               
-    }
+		
 
-    function signup(){
+    function signup(){ //Signup Function and return VKEY for verification
         $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
         if(!$con){
             echo mysqli_error($con);
@@ -76,7 +68,7 @@
         }
     }
 
-    function login(){
+    function login(){ //Login Function
         $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
         $email = $_POST['email'];
         $password = md5($_POST['password']);
@@ -108,7 +100,7 @@
         
     }
 
-    function mailverification($vkey){
+    function mailverification($vkey){ //Send an email for signup verification
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
         $subject = "Fur-Ever Animal Verification";
@@ -150,12 +142,34 @@
         }
     }
 	
+    function getVkey(){
+        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+        if(!$con){
+            echo mysqli_error($con);
+        }else{
+            //Construct SQL statement
+            $email = $_POST['email'];
 
-	function forgotpasswordverification($vkey){
+            $sql = "SELECT vkey FROM adopter WHERE email='$email'";
+            $qry = mysqli_query($con, $sql);
+            $count = mysqli_num_rows($qry);        
+            if($count == 1){
+                $userRecord = mysqli_fetch_assoc($qry);
+                $_SESSION['resetPass'] = $email;
+                return $userRecord['vkey'];
+            }else{
+                header("Location: forgotpass.php?forgot=invalid");
+                exit();
+            }
+        }
+        
+    }
+    
+    function resetPasswordMail($vkey){ //Send an email for signup verification
         //Create an instance; passing `true` enables exceptions
         $mail = new PHPMailer(true);
-        $subject = "Fur-Ever Animal Forgot Password";
-        $msg = '<center><img src="https://i.imgur.com/abvuT8n.png" title="source: imgur.com" /><br><a href="http://localhost/masterfureveranimal/Adopter/changepassadopter.php?vkey='.$vkey.'"><h1>Click here to change your password</h1></a></center>';
+        $subject = "Fur-Ever Animal Reset Password";
+        $msg = '<center><img src="https://i.imgur.com/abvuT8n.png" title="source: imgur.com" /><br><a href="http://localhost/masterfureveranimal/login/resetpass.php?vkey='.$vkey.'"><h1>Reset your password</h1></a></center>';
         try {
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
@@ -170,7 +184,7 @@
             //Recipients
             $mail->setFrom('noreply@fureveranimal.com', 'Fur-Ever Animal Shelter');
             //$mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
-            $mail->addAddress($_SESSION['newuser']);               //Name is optional
+            $mail->addAddress($_SESSION['resetPass']);               //Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');
             //$mail->addBCC('bcc@example.com');
@@ -192,4 +206,40 @@
         }
     }
 
+    function resetPassword(){
+        $vkey = $_SESSION['resetPassVkey'];      
+        $email = $_SESSION['resetPass'];
+        
+
+        $pass1 = $_POST['pass1'];
+        $pass2 = $_POST['pass2'];
+
+        if(strlen($pass1) < 6 || strlen($pass2) < 6){
+            header("Location: resetpass.php?reset=invalid&vkey=$vkey");
+            exit();
+        }else if($pass1 == $pass2){
+            $password = md5($pass1); // ADD MD5 LATER
+            $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+            if(!$con){
+                echo mysqli_error($con);
+            }else{
+                //Construct SQL statement                       
+                $sql = "UPDATE adopter SET password='$password' WHERE vkey='$vkey' AND email='$email'";
+                if(!mysqli_query($con, $sql)){
+                    //echo mysqli_error($con);
+                    header("Location: loginmain.php?reset=failed");
+                    exit();
+                }else{
+                    unset($_SESSION['resetPassVkey']);
+                    unset($_SESSION['resetPass']);
+                    header("Location: loginmain.php?reset=success");
+                    exit();
+                }
+            }  
+        }else{
+           header("Location: resetpass.php?reset=different&vkey=$vkey");
+           exit();
+        }
+           
+     }
 ?>

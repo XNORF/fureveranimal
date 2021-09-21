@@ -1,9 +1,13 @@
 <?php
-    if(isset($_GET[' forgotpasswordverification'])){
-        $forgotCheck = $_GET[' forgotpasswordverification'];
-    }
+   session_start();
+   if(isset($_SESSION['adopter']) || isset($_SESSION['admin'])){
+      header("Location: ../index.php");
+   }else{
+      if(isset($_GET['forgot'])){
+         $forgotCheck = $_GET['forgot'];
+      }
+   }
 ?>
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -57,29 +61,30 @@
          }
          }
       </style>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    </head>
    <body>
-   <?php
-		if(isset($forgotCheck)){
-			if($forgotCheck == "invalidPass"){
-				echo "<script>
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'Your password need to be at least 6 characters!',
-				  })
-				</script>";			
-			}else if($forgotCheck == "failed"){
-				echo "<script>
-				Swal.fire({
-					icon: 'error',
-					title: 'Sign up failed',
-					text: 'You already have an account registered using that email',
-				  })
-				</script>";			
-			}
-		}
-	?>
+      <?php
+         if(isset($forgotCheck)){
+            if($forgotCheck == "success"){
+               echo "<script>
+               Swal.fire(
+                  'Success!',
+                  'An email have been sent, please check your email including spam.',
+                  'success'
+                )
+               </script>";			
+            }else if($forgotCheck == "invalid"){
+               echo "<script>
+               Swal.fire(
+                  'Oops...!',
+                  'You\'ve inserted an invalid email!',
+                  'error'
+                )
+               </script>";			
+            }
+         }
+      ?>
       <div class="container d-flex justify-content-center align-items-center vh-100">
          <div class="bg-white text-center p-5 mt-3 center">
             <h3>Forgot Password </h3>
@@ -88,9 +93,9 @@
                <div class="form-group">
                   <input type="text" name="email" class="form-control" placeholder="Your Email*" required>
                </div>
-			   
+               <button type="submit" id="reset" name="resetPass" class="btn">Reset Password</button>
             </form>
-            <button type="submit" id="reset" name="reset" class="btn">Reset Password</button>
+            
          </div>
       </div>
    </body>

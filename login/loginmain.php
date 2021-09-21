@@ -13,6 +13,9 @@
 		if(isset($_GET['verify'])){
 			$verifyCheck = $_GET['verify'];
 		}
+		if(isset($_GET['reset'])){
+			$resetCheck = $_GET['reset'];
+		}
 	}
 ?>
 
@@ -86,6 +89,26 @@
 				Swal.fire(
 					'Success',
 					'Successfully verified, you may now login',
+					'success'
+				  )
+				</script>";			
+			}
+		}
+
+		if(isset($resetCheck)){
+			if($resetCheck == "failed"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Unable to reset your password. Please try again',
+				  })
+				</script>";			
+			}else if($resetCheck == "success"){
+				echo "<script>
+				Swal.fire(
+					'Success',
+					'Password reset successful.',
 					'success'
 				  )
 				</script>";			

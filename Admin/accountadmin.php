@@ -1,3 +1,28 @@
+<?php
+    session_start();
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    $email = $_SESSION['admin'];
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        $sql = "select * from admin WHERE email = '$email'";        
+        $qry = mysqli_query($con, $sql);
+        $userRecord = mysqli_fetch_assoc($qry);
+        $username = $userRecord['username'];
+        $firstName = $userRecord['firstname'];
+        $lastName = $userRecord['lastname'];
+        $address1 = $userRecord['address1'];
+        $address2 = $userRecord['address2'];
+        $postcode = $userRecord['postcode'];
+        $city = $userRecord['city'];
+        $state = $userRecord['state'];
+    }
+
+    if(isset($_GET['update'])){
+        $updateCheck = $_GET['update'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +59,32 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
+    <?php
+        if(isset($updateCheck)){
+            if($updateCheck == "failed"){
+                echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+                </script>";			
+            }else if($updateCheck == "success"){
+                echo "<script>
+                Swal.fire(
+                    'Success',
+                    'Update Successful',
+                    'success'
+                )
+                </script>";			
+            }
+        }
+    ?>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
@@ -88,7 +135,7 @@
                         <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                         <ul class="meta list list-unstyled">
                             <li class="name">
-                                <label class="label label-info">Daus</label>
+                                <?php echo "<label class='label label-info'>$username</label>"?>
                             </li>
                             <li class="email"><a href="#"></a></li>
                             <li class="activity">Last logged in: Today at 2:18pm</li>
@@ -106,7 +153,7 @@
                 </div>
                 <div class="content-panel">
                     <h2 class="title"><b>Profile</b><span class="pro-label label label-warning">ADMIN</span></h2>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="POST" action="function.php" autocomplete="off">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title"><b>Personal Info</b></h3>
                             <div class="form-group avatar">
@@ -119,22 +166,27 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <?php echo "<input type='text' class='form-control' value='$username' name='username'><br>";?>
+                                </div>
+                            </div>                                    
+                            <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="email" class="form-control" value=""><br>
+                                    <?php echo "<input type='text' class='form-control' value='$email' name='email' readonly><br>";?>
                                 </div>
-                            </div>
-        
+                            </div>                
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$firstName' readonly><br>";?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$lastName' readonly><br>";?>
                                 </div>
                             </div>
                         </fieldset>
@@ -145,38 +197,38 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address 1</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$address1' name='address1'><br>";?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Address 2</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$address2' name='address2'><br>";?>
                                 </div>
                             </div>
-							<div class="form-group">
+                            <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Postcode</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$postcode' name='postcode'><br>";?>
                                 </div>
                             </div>
-							<div class="form-group">
+                            <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">City</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$city' name='city'><br>";?>
                                 </div>
                             </div>
-							<div class="form-group">
+                            <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">State</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <?php echo "<input type='text' class='form-control' value='$state' name='state'><br>";?>
                                 </div>
                             </div>
                         </fieldset>
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input class="btn btn-primary" type="submit" value="Update Profile">
+                                <input class="btn btn-primary" type="submit" value="Update Profile" name="updateProfile">
                             </div>
                         </div>
                     </form>
