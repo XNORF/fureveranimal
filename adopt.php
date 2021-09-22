@@ -426,19 +426,19 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.php#services">Services</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Shelter</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Rehabilitation</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Rehoming</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Spay and Neuter</a></li>
+               <li><i class="bx bx-chevron-right"></i> <a href="rehoming.php">Shelter</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="rehoming.php">Rehabilitation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="rehoming.php">Rehoming</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="spay.php">Spay and Neuter</a></li>
             </ul>
           </div>
 
