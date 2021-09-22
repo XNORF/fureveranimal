@@ -96,7 +96,7 @@
                     </div>
             		<nav class="side-menu">
         				<ul class="nav">
-        					<li><a href="accountadmin.php"><span class="fa fa-user"></span> Profile</a></li>
+        					<li><a href="accountadopter.php"><span class="fa fa-user"></span> Profile</a></li>
         					<li><a href="billingadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
         					<li><a href="#"><span class="fa fa-envelope"></span> Adoption History</a></li>
 							<li class="active"><a href="changepassadopterTest.php"><span class="fa fa-th"></span> Change Password</a></li>
