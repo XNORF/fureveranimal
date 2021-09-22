@@ -99,14 +99,13 @@
         					<li><a href="accountadmin.php"><span class="fa fa-user"></span> Profile</a></li>
         					<li class="active"><a href="accountadmin.php"><span class="fa fa-credit-card"></span> Billing</a></li>
         					<li><a href="#"><span class="fa fa-envelope"></span> Adoption History</a></li>
-							<li><a href="user-drive.php"><span class="fa fa-th"></span> Adopter History</a></li>
-							<!--<li><a href="changepassadminTest.php"><span class="fa fa-th"></span> Change Password</a></li>-->
+							<li><a href="changepassadopterTest.php"><span class="fa fa-th"></span> Change Password</a></li>
         					
         				</ul>
         			</nav>
                 </div>
                 <div class="content-panel">
-				<h2 class="title"><b>Billing Information</b><span class="pro-label label label-warning"></span></h2>
+				<h2 class="title"><b>Change Password</b><span class="pro-label label label-warning"></span></h2>
                     <h2 class="title"><span class="pro-label label label-warning"></span></h2>
                     <form class="form-horizontal">
                         <fieldset class="fieldset">
@@ -118,40 +117,36 @@
                             <div class="form-group">
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Name on Card</label>
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Current Password</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <input type="password" class="form-control" value="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Credit Card Number</label>
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label"></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <input type="password" class="form-control" value="" placeholder="Re-Type Current Password">
+                                </div>
+                            </div>
+							<br>
+							<div class="form-group">
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">New Password</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <input type="password" class="form-control" value="">
                                 </div>
                             </div>
 							<div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Exp Month</label>
+                                <label class="col-md-2  col-sm-3 col-xs-12 control-label"></label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
+                                    <input type="password" class="form-control" value="" placeholder="Re-Type New Password">
                                 </div>
                             </div>
-							<div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">Exp Year</label>
-                                <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                            </div>
-							<div class="form-group">
-                                <label class="col-md-2  col-sm-3 col-xs-12 control-label">CVV</label>
-                                <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                            </div>
+							
                         </fieldset>
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input class="btn btn-primary" type="submit" value="Update Card Information">
+                                <input class="btn btn-primary" type="submit" value="Change Password">
                             </div>
                         </div>
                     </form>
