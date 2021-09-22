@@ -69,7 +69,7 @@
 		   
           <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
 		  <li><a class="nav-link scrollto" href="#about">Account</a></li>
-          <form action="login/function.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form> 
+          <form action="adopterFunction.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form> 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
