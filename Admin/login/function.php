@@ -24,7 +24,7 @@
 				$_SESSION['admin'] = $email;
 				header("Location: ../index.php");	
 			}else{
-				header("Location: adminlogin.php");		
+				header("Location: adminLogin.php?login=failed");		
 			}		
 		}		
 	}

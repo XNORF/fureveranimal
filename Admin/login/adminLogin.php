@@ -3,6 +3,10 @@
 	if(isset($_SESSION['adopter']) || isset($_SESSION['admin'])){
 	  header("Location: ../index.php");
 	}
+
+	if(isset($_GET['login'])){
+		$loginCheck = $_GET['login'];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -33,9 +37,22 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-	
+	<?php
+		if(isset($loginCheck)){
+			if($loginCheck == "failed"){
+				echo "<script>
+				Swal.fire({
+					icon: 'error',
+					title: 'Login failed',
+					text: 'You inserted an invalid email or password!',
+				  })
+				</script>";			
+			}
+		}
+	?>
 	<section id="limiter" class="limiter">
 		<div class="container-login100" style="background-image: url('images/catdogpark.jpg');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
@@ -57,9 +74,7 @@
 					</div>
 					
 					<div class="text-right p-t-8 p-b-31">
-						<a href="#">
-						Forgot password?	
-						</a>
+						<br>
 					</div>
 					
 					<div class="container-login100-form-btn" name="login">
@@ -69,10 +84,17 @@
 								Login
 							</button>
 						</div>
+						<div class="text-right p-t-8 p-b-31">
+							<br>
+							<a href="../../login/loginmain.php">Return to adopter login page</a>
+						</div>
 					</div>
-						</a>
+						</a>						
 					</div>
+
+					
 				</form>
+				
 			</div>
 		</div>
 	</div>
