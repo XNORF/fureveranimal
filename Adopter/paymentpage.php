@@ -82,6 +82,17 @@
     <div class="container">
       <form action="/action_page.php">
 
+
+          <div class="row">
+          <div class="col-50">
+            <br><br><h3><b>Appointment Information</b></h3><br>
+            <label for="fname"><i class="fa fa-user"></i> Appointment Date</label><br>
+            <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:134px;height:50px;" ><br><br>
+            <label for="email"><i class="fa fa-envelope"></i>Appointment Time</label><br>
+            <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:125px;height:50px;">
+           
+			
+			
         <div class="row">
           <div class="col-50">
             <br><br><h3><b>Billing Address</b></h3><br>

@@ -98,8 +98,9 @@
                                 <ul class="nav">
                                     <li><a href="accountadopter.php"><span class="fa fa-user"></span> Profile</a></li>
                                     <li class="active"><a href="accountadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
-                                    <li><a href="#"><span class="fa fa-envelope"></span> Adoption History</a></li>
+                                    <li><a href="adoptionhistoryadopter.php"><span class="fa fa-envelope"></span> Adoption History</a></li>
 									<li><a href="changepassadopterTest.php"><span class="fa fa-th"></span> Change Password</a></li>
+									<li><a href="certificate.php"><span class="fa fa-th"></span> View Certificate</a></li>
                                     
                                 </ul>
                             </nav>
