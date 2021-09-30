@@ -247,6 +247,12 @@
                 </ul>
               </div>
             </li>
+			<li class="nav-item">
+              <a class="nav-link" href="updateAdmin.php">
+                <span class="menu-title">Update Admins</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
            
               
             </li>
