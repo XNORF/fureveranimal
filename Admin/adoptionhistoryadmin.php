@@ -147,6 +147,7 @@
 						<th>Phone</th>
 						<th>Animal Adopted</th>
 						<th>Date Adopted</th>
+						<th>Amount</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
@@ -164,6 +165,7 @@
 						<td>(171) 555-2222</td>
 						<td> Lily </td>
 						<td> 5 September 2021</td>
+						<td> RM 200 </td>
 						<td>
 							<!--<a href="#editAdopterModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
 							<a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -182,9 +184,10 @@
 						<td>(313) 555-5735</td>
 						<td> Nyx </td>
 						<td> 5 September 2021</td>
+						<td> RM 200 </td>
 						<td>
 							<!--<a href="#editAdopterModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
 					<tr>
@@ -200,9 +203,10 @@
 						<td>(503) 555-9931</td>
 						<td> King </td>
 						<td> 5 September 2021</td>
+						<td> RM 200 </td>
 						<td>
 							<!--<a href="#editAdopterModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>
 					<tr>
@@ -218,9 +222,10 @@
 						<td>(204) 619-5731</td>
 						<td> Killa </td>
 						<td> 5 September 2021</td>
+						<td> RM 200 </td>
 						<td>
 							<!--<a href="#editAdopterModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr>					
 					<tr>
@@ -236,9 +241,10 @@
 						<td>(480) 631-2097</td>
 						<td> Richard </td>
 						<td> 5 September 2021</td>
+						<td> RM 200 </td>
 						<td>
 							<!--<a href="#editAdopterModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
-							<a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+							<a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
 						</td>
 					</tr> 
 				</tbody>
@@ -246,7 +252,7 @@
 			<div class="clearfix">
 				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div><br>
 				<ul class="pagination">
-					<li class="page-item"><a href="#">Previous</a></li>
+					<li class="page-item"><a href="#" class="page-link" >Previous</a></li> 
 					<li class="page-item"><a href="#" class="page-link">1</a></li>
 					<li class="page-item"><a href="#" class="page-link">2</a></li>
 					<li class="page-item active"><a href="#" class="page-link">3</a></li>
@@ -264,7 +270,7 @@
 		<div class="modal-content">
 			<form>
 				<div class="modal-header">						
-					<h4 class="modal-title">Add Employee</h4>
+					<h4 class="modal-title">Add</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
@@ -299,7 +305,7 @@
 		<div class="modal-content">
 			<form>
 				<div class="modal-header">						
-					<h4 class="modal-title">Edit Employee</h4>
+					<h4 class="modal-title">Edit</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
@@ -334,7 +340,7 @@
 		<div class="modal-content">
 			<form>
 				<div class="modal-header">						
-					<h4 class="modal-title">Delete Employee</h4>
+					<h4 class="modal-title">Delete</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
