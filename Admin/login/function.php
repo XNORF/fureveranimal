@@ -22,7 +22,7 @@
 			if($count == 1){
 				$userRecord = mysqli_fetch_assoc($qry);
 				$_SESSION['admin'] = $email;
-				header("Location: ../index.php");	
+				header("Location: ../admin dashboard/indexDashboard.php");	
 			}else{
 				header("Location: adminLogin.php?login=failed");		
 			}		

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if(isset($_SESSION['adopter']) || isset($_SESSION['admin'])){
-	  header("Location: ../index.php");
+	  header("Location: ../indexDashboard.php");
 	}
 
 	if(isset($_GET['login'])){
