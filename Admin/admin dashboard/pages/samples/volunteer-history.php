@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
     <div class="container-scroller">
@@ -187,33 +188,33 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-          <li class="nav-item">
-              <a class="nav-link" href="indexDashboard.html">
+         <li class="nav-item">
+              <a class="nav-link" href="indexDashboard.php">
                 <span class="menu-title">Dashboard</span>
                 <i class=" mdi mdi-star-circle  menu-icon"></i>
               </a>
             </li>
 			 <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="../index.php">
                 <span class="menu-title">Homepage</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="../accountadmin.php">
                 <span class="menu-title">Account</span>
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="pages/charts/chartjs.php">
                 <span class="menu-title">Charts</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
+              <a class="nav-link" href="pages/tables/basic-table.php">
                 <span class="menu-title">Tables</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
@@ -226,12 +227,24 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.html"> My Adoption History </a></li>
-				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.html"> Adopter History </a></li>
-                 
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.php"> My Adoption History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
                 </ul>
               </div>
             </li>
+			<li class="nav-item">
+              <a class="nav-link" href="updateAdmin.php">
+                <span class="menu-title">Update Admins</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="pages/samples/updatePets.php">
+                <span class="menu-title">Update Pets</span>
+                <i class=" mdi mdi-contrast-circle  menu-icon"></i>
+              </a>
             </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
@@ -285,10 +298,11 @@
                 </div>
               </div>
             </div>
+
 			<div class="col-lg-12 stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Volunteer History List</h4>
+                    <h4 class="card-title">Volunteer List</h4>
                    
                     </p>
                     <table class="table table-bordered">
@@ -299,6 +313,7 @@
                           <th> Allergy Status </th>
                           <th> Phone Number </th>
                           <th> Date Registered </th>
+						  <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -308,6 +323,7 @@
                           <td> Lily </td>
                           <td> $ 77.99 </td>
                           <td> May 15, 2021 </td>
+						   <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
                         <tr class="table-warning">
                           <td> 2 </td>
@@ -315,6 +331,7 @@
                           <td> Nyx </td>
                           <td> $245.30 </td>
                           <td> July 1, 2021 </td>
+						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
                         <tr class="table-danger">
                           <td> 3 </td>
@@ -322,6 +339,7 @@
                           <td> Killa </td>
                           <td> $138.00 </td>
                           <td> Apr 12, 2021 </td>
+						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
                         <tr class="table-success">
                           <td> 4 </td>
@@ -329,6 +347,7 @@
                           <td> Richard </td>
                           <td> $ 77.99 </td>
                           <td> May 15, 2021 </td>
+						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
                         <tr class="table-primary">
                           <td> 5 </td>
@@ -336,15 +355,30 @@
                           <td> Luna </td>
                           <td> $ 160.25 </td>
                           <td> May 03, 2021 </td>
+						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
                       </tbody>
-                    </table>
+                    </table><br>
+					<div class="clearfix">
+				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div><br>
+				<ul class="pagination">
+					<li class="page-item"><a href="#" class="page-link" >Previous</a></li> 
+					<li class="page-item"><a href="#" class="page-link">1</a></li>
+					<li class="page-item"><a href="#" class="page-link">2</a></li>
+					<li class="page-item active"><a href="#" class="page-link">3</a></li>
+					<li class="page-item"><a href="#" class="page-link">4</a></li>
+					<li class="page-item"><a href="#" class="page-link">5</a></li>
+					<li class="page-item"><a href="#" class="page-link">Next</a></li>
+				</ul>
+			</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 			  </div>
+			  
+			  
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">

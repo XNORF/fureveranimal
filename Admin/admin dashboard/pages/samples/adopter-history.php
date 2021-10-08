@@ -189,32 +189,32 @@
               </a>
             </li>
           <li class="nav-item">
-              <a class="nav-link" href="indexDashboard.html">
+              <a class="nav-link" href="indexDashboard.php">
                 <span class="menu-title">Dashboard</span>
                 <i class=" mdi mdi-star-circle  menu-icon"></i>
               </a>
             </li>
 			 <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="../index.php">
                 <span class="menu-title">Homepage</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="../accountadmin.php">
                 <span class="menu-title">Account</span>
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="pages/charts/chartjs.php">
                 <span class="menu-title">Charts</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
+              <a class="nav-link" href="pages/tables/basic-table.php">
                 <span class="menu-title">Tables</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
@@ -227,13 +227,24 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.html"> My Adoption History </a></li>
-				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.html"> Adopter History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.html"> Donation History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.html"> Volunteer History </a></li>
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.php"> My Adoption History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
                 </ul>
               </div>
             </li>
+			<li class="nav-item">
+              <a class="nav-link" href="updateAdmin.php">
+                <span class="menu-title">Update Admins</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="pages/samples/updatePets.php">
+                <span class="menu-title">Update Pets</span>
+                <i class=" mdi mdi-contrast-circle  menu-icon"></i>
+              </a>
             </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">

@@ -188,33 +188,33 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
-           <li class="nav-item">
-              <a class="nav-link" href="indexDashboard.html">
+          <li class="nav-item">
+              <a class="nav-link" href="indexDashboard.php">
                 <span class="menu-title">Dashboard</span>
                 <i class=" mdi mdi-star-circle  menu-icon"></i>
               </a>
             </li>
 			 <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="../index.php">
                 <span class="menu-title">Homepage</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="../accountadmin.php">
                 <span class="menu-title">Account</span>
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="pages/charts/chartjs.php">
                 <span class="menu-title">Charts</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
+              <a class="nav-link" href="pages/tables/basic-table.php">
                 <span class="menu-title">Tables</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
@@ -229,11 +229,22 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.php"> My Adoption History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
                  <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
                 </ul>
               </div>
             </li>
+			<li class="nav-item">
+              <a class="nav-link" href="updateAdmin.php">
+                <span class="menu-title">Update Admins</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="pages/samples/updatePets.php">
+                <span class="menu-title">Update Pets</span>
+                <i class=" mdi mdi-contrast-circle  menu-icon"></i>
+              </a>
             </li>
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
@@ -262,7 +273,7 @@
           <div class="content-wrapper">
 		  
 		  <h3 class="page-title">Upcoming Appointment</h3><br>
-		  <div class="col-lg-12 stretch-card">
+		 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		  
                 <div class="card">
 				
