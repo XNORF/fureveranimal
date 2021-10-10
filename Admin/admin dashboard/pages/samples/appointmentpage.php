@@ -288,14 +288,11 @@
                           <th> # </th>
                           <th> Name </th>
 						  <th>Email</th>
-						<th>Address</th>
 						<th>Phone</th>
                           <th> Animal Adopted</th>
-                          <th> Amount </th>
-                          <th> Appointment Date </th>
-						  <th> Appointment Time </th>
-						  <th>Action</th>
-						  <th>Edit</th>
+                          <th> Date </th>
+						  <th> Time </th>
+						  <th>Action</th
                         </tr>
                       </thead>
                       <tbody>
@@ -303,66 +300,56 @@
                           <td> 1 </td>
                           <td> Herman Beck </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Orange </td>
-                          <td> $ 77.99 </td>
                           <td> May 15, 2015 </td>
 						  <td> 12:30 PM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
-						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                         <tr class="table-warning">
                           <td> 2 </td>
                           <td> Messsy Adam </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Max </td>
-                          <td> $245.30 </td>
                           <td> July 1, 2015 </td>
 						  <td> 10:00 AM </td>
 						   
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
-						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         <tr class="table-danger">
                           <td> 3 </td>
                           <td> John Richards </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Lily </td>
-                          <td> $138.00 </td>
                           <td> Apr 12, 2015 </td>
 						  <td> 11:45 AM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
-						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                         <tr class="table-success">
                           <td> 4 </td>
                           <td> Peter Meggik </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Richard </td>
-                          <td> $ 77.99 </td>
                           <td> May 15, 2015 </td>
 						  <td> 1:20 PM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
-						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                         <tr class="table-primary">
                           <td> 5 </td>
                           <td> Edward </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Jojo </td>
-                          <td> $ 160.25 </td>
                           <td> May 03, 2015 </td>
 						  <td> 1:45 PM </td>
-						  <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
-						  <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						  <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
+						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                       </tbody>
                     </table><br>
@@ -387,7 +374,7 @@
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				  <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
-                  <button type="submit" class="btn btn-gradient-primary mr-2">Cancel</button>
+                  <button type="submit" class="btn btn-gradient-primary mr-2">Cancel</button><br><br><br>
                   </div>
                 </div>
               </div>
