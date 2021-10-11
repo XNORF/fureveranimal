@@ -249,13 +249,13 @@
             </li>
 			<li class="nav-item">
               <a class="nav-link" href="updateAdmin.php">
-                <span class="menu-title">Update Admins</span>
+                <span class="menu-title">Admins</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
             </li>
 			<li class="nav-item">
               <a class="nav-link" href="pages/samples/updatePets.php">
-                <span class="menu-title">Update Pets</span>
+                <span class="menu-title">Pets</span>
                 <i class=" mdi mdi-contrast-circle  menu-icon"></i>
               </a>
             </li>
