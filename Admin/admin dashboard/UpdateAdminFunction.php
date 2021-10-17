@@ -77,7 +77,6 @@ if(isset($_POST['delete_btn']))
 	}
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -193,3 +192,30 @@ else
 {
 echo"No Record Found";
 }
+
+?>
+
+</table>
+
+
+
+                      </table>
+					  <div class="container">
+					  <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  
+            <a  href="../admin dashboard/AddAdmin/signup.php">
+            <button type="submit" class="btn btn-gradient-primary mr-2">ADD ADMIN</button></a>
+					  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+			</div>
+      <script>
+  </body>
+</html>
