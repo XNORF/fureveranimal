@@ -34,62 +34,92 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
   </head>
   <body>
+
+
+
 <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Update Admins</h4>
+
+                       
+                <?php
+                  $connection = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+                  $db = mysqli_select_db($connection,'fureveranimalshelter');
+
+                  $query = "SELECT * FROM admin";
+                  $query_run = mysqli_query($connection,$query);
+                  ?>
+
+
+                    <h4 class="card-title">UPDATE ADMIN</h4>
                     <div class="table-responsive">
                       <table class="table">
-                        <thead>
-                          <tr>
-                            <th> Admins </th>
-                            <th> Status </th>
-                            <th> Last Update </th>
-                          </tr>
-                        </thead>
                         <tbody>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face1.jpg" class="mr-2" alt="image"> Laila
-                            </td>
-                            <td>
-                              <label class="badge badge-gradient-success">AVAILABLE</label>
-                            </td>
-                            <td> Aug 4, 2021 </td>
-							<td><button class="button">DELETE</button></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face6.jpg" class="mr-2" alt="image"> Qarin
-                            </td>
-                            <td>
-                              <label class="badge badge-gradient-success">AVAILABLE</label>
-                            </td>
-                            <td> Aug 12, 2021 </td>
-							<td><button class="button">DELETE</button></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face3.jpg" class="mr-2" alt="image"> Firdaus
-                            </td>
-                            <td>
-                              <label class="badge badge-gradient-success">AVAILABLE</label>
-                            </td>
-                            <td> Aug 16, 2021 </td>
-							<td><button class="button">DELETE</button></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face4.jpg" class="mr-2" alt="image"> Dini
-                            </td>
-                            <td>
-                              <label class="badge badge-gradient-success">AVAILABLE</label>
-                            </td>
-                            <td> Sept 3, 2021 </td>
-							<td><button class="button">DELETE</button></td>
-                          </tr>
-                        </tbody>
+                          <!-- On tables -->
+
+                          <table class="table table-dark table-hover">
+                          <thead>
+    <tr>
+      <th scope ="col">ID</th>
+      <th scope ="col">FIRST NAME</th>
+      <th scope ="col">LAST NAME</th>
+      <th scope ="col">EMAIL</th>
+      <th scope ="col">PHONE NUMBER</th>
+      <th scope ="col">EDIT</th>
+      <th scope ="col">DELETE</th>
+</tr>
+</thead>
+
+<?php
+
+if ($query)
+{
+    foreach($query_run as $row)
+    {
+      ?>
+
+<tbody>
+ <tr>
+      <td> <?php echo $row['id'];?> </td>
+      <td> <?php echo $row['firstname'];?> </td>
+      <td> <?php echo $row['lastname'];?> </td>
+      <td> <?php echo $row['email'];?> </td>
+      <td> <?php echo $row['phoneNumber'];?> </td>
+     
+
+
+    <td>
+    <a  href="../accountadmin.php">
+    <button type="button" class="btn btn-success editbtn">UPDATE</button></a>
+    </td> 
+    <td> 
+      <form action="UpdateAdminFunction.php" method="post">
+        <input type="hidden" name="emailhidden" value= ".$id.">
+    <button type="submit" name="deletebtn"  value= ".$id." class="btn btn-danger deletebtn">DELETE</button>                          
+
+    </form>
+    <td>
+
+    </td>
+
+</tr>
+</tbody>
+<?php
+
+}     
+}
+else 
+{
+echo"No Record Found";
+}
+
+?>
+
+</table>
+
+
+
                       </table>
 					  <div class="container">
 					  <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -97,8 +127,9 @@
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					  <button type="submit" class="btn btn-gradient-primary mr-2">ADD ADMIN</button>
-                      <button type="submit" class="btn btn-gradient-primary mr-2">UPDATE ADMIN</button>
+					  
+            <a  href="../admin dashboard/AddAdmin/signup.php">
+            <button type="submit" class="btn btn-gradient-primary mr-2">ADD ADMIN</button></a>
 					  </div>
                     </div>
                   </div>
@@ -106,6 +137,6 @@
               </div>
             </div>
 			</div>
-
+      <script>
   </body>
 </html>
