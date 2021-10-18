@@ -1,80 +1,67 @@
 <?php 
 session_start();
 
-if(isset($_POST['delete_btn']))
-{
-    delete_btn($_POST['delete_btn']);
-}
-
-    //signup functions    
-    else if(isset($_POST['signup'])){
-        if(strlen($_POST['password']) < 6){ //Check if the password is less than 6 in signup form
-            header("Location: AddAdmin/signup.php?signup=invalidPass");
-        }else{
-            $vkey = signup($_POST);
-            if($vkey!=NULL){
-                //mailverification($vkey);
-                header("Location: loginmain.php?signup=success");
-                exit();
-            } 
-        }               
-    }
+ if(isset($_POST['signup'])){
+  if(strlen($_POST['password']) < 6){ //Check if the password is less than 6 in signup form
+      header("Location: AddAdmin/signup.php?signup=invalidPass");
+  }else{
+      $vkey = signup($_POST);
+      if($vkey!=NULL){
+          //mailverification($vkey);
+          header("Location: loginmain.php?signup=success");
+          exit();
+      } 
+  }               
+}      
+    
 ?>
 
 <?php
 
-    function signup(){ //Signup Function and return VKEY for verification
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
-        }else{
-            //Construct SQL statement
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $email = $_POST['email'];        
-            $password = md5($_POST['password']);
-            $phoneNumber = $_POST['phoneNumber'];
-            $dob = $_POST['dob'];
-            $address1 = $_POST['address1'];
-            $address2 = $_POST['address2'];
-            $postcode = $_POST['postcode'];
-            $city = $_POST['city'];
-            $state = $_POST['state'];
-          
 
-            $sql = "insert into admin(firstname, lastname, email, password, phoneNumber, dob, address1, address2, postcode, city, state,username)
-                    values('$firstname', '$lastname', '$email', '$password', '$phoneNumber', '$dob', '$address1', '$address2', '$postcode', '$city', '$state', '$firstname')";
-            
-         
-        }    
-        if(!mysqli_query($con, $sql)){
-            //echo mysqli_error($con);
-            header("Location: AddAdmin/signup.php?signup=failed");
-            exit();
-        }else{
-            return 0;
-        }
+function signup(){ //Signup Function and return VKEY for verification
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        //Construct SQL statement
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];        
+        $password = md5($_POST['password']);
+        $phoneNumber = $_POST['phoneNumber'];
+        $dob = $_POST['dob'];
+        $address1 = $_POST['address1'];
+        $address2 = $_POST['address2'];
+        $postcode = $_POST['postcode'];
+        $city = $_POST['city'];
+        $state = $_POST['state'];
+      
+
+        $sql = "insert into admin(firstname, lastname, email, password, phoneNumber, dob, address1, address2, postcode, city, state,username)
+                values('$firstname', '$lastname', '$email', '$password', '$phoneNumber', '$dob', '$address1', '$address2', '$postcode', '$city', '$state', '$firstname')";
+        
+     
+    }    
+    if(!mysqli_query($con, $sql)){
+        //echo mysqli_error($con);
+        header("Location: AddAdmin/signup.php?signup=failed");
+        exit();
+    }else{
+        return 0;
+    }
+}
+
+
+     $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if (isset($_GET['del'])) {
+      $id = $_GET['del'];
+      mysqli_query($con, "DELETE FROM admin WHERE id=$id");
+      $_SESSION['message'] = "Address deleted!"; 
+      header('location: updateAdmin.php');
     }
 
-
-
-	if (isset($_POSt['delete_btn']))
-	{
-			$id=$_POST['delete_id'];
-
-			$query ="DELETE FROM admin WHERE id='$id' ";
-			$query_run=mysqli_query($connection, $query);
-
-			if($query_run)
-			{
-	$_SESSION['success'] = "Your data is Deleted";
-	header("Location:updateAdmin.php");
-			}
-			else{
-				$_SESSION['status'] = "Your data is Deleted";
-	header("Location:updateAdmin.php");
-			}
-	}
+  
 ?>
 
 <!DOCTYPE html>
@@ -174,9 +161,7 @@ if ($query)
     </td> 
     <td> 
       <form action="UpdateAdminFunction.php" method="post">
-        <input type="hidden" name="emailhidden" value= ".$id.">
-    <button type="submit" name="deletebtn"  value= ".$id." class="btn btn-danger deletebtn">DELETE</button>                          
-
+      <a href="UpdateAdminFunction.php?del=<?php echo $row['id']; ?>" class="btn btn-danger deletebtn">Delete</a>
     </form>
     <td>
 
@@ -219,3 +204,4 @@ echo"No Record Found";
       <script>
   </body>
 </html>
+

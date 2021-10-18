@@ -95,9 +95,7 @@ if ($query)
     </td> 
     <td> 
       <form action="UpdateAdminFunction.php" method="post">
-        <input type="hidden" name="emailhidden" value= ".$id.">
-    <button type="submit" name="deletebtn"  value= ".$id." class="btn btn-danger deletebtn">DELETE</button>                          
-
+      <a href="UpdateAdminFunction.php?del=<?php echo $row['id']; ?>" class="btn btn-danger deletebtn">Delete</a>
     </form>
     <td>
 
