@@ -1,0 +1,17 @@
+#container {
+    height: 295px;
+    width: 600px;
+    border: 1px solid black;
+    position: relative;
+}
+
+#label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    height: 30px;
+    width: 200px;
+    background-color: #ffe3f3;
+    border: 2px #aa52c4;
+    text-align: center;
+}

@@ -50,10 +50,10 @@
 		
             <div class="signup-content">
                 <div class="signup-img">
-                    <img src="images/catto4.jpg" alt="">
+                    <img src="images/catto3.jpg" alt="">
                     <div class="signup-img-content">
-                        <h2>Register now </h2>
-                        <p>to become a member and adopt our fur buddies !</p>
+                        <h2>Register Admin </h2>
+                        <p>Welcome to Fur-Ever Animal Shelter !</p>
                     </div>
                 </div>
                 <div class="signup-form">

@@ -26,6 +26,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/boxdesign.css" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: Ninestars - v4.3.0
@@ -65,8 +67,8 @@
 			  <li><a href="volunteer.php">Volunteer</a></li>
             </ul>
           </li>
-		  <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
-		    <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
+		    <li><a class="nav-link scrollto" href="accountadmin.php">Account</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="login/login.php">Log Out</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -81,18 +83,34 @@
   <div class="col-75">
     <div class="container">
       <form action="/action_page.php">
-
-
-          <div class="row">
+	  
+	  
+	  <div class="row">
           <div class="col-50">
-            <br><br><h3><b>Appointment Information</b></h3><br>
+		  
+            <br><br><h3><b>Appointment Information</b></h3><br> 
+			<div id="container">
+			
+    <div id="label" class="center" ><b>Operating Hours</b></div>
+	<br><br><p class="center">  Monday: Closed for adoptions and viewing</p>
+
+<p class="center"> Tuesday: 12:00 p.m. – 8:00 p.m</p>
+
+<p class="center">Wednesday: Closed for adoptions and viewing</p>
+
+<p class="center"> Thursday: 12:00 noon – 8:00 p.m.</p>
+
+<p class="center"> Friday: 12:00 noon – 5:00 p.m.</p>
+
+<p class="center"> Saturday & Sunday: 12:00 noon – 3:00 p.m.</p>
+</div>
+<br>
             <label for="fname"><i class="fa fa-user"></i> Appointment Date</label><br>
-            <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:134px;height:50px;" ><br><br>
+            <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:134px;height:50px;"><br><br>
             <label for="email"><i class="fa fa-envelope"></i>Appointment Time</label><br>
-            <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:125px;height:50px;">
-           
-			
-			
+            <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:125px;height:50px;"><br><br>
+			<input type="submit" value="Check availability" class="btn-get-started scrollto"><br><br><hr>
+
         <div class="row">
           <div class="col-50">
             <br><br><h3><b>Billing Address</b></h3><br>
@@ -117,11 +135,12 @@
                 <input type="text" id="zip" name="zip" placeholder="">
               </div>
             </div>
-          </div>
-
+          </div><br>
+<hr><br><br>
           <div class="col-50">
-            <h3><b>Payment</b></h3>
-            <label for="fname">Accepted Cards</label>
+            <br><h3><b>Payment</b></h3><br>
+            
+			<img src="assets/img/credit.jpg" width="200"><br><br>
             <div class="icon-container">
               <i class="fa fa-cc-visa" style="color:navy;"></i>
               <i class="fa fa-cc-amex" style="color:blue;"></i>
@@ -161,12 +180,36 @@
       <h4>Cart
         <span class="price" style="color:black">
           <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
+          
         </span>
       </h4>
-      <p><a href="#">Product 1</a> <span class="price"></span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"></span></p>
+     
+	  <div class="product border-bottom table-responsive">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+								 <p><a href="#">Full Adoption Fee</a> <span class="price"></span></p>
+                                    <td width="20%"> <img src="assets/img/dog3.jpg" width="90"> </td>
+                                    <td width="60%"> <span class="font-weight-bold">Ian</span>
+                                        <div class="product-qty"> <span class="d-block">Type: Dog</span> <span>Age: 1 Year Old</span> </div><br>
+										<div class="product-qty"> <span class="d-block"><span>Health Care Fee</span> </div>
+										<div class="product-qty"> <span class="d-block">Tax Fee</span></div>
+										<div class="product-qty"> <span class="d-block">Insurance Fee</span></div>
+                                    </td>
+                                    <td width="20%">
+                                        <div class="text-right"> <span class="font-weight-bold">RM 100</span> </div><br><br><br>
+										<div class="text-right"> <span class="font-weight-bold">RM 60</span> </div>
+										<div class="text-right"> <span class="font-weight-bold">RM 10</span> </div>
+										<div class="text-right"> <span class="font-weight-bold">RM 120</span> </div>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+     <br>
+      <h5><p><b>Total</b> <span class="price" style="color:black"></span></p></h5>
+	  
     </div>
   </div>
 </div>
