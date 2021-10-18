@@ -63,7 +63,7 @@
             </div>
 
             <div class="person">
-		    <input type = "text" name= "1name" id="name" placeholder=""/>
+		    <input type = "text" name= "fname" id="name" placeholder=""/>
             </div>
 
             <div class="reason">

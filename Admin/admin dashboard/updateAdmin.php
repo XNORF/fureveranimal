@@ -90,7 +90,7 @@ if ($query)
 
 
     <td>
-    <a  href="../accountadmin.php">
+    <a  href="pages/samples/editAdmin.php">
     <button type="button" class="btn btn-success editbtn">UPDATE</button></a>
     </td> 
     <td> 
@@ -128,6 +128,7 @@ echo"No Record Found";
 					  
             <a  href="../admin dashboard/AddAdmin/signup.php">
             <button type="submit" class="btn btn-gradient-primary mr-2">ADD ADMIN</button></a>
+			<a href = "indexDashboard.php" button type="submit" class="btn btn-gradient-primary mr-2">BACK TO DASHBOARD</button></a>
 					  </div>
                     </div>
                   </div>

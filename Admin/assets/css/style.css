@@ -1482,6 +1482,23 @@ input[type=text] {
 .payment.btn:hover {
   background-color: #45a049;
 }
+.btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 28px;
+  border-radius: 3px;
+  transition: 0.5s;
+  margin-top: 30px;
+  color: #fff;
+  background: #aa52c4;
+}
+
+.btn-get-started:hover {
+  background: #f598cc;
+}
 
 span.price {
   float: right;
