@@ -1410,7 +1410,7 @@ section {
 }
 }
   /*--------------------------------------------------------------
-# Payment
+# Appointment
 --------------------------------------------------------------*/
 .payment.row {
   display: -ms-flexbox; /* IE10 */
@@ -1482,6 +1482,7 @@ input[type=text] {
 .payment.btn:hover {
   background-color: #45a049;
 }
+
 .btn-get-started {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
@@ -1505,6 +1506,7 @@ span.price {
   color: grey;
 }
 
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .row {
@@ -1514,3 +1516,4 @@ span.price {
     margin-bottom: 20px;
   }
 }
+
