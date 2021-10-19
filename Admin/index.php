@@ -5,6 +5,11 @@
   }else{
     header("Location: ../index.php");
   }
+
+  if(isset($_GET['signout'])){
+    session_destroy();
+    header("refresh: 0");
+  }
 ?>
 
 <!DOCTYPE html>
