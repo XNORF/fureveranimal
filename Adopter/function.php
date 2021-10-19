@@ -71,6 +71,40 @@
     }
 
     function updateCard(){
-        
+        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+        if(!$con){
+            echo mysqli_error($con);
+        }else{
+            //Construct SQL statement
+            $email = $_SESSION['adopter'];
+            $name = $_POST["name"];
+            $cardNumber = $_POST["cardNumber"];
+            $expDate = $_POST["expDate"]."-01";
+            $cvv = $_POST["cvv"];
+
+            $sql = "SELECT * FROM billing WHERE email='$email'";
+            $qry = mysqli_query($con,$sql);            
+            $count = mysqli_num_rows($qry);
+
+            if($count == 1){
+                $sqlupdate = "UPDATE billing SET name='$name', cardnumber='$cardNumber', expdate='$expDate', cvv='$cvv' WHERE email = '$email'";
+                if(!mysqli_query($con,$sqlupdate)){
+                    header("Location: billingadopter.php?update=failed");
+                    exit();
+                }else{                    
+                    header("Location: billingadopter.php?update=success");
+                    exit();
+                }
+            }else{
+                $sqlinsert = "INSERT INTO billing (email, name, cardnumber, expdate, cvv) VALUES ('$email', '$name', '$cardNumber', '$expDate', '$cvv')";
+                if(!mysqli_query($con, $sqlinsert)){
+                    header("Location: billingadopter.php?update=failed");
+                    exit();
+                }else{                    
+                    header("Location: billingadopter.php?update=success");
+                    exit();
+                }
+            }
+        }
     }
 ?>

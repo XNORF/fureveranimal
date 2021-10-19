@@ -9,6 +9,14 @@
         $qry = mysqli_query($con,$sql);
         $userRecord = mysqli_fetch_assoc($qry);
         $username = $userRecord['username'];
+
+        $sql2 = "select * from billing WHERE email = '$email'";        
+        $qry2 = mysqli_query($con,$sql2);
+        $userRecord2 = mysqli_fetch_assoc($qry2);
+        $name = $userRecord2['name'];
+        $cardNumber = $userRecord2['cardnumber'];
+        $expDate = date('o', strtotime($userRecord2['expdate'])).'-'.date('m', strtotime($userRecord2['expdate']));
+        $cvv = $userRecord2['cvv'];
     }
 ?>
 
@@ -111,7 +119,7 @@
                             <nav class="side-menu">
                                 <ul class="nav">
                                     <li><a href="accountadopter.php"><span class="fa fa-user"></span> Profile</a></li>
-                                    <li class="active"><a href="accountadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
+                                    <li class="active"><a href="billingadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
                                     <li><a href="adoptionhistoryadopter.php"><span class="fa fa-envelope"></span> Adoption History</a></li>
 									<li><a href="changepassadopter.php"><span class="fa fa-th"></span> Change Password</a></li>
 									<li><a href="certificate.php"><span class="fa fa-th"></span> View Certificate</a></li>
@@ -134,25 +142,25 @@
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Name on Card</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="" name="name">
+                                            <?php echo "<input type='text' class='form-control' value='$name' name='name'>"?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Credit Card Number</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="" name="cardNumber">
+                                            <?php echo "<input type='text' class='form-control' value='$cardNumber' name='cardNumber'>"?>                                            
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Exp Date</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="month" class="form-control" value="" name="expDate">
+                                            <?php echo "<input type='month' class='form-control' value='$expDate' name='expDate'>"?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">CVV</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="" name="cvv">
+                                            <?php echo "<input type='text' class='form-control' value='$cvv' name='cvv'>"?>
                                         </div>
                                     </div>
                                 </fieldset>
