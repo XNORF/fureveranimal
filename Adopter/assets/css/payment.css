@@ -2,7 +2,7 @@
 
 body{
   background-color: #ffe3f3;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #26262;
   margin: 5% 0;
 }
@@ -17,6 +17,8 @@ body{
 {
   .container{
     max-width: 1140px;
+	
+	
   }
 }
 .d-flex{
@@ -34,10 +36,10 @@ form{
 }
 .title{
   background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5195A8), color-stop(100, #70EAFF));
-  background: -moz-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
-  background: -ms-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
-  background: -o-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
-  background: linear-gradient(to bottom right, #5195A8 0%, #70EAFF 100%);
+  background: -moz-linear-gradient(top left, #c928bb 0%, #70EAFF 100%);
+  background: -ms-linear-gradient(top left, #c928bb 0%, #70EAFF 100%);
+  background: -o-linear-gradient(top left,#c928bb 0%, #70EAFF 100%);
+  background: linear-gradient(to bottom right, #c928bb 0%, #70EAFF 100%);
   border-radius:5px 5px 0 0 ;
   padding: 20px;
   color: #f6f6f6;
@@ -76,7 +78,7 @@ select{
 }
 .Yorder{
   margin-top: 15px;
-  height: 600px;
+  height: 770px;
   padding: 20px;
   border: 1px solid #dadada;
 }

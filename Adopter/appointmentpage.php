@@ -26,7 +26,8 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/boxdesign.css" rel="stylesheet">
+    <link href="assets/css/boxdesign.css" rel="stylesheet">
+  <link href="assets/css/ft-form-styles-v3.css" rel="stylesheet">
   
 
   <!-- =======================================================
@@ -78,21 +79,20 @@
   </header><!-- End Header -->
 
   <!-- ======= Payment Section ======= -->
-<section id="payment" class="d-flex align-items-center">
-<div class="row">
+<section id="payment" >
+<div class="row" >
   <div class="col-75">
-    <div class="container">
+    <div class="container" >
       <form action="/action_page.php">
 	  
 	  
-	  <div class="row">
+	  <div class="container" >
           <div class="col-50">
-		  
-            <br><br><h3><b>Appointment Information</b></h3><br> 
-			<div id="container">
+            <br><br><h3 class="text-center"><b>Appointment Information</b></h3><br> 
+			<div id="container" class="center" >
 			
-    <div id="label" class="center" ><b>Operating Hours</b></div>
-	<br><br><p class="center">  Monday: Closed for adoptions and viewing</p>
+    <div id="label" ><b>Operating Hours</b></div>
+	<br><br><p class="center" >  Monday: Closed for adoptions and viewing</p>
 
 <p class="center"> Tuesday: 12:00 p.m. – 8:00 p.m</p>
 
@@ -103,16 +103,21 @@
 <p class="center"> Friday: 12:00 noon – 5:00 p.m.</p>
 
 <p class="center"> Saturday & Sunday: 12:00 noon – 3:00 p.m.</p>
-</div>
-<br>
-            <label for="fname"><i class="fa fa-user"></i> Appointment Date</label><br>
-            <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:134px;height:50px;"><br><br>
-            <label for="email"><i class="fa fa-envelope"></i>Appointment Time</label><br>
-            <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:125px;height:50px;"><br><br>
-			<input type="submit" value="Check availability" class="btn-get-started scrollto"><br><br><hr>
+
+</div><br>
+<p class="text-center" style="color:red"><b>NOTE: We only accept 2 adopters per day</b></p>
+<br><div class="text-center">
+            <label for="fname"><i class="fa fa-user"></i> Appointment Date:&nbsp;</label>
+            <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:170px;height:50px;"><br><br>
+            <label for="email"><i class="fa fa-envelope"></i>Appointment Time:&nbsp;</label>
+            <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:170px;height:50px;"><br><br>
+			<input type="submit" value="Check availability" class="btn-get-started scrollto">
+			<input type="submit" value="Proceed To Payment" class="btn-get-started scrollto"><br><br><hr>
+			
 
         
 	  
     </div>
+	</div>
   </div>
 </div>

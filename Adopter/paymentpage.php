@@ -41,7 +41,7 @@
 <body>
 <div class="container">
   <div class="title">
-      <h2>Product Order Form</h2>
+      <h2>Adoption Order Form</h2>
 </div>
 <div class="d-flex">
   <form action="" method="">
@@ -56,12 +56,13 @@
     <label>
       <span>Company Name (Optional)</span>
       <input type="text" name="cn">
-    </label>
+    </label><br>
     <label>
-      <span>Street Address <span class="required">*</span></span>
+      <span>Address 1<span class="required">*</span></span>
       <input type="text" name="houseadd" placeholder="House number and street name" required>
     </label>
     <label>
+	<span>Address 2<span class="required">*</span></span>
       <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
     </label>
     <label>
@@ -88,35 +89,44 @@
   <div class="Yorder">
     <table>
       <tr>
-        <th colspan="2">Your order</th>
+        <th colspan="2">Your Order</th>
       </tr>
       <tr>
-        <td>Product Name x 2(Qty)</td>
-        <td>$88.00</td>
+	   <td width="20%"> <img src="assets/img/dog3.jpg" width="90"> </td>
+                                    <td> 
+ <div class="product-qty"> <span class="d-block">Name: Ian</span><span>Type: Dog</span> <span>Age: 1 y/o</span> </div>
+                                    </td>
+      
+        <td>RM100.00</td>
+      </tr>
+	   <tr>
+        <td>Extra Fees:<hr>
+		    Health Care<br>
+			Tax
+			Insurances</td>
+        <td><br><br>
+		    RM60<br>
+			RM10<br>
+			RM120</td>
       </tr>
       <tr>
-        <td>Subtotal</td>
-        <td>$88.00</td>
+        <td><b>Subtotal</b></td>
+        <td>RM290.00</td>
       </tr>
-      <tr>
-        <td>Shipping</td>
-        <td>Free shipping</td>
-      </tr>
+     
     </table><br>
     <div>
       <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
     </div>
-    <p>
-        Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-    </p>
+    
     <div>
-      <input type="radio" name="dbt" value="cd"> Cash on Delivery
+      <input type="radio" name="dbt" value="cd"> Cash (Pay Over The Counter)
     </div>
     <div>
-      <input type="radio" name="dbt" value="cd"> Paypal <span>
+      <input type="radio" name="dbt" value="cd"> Credit Card/Debit Card <span>
       <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
       </span>
-    </div>
+    </div><br>
     <button type="button">Place Order</button>
   </div><!-- Yorder -->
  </div>
