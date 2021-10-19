@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    $email = $_SESSION['adopter'];
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        $sql = "select * from adopter WHERE email = '$email'";        
+        $qry = mysqli_query($con,$sql);
+        $userRecord = mysqli_fetch_assoc($qry);
+        $firstName = $userRecord['firstname'];
+        $lastName = $userRecord['lastname'];
+    }
+?>
 <html>
     <head>
 	<title>Certificate</title>
@@ -24,6 +38,7 @@
                 height: 563px;
                 display: table-cell;
                 vertical-align: text-top;
+                
             }
             .logo {
                 color: black;
@@ -38,11 +53,10 @@
                 margin: 20px;
             }
             .person {
-                border-bottom: 2px solid black;
                 font-size: 32px;
                 font-style: italic;
                 margin: 20px auto;
-                width: 400px;
+                width: 600px;
             }
             .reason {
                 margin: 20px;
@@ -63,11 +77,11 @@
             </div>
 
             <div class="person">
-                Joe Nathan
+                <?php echo "<u>".$firstName.' '.$lastName."</u>";?>
             </div>
 
             <div class="reason">
-                For welcoming their new animal<br/>
+                For welcoming their new animal<br>
                 into their home forever.
             </div>
         </div>

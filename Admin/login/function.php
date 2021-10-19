@@ -10,7 +10,7 @@
 	function login(){		
 		$con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
 		$email = $_POST['email'];
-		$password = $_POST['password'];
+		$password = md5($_POST['password']);
 		
 		if(!$con){		
 			echo mysqli_error($con);		

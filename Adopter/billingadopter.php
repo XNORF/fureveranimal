@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    $email = $_SESSION['adopter'];
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        $sql = "select * from adopter WHERE email = '$email'";        
+        $qry = mysqli_query($con,$sql);
+        $userRecord = mysqli_fetch_assoc($qry);
+        $username = $userRecord['username'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +102,7 @@
                                 <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 <ul class="meta list list-unstyled">
                                     <li class="name">
-                                        <label class="label label-info">Ali</label>
+                                        <?php echo "<label class='label label-info'>$username</label>"?>
                                     </li>
                                     <li class="email"><a href="#"></a></li>
                                     <li class="activity">Last logged in: Today at 2:18pm</li>
@@ -99,7 +113,7 @@
                                     <li><a href="accountadopter.php"><span class="fa fa-user"></span> Profile</a></li>
                                     <li class="active"><a href="accountadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
                                     <li><a href="adoptionhistoryadopter.php"><span class="fa fa-envelope"></span> Adoption History</a></li>
-									<li><a href="changepassadopterTest.php"><span class="fa fa-th"></span> Change Password</a></li>
+									<li><a href="changepassadopter.php"><span class="fa fa-th"></span> Change Password</a></li>
 									<li><a href="certificate.php"><span class="fa fa-th"></span> View Certificate</a></li>
                                     
                                 </ul>
@@ -108,7 +122,7 @@
                         <div class="content-panel">
                         <h2 class="title"><b>Billing Information</b><span class="pro-label label label-warning"></span></h2>
                             <h2 class="title"><span class="pro-label label label-warning"></span></h2>
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" action="function.php" method="POST">
                                 <fieldset class="fieldset">
                                     <div class="form-group avatar">
         
@@ -120,38 +134,32 @@
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Name on Card</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="name">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">Credit Card Number</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="cardNumber">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Exp Month</label>
+                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Exp Date</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2  col-sm-3 col-xs-12 control-label">Exp Year</label>
-                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="month" class="form-control" value="" name="expDate">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2  col-sm-3 col-xs-12 control-label">CVV</label>
                                         <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input type="text" class="form-control" value="">
+                                            <input type="text" class="form-control" value="" name="cvv">
                                         </div>
                                     </div>
                                 </fieldset>
                                 <hr>
                                 <div class="form-group">
                                     <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                        <input class="btn btn-primary" type="submit" value="Update Card Information">
+                                        <input class="btn btn-primary" type="submit" value="Update Card Information" name="updateCard">
                                     </div>
                                 </div>
                             </form>

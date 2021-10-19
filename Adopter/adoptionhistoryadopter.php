@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    $email = $_SESSION['adopter'];
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        $sql = "select * from adopter WHERE email = '$email'";        
+        $qry = mysqli_query($con,$sql);
+        $userRecord = mysqli_fetch_assoc($qry);
+        $username = $userRecord['username'];
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,7 +107,7 @@
                                 <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 <ul class="meta list list-unstyled">
                                     <li class="name">
-                                        <label class="label label-info">Ali</label>
+										<?php echo "<label class='label label-info'>$username</label>"?>
                                     </li>
                                     <li class="email"><a href="#"></a></li>
                                     <li class="activity">Last logged in: Today at 2:18pm</li>
@@ -104,7 +118,7 @@
                                     <li><a href="accountadopter.php"><span class="fa fa-user"></span> Profile</a></li>
                                     <li ><a href="accountadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
                                     <li class="active"><a href="adoptionhistoryadopter.php"><span class="fa fa-envelope"></span> Adoption History</a></li>
-									<li><a href="changepassadopterTest.php"><span class="fa fa-th"></span> Change Password</a></li>
+									<li><a href="changepassadopter.php"><span class="fa fa-th"></span> Change Password</a></li>
 									<li><a href="certificate.php"><span class="fa fa-th"></span> View Certificate</a></li>
                                     
                                 </ul>
