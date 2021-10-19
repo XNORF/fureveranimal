@@ -93,7 +93,7 @@ body {
                             <tbody>
                                 <tr>
                                     <td width="20%"> <img src="dog3.jpg" width="90"> </td>
-                                    <td width="60%"> <span class="font-weight-bold">Wanda</span>
+                                    <td width="60%"> <span class="font-weight-bold">Ian</span>
                                         <div class="product-qty"> <span class="d-block">Type: Dog</span> <span>Age: 1 Year Old</span> </div>
                                     </td>
                                     <td width="20%">
