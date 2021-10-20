@@ -61,6 +61,8 @@
                           <table class="table table-dark table-hover">
                           <thead>
     <tr>
+     
+     
       <th scope ="col">ID</th>
       <th scope ="col">FIRST NAME</th>
       <th scope ="col">LAST NAME</th>
@@ -81,6 +83,8 @@ if ($query)
 
 <tbody>
  <tr>
+      
+      
       <td> <?php echo $row['id'];?> </td>
       <td> <?php echo $row['firstname'];?> </td>
       <td> <?php echo $row['lastname'];?> </td>
@@ -97,11 +101,8 @@ if ($query)
       <form action="UpdateAdminFunction.php" method="post">
       <a href="UpdateAdminFunction.php?del=<?php echo $row['id']; ?>" class="btn btn-danger deletebtn">Delete</a>
     </form>
-    <td>
-
-    </td>
-
-</tr>
+    
+</tr> 
 </tbody>
 <?php
 
