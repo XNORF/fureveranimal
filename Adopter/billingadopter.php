@@ -10,13 +10,23 @@
         $userRecord = mysqli_fetch_assoc($qry);
         $username = $userRecord['username'];
 
-        $sql2 = "select * from billing WHERE email = '$email'";        
+        $sql2 = "select * from billing WHERE email = '$email'";
         $qry2 = mysqli_query($con,$sql2);
-        $userRecord2 = mysqli_fetch_assoc($qry2);
-        $name = $userRecord2['name'];
-        $cardNumber = $userRecord2['cardnumber'];
-        $expDate = date('o', strtotime($userRecord2['expdate'])).'-'.date('m', strtotime($userRecord2['expdate']));
-        $cvv = $userRecord2['cvv'];
+        $count = mysqli_num_rows($qry2);
+
+        if($count == 1){
+            $userRecord2 = mysqli_fetch_assoc($qry2);
+            $name = $userRecord2['name'];
+            $cardNumber = $userRecord2['cardnumber'];
+            $expDate = date('o', strtotime($userRecord2['expdate'])).'-'.date('m', strtotime($userRecord2['expdate']));
+            $cvv = $userRecord2['cvv'];            
+        }else{            
+            $name = "";
+            $cardNumber = "";
+            $expDate = "";
+            $cvv = "";
+        }
+        
     }
 ?>
 
