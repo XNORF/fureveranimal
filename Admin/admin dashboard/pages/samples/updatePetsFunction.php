@@ -1,3 +1,66 @@
+
+<?php 
+    session_start();
+   
+    
+    //Load Composer's autoloader
+
+    //Handles login & signup functions    
+    if(isset($_POST['signup'])){
+                header("Location: NewPets.php?signup=success");
+                exit();
+    }
+ 
+    
+		
+
+    function signup(){ //Signup Function and return VKEY for verification
+        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+        if(!$con){
+            echo mysqli_error($con);
+        }else{
+            //Construct SQL statement
+            $name = $_POST['name'];
+        $age = $_POST['age'];
+        $type = $_POST['type'];        
+        $health = ($_POST['health']);
+        $date = $_POST['date'];
+        $gender = $_POST['gender'];
+        $story = $_POST['story'];
+        $image = $_POST['image'];
+
+
+
+            $sql = "insert into pets(name, age, type, health, date, gender, story, image)
+                values('$name', '$age', '$type', '$health', '$date', '$gender', '$story', '$image', '$name')";
+            
+        }    
+        if(!mysqli_query($con, $sql)){
+            //echo mysqli_error($con);
+            header("Location: register/signup.php?signup=failed");
+            exit();
+        }else{
+            return $vkey;
+        }
+    }
+
+
+
+     $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if (isset($_GET['del'])) {
+      $id = $_GET['del'];
+      mysqli_query($con, "DELETE FROM pets WHERE id=$id");
+      $_SESSION['message'] = "Address deleted!"; 
+      header('location: updatePets.php');
+    }
+
+  
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,9 +123,8 @@
 
                           <table class="table table-dark table-hover">
                           <thead>
-                          <tr>
-                            
-    <th scope ="col">ID</th>
+    <tr>
+        <th scope ="col">ID</th>
       <th scope ="col">NAME</th>
       <th scope ="col">AGE</th>
       <th scope ="col">TYPE</th>
@@ -86,7 +148,6 @@ if ($query)
 
 <tbody>
  <tr>
-      
  <td> <?php echo $row['id'];?> </td>
       <td> <?php echo $row['name'];?> </td>
       <td> <?php echo $row['age'];?> </td>
@@ -100,16 +161,19 @@ if ($query)
 
 
     <td>
-    <a  href="pages/samples/editAdmin.php">
-    <button type="button" class="btn btn-success editbtn">EDIT</button></a>
+    <button type="button" class="btn btn-success editbtn">UPDATE</button>
     </td> 
     <td> 
-      <form action="updatePets.php" method="post">
+      <form action="updatePetsFunction.php" method="post">
       <a href="updatePetsFunction.php?del=<?php echo $row['id']; ?>" class="btn btn-danger deletebtn">Delete</a>
     </form>
-    
-</tr> 
+    <td>
+
+    </td>
+
+</tr>
 </tbody>
+
 <?php
 
 }     
@@ -133,44 +197,9 @@ echo"No Record Found";
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  
-            <a href="\masterfureveranimal\Admin\admin dashboard\pages\samples\NewPets.php">
+            <a  href="\masterfureveranimal\Admin\admin dashboard\pages\samples/updatePets.php">
             <button type="submit" class="btn btn-gradient-primary mr-2">ADD PET</button></a>
-					 
-    
-           
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
-            
-          </footer>
-          <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="../../assets/js/off-canvas.js"></script>
-    <script src="../../assets/js/hoverable-collapse.js"></script>
-    <script src="../../assets/js/misc.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="../../assets/js/file-upload.js"></script>
-    <!-- End custom js for this page -->
-
-    </div>
+					  </div>
                     </div>
                   </div>
                 </div>
@@ -180,3 +209,4 @@ echo"No Record Found";
       <script>
   </body>
 </html>
+
