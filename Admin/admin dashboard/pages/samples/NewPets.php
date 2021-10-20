@@ -1,3 +1,50 @@
+
+<?php 
+
+// database Connection
+$con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+// check for connection error
+if($con->connect_error){
+  die("Error in DB connection: ".$con->connect_errno." : ".$con->connect_error);    
+}
+
+if(isset($_POST['submit'])){
+
+	$filename = $_FILES['image']['name'];
+	
+	// Select file type
+	$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+	
+	// valid file extensions
+	$extensions_arr = array("jpg","jpeg","png","gif");
+ 
+	// Check extension
+	if( in_array($imageFileType,$extensions_arr) ){
+ 
+	// Upload files and store in database
+	if(move_uploaded_file($_FILES["image"]["tmp_name"],'upload/'.$filename)){
+		// Image db insert sql
+		$insert = "INSERT into pets(image) values('$filename')";
+		if(mysqli_query($con, $insert)){
+		  echo 'Data inserted successfully';
+		}
+		else{
+		  echo 'Error: '.mysqli_error($con);
+		}
+	}else{
+		echo 'Error in uploading file - '.$_FILES['image']['name'].'<br/>';
+	}
+	}
+} 
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -76,18 +123,18 @@
             
            <div class="form-group">
               <label>Pet Picture upload</label>
-              <input type="file" name="image" class="file-upload-default">
-              <div class="input-group col-xs-12">
-                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                <span class="input-group-append">
-                  <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                </span>
-              </div>
-            </div>
-            
-            
-            <button type="submit" class="btn btn-gradient-primary mr-2" name="addPet">Add Pet</button>
+              <form method='post' action='#' enctype='multipart/form-data'>
+	<div class="form-group">
+	 <input type="file" name="image" id="file" multiple>
+	</div> 
+	<div class="form-group"> 
+	
+
+   <button type="submit" class="btn btn-gradient-primary mr-2" name="addPet">Add Pet</button>
             <button class="btn btn-light">Cancel</button>
+	</div> 
+	</form>
+
           </form>
         </div>
       </div>
