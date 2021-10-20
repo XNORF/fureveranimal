@@ -39,39 +39,39 @@
         <div class="card-body">
           <h4 class="card-title">Add New Pet Information</h4>
           <p class="card-description"> </p>
-          <form class="forms-sample"  id="register-form" method="POST" action="/masterfureveranimal/Admin/admin dashboard/pages/samples/updatePetsFunction.php">
+          <form class="forms-sample"  id="register-form" method="POST" action="updatePetsFunction.php">
             <div class="form-group">
               <label for="name">Pet Name</label>
-              <input type="text" class="form-control" id="name" placeholder="Name">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Name">
             </div>
             <div class="form-group">
               <label for="age"> Age</label>
-              <input type="text" class="form-control" id="age" placeholder="Age">
+              <input type="text" class="form-control" id="age" name="age" placeholder="Age">
             </div>
             <div class="form-group">
               <label for="type">Dog or Cat</label>
-              <input type="text" class="form-control" id="type" placeholder="Animal Type">
+              <input type="text" class="form-control" id="type" name="type" placeholder="Animal Type">
             </div>
             <div class="form-group">
               <label for="health">Health Condition/Allergy</label>
-              <input type="text" class="form-control" id="health" placeholder="Health Condition Status">
+              <input type="text" class="form-control" id="health" name="health" placeholder="Health Condition Status">
             </div>
             
            
             <div class="form-group">
               <label for="date">Date Of Arrival to FAS</label>
-              <input type="date" class="form-control" id="date" placeholder="">
+              <input type="date" class="form-control" id="date" name="date" placeholder="">
             </div>
             <div class="form-group">
               <label for="gender">Pet Gender</label>
-              <select class="form-control" id="gender">
+              <select class="form-control" id="gender" name="gender">
                 <option>Male</option>
                 <option>Female</option>
               </select>
             </div>
             <div class="form-group">
               <label for="story">Pet Story</label>
-              <input type="text" class="form-control" id="story" placeholder="Pet Story">
+              <input type="text" class="form-control" id="story" name="story" placeholder="Pet Story">
             </div>
             
            <div class="form-group">
@@ -86,7 +86,7 @@
             </div>
             
             
-            <button type="submit" class="btn btn-gradient-primary mr-2" name="signup">Add Pet</button>
+            <button type="submit" class="btn btn-gradient-primary mr-2" name="addPet">Add Pet</button>
             <button class="btn btn-light">Cancel</button>
           </form>
         </div>

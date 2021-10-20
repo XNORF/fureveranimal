@@ -1,20 +1,19 @@
 
 <?php 
     session_start();
-   
-    
-    //Load Composer's autoloader
-
-    //Handles login & signup functions    
-    if(isset($_POST['signup'])){
-                header("Location: NewPets.php?signup=success");
-                exit();
+    if(isset($_POST['addPet'])){
+      addPet($_POST);
     }
- 
-    
-		
 
-    function signup(){ //Signup Function and return VKEY for verification
+    if (isset($_GET['del'])) {
+      $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+      $id = $_GET['del'];
+      mysqli_query($con, "DELETE FROM pets WHERE id='$id'");
+      $_SESSION['message'] = "Address deleted!"; 
+      header('location: updatePets.php');
+    }
+
+    function addPet(){ //Signup Function and return VKEY for verification
         $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
         if(!$con){
             echo mysqli_error($con);
@@ -31,28 +30,17 @@
 
 
 
-            $sql = "insert into pets(name, age, type, health, date, gender, story, image)
-                values('$name', '$age', '$type', '$health', '$date', '$gender', '$story', '$image', '$name')";
-            
-        }    
+            $sql = "insert into pets(name, age, type, health, date, gender, story)
+                values('$name', '$age', '$type', '$health', '$date', '$gender', '$story')";
+        
         if(!mysqli_query($con, $sql)){
-            //echo mysqli_error($con);
-            header("Location: register/signup.php?signup=failed");
-            exit();
-        }else{
-            return $vkey;
+          
+        }
+            
         }
     }
 
-
-
-     $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-    if (isset($_GET['del'])) {
-      $id = $_GET['del'];
-      mysqli_query($con, "DELETE FROM pets WHERE id=$id");
-      $_SESSION['message'] = "Address deleted!"; 
-      header('location: updatePets.php');
-    }
+    
 
   
 ?>
