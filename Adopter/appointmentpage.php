@@ -1,19 +1,48 @@
 <?php
+  session_start();
+  if(isset($_GET['pet']) && isset($_GET['id'])){
+    $pet = $_GET['pet'];
+    $id = $_GET['id'];
+    $_SESSION['pet'] = $pet;
+    $_SESSION['id'] = $id;
+
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if(!$con){
+      echo mysqli_error($con);
+    }else{
+        $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";        
+        $qry = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($qry);
+        if($count == 1){
+        }else{
+          header("Location: adopt.php");
+        }
+    }
+  }else{
+    header("Location: adopt.php");
+  }
+
   if(isset($_POST['availabilitybtn'])){
     checkAvailability($_POST);
+  }else if(isset($_POST['paymentbtn'])){
+    header("Location: paymentpage.php");
   }
 
   function checkAvailability(){
     $date = $_POST['appointmentDate'];
+    $time = $_POST['appointmentTime'];
     $timestamp = strtotime($date);
     $day = date('D', $timestamp);
+    $pet = $_SESSION['pet'];
+    $id = $_SESSION['id'];
     if($day == "Mon" || $day == "Wed"){
-      header("Location: appointmentpage.php?error=invalid-day");
+      header("Location: appointmentpage.php?pet=$pet&id=$id&error=invalid-day");
       exit();
     }else{
-      
+      header("Location: appointmentpage.php?pet=$pet&id=$id&date=$date&time=$time&error=none");
+      exit();
     }
-
+    //add database stuffs
   }
 
   if(isset($_GET['error'])){
@@ -148,27 +177,50 @@
     <br><div class="text-center">
               
                 <label for="fname"><i class="fa fa-user"></i> Appointment Date:&nbsp;</label>
-                <input type="text" id="appDate" name="appointmentDate" placeholder="" style="width:170px;height:50px;" required><br><br>
+                <input type="text" 
+                  <?php
+                    if(isset($_GET['date'])){
+                      echo "value=" . $_GET['date'];
+                    }
+                  ?>
+                id="appDate" name="appointmentDate" placeholder="" style="width:170px;height:50px;" required><br><br>
                 <label for="email"><i class="fa fa-envelope"></i>Appointment Time:&nbsp;</label>
-                <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:170px;height:50px;" min="12:00" max="19:45" required><br><br>
+                <input type="time"
+                  <?php
+                    if(isset($_GET['time'])){
+                      echo "value=" . $_GET['time'];
+                    }
+                  ?>
+                id="appTime" name="appointmentTime" placeholder="" style="width:170px;height:50px;" min="12:00" max="19:45" required><br><br>
                 <?php
                 if(isset($errorCheck)){
                   if($errorCheck == "invalid-day"){
                     echo "<label for='fname'><i class='fa fa-user'>Mondays and Wednesdays are unavailable</i></label><br>";
-                  }else{
-
+                  }else if($errorCheck == "none"){
+                    echo "<label for='fname'><i class='fa fa-user'>Available</i></label><br>";
                   }
                 }                   
                   
                 ?>
                 <input type="submit" value="Check availability" class="btn-get-started scrollto" name="availabilitybtn">
-                <input type="submit" value="Proceed to payment" class="btn-get-started scrollto" name="paymentbtn"><br><br>
-                <hr>
               
+                <?php
+                if(isset($errorCheck)){
+                  if($errorCheck == "none"){
+                    echo "<input type='submit' value='Proceed to payment' class='btn-get-started scrollto' name='paymentbtn'>";
+                  }else{
+                    echo "<input type='submit' value='Proceed to payment' class='btn-get-started scrollto' name='paymentbtn' disabled='disabled'>";
+                  }
+                }else{
+                  echo "<input type='submit' value='Proceed to payment' class='btn-get-started scrollto' name='paymentbtn' disabled='disabled'>";
+                }
+                ?>
+                <br><br><hr>
+              </form>
         </div>    
       </div>
       </div>
     </div>
-    </form>
+    
   </body>
 </html>
