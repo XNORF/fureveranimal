@@ -189,20 +189,20 @@
               </a>
             </li>
           <li class="nav-item">
-              <a class="nav-link" href="indexDashboard.php">
+              <a class="nav-link" href="/C:/xampp/htdocs/masterfureveranimal/Admin/admin dashboard/indexDashboard.php">
                 <span class="menu-title">Dashboard</span>
                 <i class=" mdi mdi-star-circle  menu-icon"></i>
               </a>
             </li>
 			 <li class="nav-item">
-              <a class="nav-link" href="/C:/Users/user/Desktop/Software Development/xxamp/htdocs/masterfureveranimal/Admin/index.php.">
+              <a class="nav-link" href="/C:/xampp/htdocs/masterfureveranimal/Admin/index.php">
                 <span class="menu-title">Homepage</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href=" /C:/Users/user/Desktop/Software Development/xxamp/htdocs/masterfureveranimal/Admin/accountadmin.php.">
+              <a class="nav-link" href=" /C:/xampp/htdocs/masterfureveranimal/Admin/accountadmin.php">
                 <span class="menu-title">Account</span>
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
@@ -224,7 +224,7 @@
               </div>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="/C:/Users/user/Desktop/Software Development/xxamp/htdocs/masterfureveranimal/Admin/admin dashboard/updateAdmin.php">
+              <a class="nav-link" href="/C:/xampp/htdocs/masterfureveranimal/Admin/admin dashboard/updateAdmin.php">
                 <span class="menu-title">Admins</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
