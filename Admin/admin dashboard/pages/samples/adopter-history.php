@@ -195,14 +195,14 @@
               </a>
             </li>
 			 <li class="nav-item">
-              <a class="nav-link" href="../index.php">
+              <a class="nav-link" href="/C:/Users/user/Desktop/Software Development/xxamp/htdocs/masterfureveranimal/Admin/index.php.">
                 <span class="menu-title">Homepage</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="../accountadmin.php">
+              <a class="nav-link" href=" /C:/Users/user/Desktop/Software Development/xxamp/htdocs/masterfureveranimal/Admin/accountadmin.php.">
                 <span class="menu-title">Account</span>
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
@@ -216,22 +216,22 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/appointmentpage.php"> Upcoming Appointment </a></li>
-				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
-				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
+                <li class="nav-item"> <a class="nav-link" href="appointmentpage.php"> Upcoming Appointment </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="adopter-history.php"> Adopter History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="donation-history.php"> Donation History </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="volunteer-history.php"> Volunteer History </a></li>
                 </ul>
               </div>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="updateAdmin.php">
-                <span class="menu-title">Update Admins</span>
+              <a class="nav-link" href="/C:/Users/user/Desktop/Software Development/xxamp/htdocs/masterfureveranimal/Admin/admin dashboard/updateAdmin.php">
+                <span class="menu-title">Admins</span>
                 <i class="mdi mdi-table-large menu-icon"></i>
               </a>
             </li>
 			<li class="nav-item">
-              <a class="nav-link" href="pages/samples/updatePets.php">
-                <span class="menu-title">Update Pets</span>
+              <a class="nav-link" href="updatePets.php">
+                <span class="menu-title">Pets</span>
                 <i class=" mdi mdi-contrast-circle  menu-icon"></i>
               </a>
             </li>
@@ -299,10 +299,8 @@
                           <th> # </th>
                           <th> Name </th>
 						  <th>Email</th>
-						<th>Address</th>
 						<th>Phone</th>
                           <th> Animal Adopted</th>
-                          <th> Amount </th>
                           <th> Date Adopted </th>
 						  
 						  <th>Action</th>
@@ -313,10 +311,8 @@
                           <td> 1 </td>
                           <td> Herman Beck </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Lily </td>
-                          <td> $ 77.99 </td>
                           <td> May 15, 2021 </td>
 						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
@@ -324,10 +320,8 @@
                           <td> 2 </td>
                           <td> Messsy Adam </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Nyx </td>
-                          <td> $245.30 </td>
                           <td> July 1, 2021 </td>
 						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
@@ -335,10 +329,8 @@
                           <td> 3 </td>
                           <td> John Richards </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Killa </td>
-                          <td> $138.00 </td>
                           <td> Apr 12, 2021 </td>
 						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
@@ -346,10 +338,8 @@
                           <td> 4 </td>
                           <td> Peter Meggik </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Richard </td>
-                          <td> $ 77.99 </td>
                           <td> May 15, 2021 </td>
 						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
@@ -357,10 +347,8 @@
                           <td> 5 </td>
                           <td> Edward </td>
 						  <td>thomashardy@mail.com</td>
-						<td>89 Chiaroscuro Rd, Portland, USA</td>
 						<td>(171) 555-2222</td>
                           <td> Luna </td>
-                          <td> $ 160.25 </td>
                           <td> May 03, 2021 </td>
 						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
                         </tr>
