@@ -1,12 +1,7 @@
-
 <?php 
 
 // database Connection
 $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-// check for connection error
-if($con->connect_error){
-  die("Error in DB connection: ".$con->connect_errno." : ".$con->connect_error);    
-}
 
 if(isset($_POST['addPet'])){
   //the targeted path to store the uploaded image
@@ -46,7 +41,10 @@ if(isset($_POST['addPet'])){
       echo 'Error in uploading file - '.$_FILES['image']['name'].'<br/>';
     }
 	}
-} 
+}else if(isset($_POST['cancel'])){
+  header("Location: updatePets.php");
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -134,7 +132,7 @@ if(isset($_POST['addPet'])){
 	
 
    <button type="submit" class="btn btn-gradient-primary mr-2" name="addPet">Add Pet</button>
-            <button class="btn btn-light">Cancel</button>
+            <button class="btn btn-light" name="cancel" formnovalidate>Cancel</button>
 	</div> 
 
           </form>
