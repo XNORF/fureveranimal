@@ -94,7 +94,7 @@
             </ul>
           </li>
 		   
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
 		  <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
           <form action="adopterFunction.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form>
         </ul>
@@ -131,13 +131,9 @@
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
-
                 <div>
-                  <?php echo "<img src='$image' width= 800 height = 800 alt=''>";?>
+                  <?php echo "<img src='../Admin/admin%20dashboard/pages/samples/upload/$image' width= 800 height = 800 alt=''>";?>
                 </div>
-
-             
-
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -148,7 +144,7 @@
               <h3>Pet Information</h3>
               <ul>
                 <?php echo "<li><strong>Name</strong>: $name</li>
-                <li><strong>Age</strong>: $age Years</li>
+                <li><strong>Age</strong>: $age Old</li>
                 <li><strong>Gender</strong>: $gender</li>
 				        <li><strong>Health Condition(s)</strong>: $health</li>";?>                
                
@@ -157,7 +153,7 @@
 			
             <div class="portfolio-description">
 			
-              <h2>Story of Grey's life</h2>
+              <h2>Story of <?php echo $name;?>'s life</h2>
               <?php echo "<p>
                 $story
               </p>";?>

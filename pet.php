@@ -1,3 +1,33 @@
+<?php
+  session_start();
+  
+  if(isset($_GET['pet']) && isset($_GET['id'])){
+    $pet = $_GET['pet'];
+    $id = $_GET['id'];
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if(!$con){
+      echo mysqli_error($con);
+    }else{
+        $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";        
+        $qry = mysqli_query($con,$sql);
+        $count = mysqli_num_rows($qry);
+        if($count == 1){
+          $userRecord = mysqli_fetch_assoc($qry);
+          $name = $userRecord['name'];
+          $age = $userRecord['age'];
+          $gender = $userRecord['gender'];
+          $health = $userRecord['health'];
+          $story = $userRecord['story'];
+          $image = $userRecord['image'];
+        }else{
+          header("Location: adopt.php");
+        }
+    }
+  }else{
+    header("Location: adopt.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +35,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Marshmallow</title>
+  <?php echo "<title>$name</title>";?>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -64,13 +94,13 @@
             </ul>
           </li>
 		   
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-		  <li><a class="nav-link scrollto" href="#about">Account</a></li>
-          <li><a class="getstarted scrollto" href="login/loginmain.php">Log Out</a></li>
+          <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="login/loginmain.php">Login / Signup</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
+	
   </header><!-- End Header -->
 
   <main id="main">
@@ -78,6 +108,7 @@
     <!-- ======= Breadcrumbs Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
+
         <div class="d-flex justify-content-between align-items-center">
           <h2>Pet Information</h2>
           <ol>
@@ -86,18 +117,21 @@
             <li>Pet Information</li>
           </ol>
         </div>
+
       </div>
     </section><!-- Breadcrumbs Section -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
+
         <div class="row gy-4">
+
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
                 <div>
-                  <img src="assets/img/portfolio/dog5.jpg" alt="">
+                  <?php echo "<img src='Admin/admin%20dashboard/pages/samples/upload/$image' width= 800 height = 800 alt=''>";?>
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -108,18 +142,21 @@
             <div class="portfolio-info">
               <h3>Pet Information</h3>
               <ul>
-                <li><strong>Name</strong>: Marshmallow</li>
-                <li><strong>Age</strong>: 2 Years</li>
-                <li><strong>Gender</strong>: Male</li>
-				<li><strong>Health Condition(s)</strong>: Slightly allergic to peanuts</li>
+                <?php echo "<li><strong>Name</strong>: $name</li>
+                <li><strong>Age</strong>: $age Old</li>
+                <li><strong>Gender</strong>: $gender</li>
+				        <li><strong>Health Condition(s)</strong>: $health</li>";?>                
+               
               </ul>
             </div>
 			
             <div class="portfolio-description">
-              <h2>Story of Marshmallow's life</h2>
-              <p>
-                Marshmallow's previous owner dropped him by the shelter because they needed to move to another country. Marshmallow is very talkative and friendly.
-              </p>
+			
+              <h2>Story of <?php echo $name;?>'s life</h2>
+              <?php echo "<p>
+                $story
+              </p>";?>
+              
 			  <br>
 			  <br>
 			   <div class="container">
@@ -127,15 +164,18 @@
 		<div class="col-lg-6">
            <div class="portfolio">
 		   
-			<a href="login/loginmain.php" class="btn-get-started scrollto"><b>ADOPT</b></a>
+			<?php echo "<a href='login/loginmain.php' class='btn-get-started scrollto'><b>ADOPT</b></a>";?>
 			</div>
+            
           </div>
         </div>
       </div>
     </div>
             </div>
           </div>
+
         </div>
+
       </div>
 	  
     </section><!-- End Portfolio Details Section -->
@@ -150,14 +190,16 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
+            
           </div>
         </div>
       </div>
     </div>
 
-    <div class="footer-top">
+     <div class="footer-top">
       <div class="container">
         <div class="row">
+
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Fur-Ever Animal Shelter</h3>
             <p>
@@ -199,6 +241,7 @@
               <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -207,6 +250,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
+      
     </div>
   </footer><!-- End Footer -->
 
@@ -224,4 +268,5 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
