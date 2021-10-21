@@ -39,6 +39,18 @@
       header("Location: appointmentpage.php?pet=$pet&id=$id&error=invalid-day");
       exit();
     }else{
+      $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+      if(!$con){
+        echo mysqli_error($con);
+      }else{
+          $sql = "select * from ";// Update here one day
+          $qry = mysqli_query($con,$sql);
+          $count = mysqli_num_rows($qry);
+          if($count == 0){
+          }else{
+            header("Location: adopt.php");
+          }
+      }
       header("Location: appointmentpage.php?pet=$pet&id=$id&date=$date&time=$time&error=none");
       exit();
     }

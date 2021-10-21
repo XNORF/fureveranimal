@@ -8,12 +8,22 @@ if($con->connect_error){
   die("Error in DB connection: ".$con->connect_errno." : ".$con->connect_error);    
 }
 
-if(isset($_POST['submit'])){
+if(isset($_POST['addPet'])){
+  //the targeted path to store the uploaded image
+  $target = "upload/".basename($_FILES['image']['name']);
 
-	$filename = $_FILES['image']['name'];
-	
+  //get submitted data from the form
+	$image = $_FILES['image']['name'];
+	$name = $_POST['name'];
+  $age = $_POST['age'];
+  $type = $_POST['type'];        
+  $health = ($_POST['health']);
+  $date = $_POST['date'];
+  $gender = $_POST['gender'];
+  $story = $_POST['story'];
+
 	// Select file type
-	$imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
+	$imageFileType = strtolower(pathinfo($image,PATHINFO_EXTENSION));
 	
 	// valid file extensions
 	$extensions_arr = array("jpg","jpeg","png","gif");
@@ -21,29 +31,23 @@ if(isset($_POST['submit'])){
 	// Check extension
 	if( in_array($imageFileType,$extensions_arr) ){
  
-	// Upload files and store in database
-	if(move_uploaded_file($_FILES["image"]["tmp_name"],'upload/'.$filename)){
-		// Image db insert sql
-		$insert = "INSERT into pets(image) values('$filename')";
-		if(mysqli_query($con, $insert)){
-		  echo 'Data inserted successfully';
-		}
-		else{
-		  echo 'Error: '.mysqli_error($con);
-		}
-	}else{
-		echo 'Error in uploading file - '.$_FILES['image']['name'].'<br/>';
-	}
+	  // Upload files and store in database
+    if(move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
+      // Image db insert sql
+      
+      $insert = "INSERT into pets(name, age, type, health, date, gender, story, image) values('$name', '$age', '$type', '$health', '$date', '$gender', '$story', '$image')";    
+      if(mysqli_query($con, $insert)){
+        header("Location: updatePets.php");
+      }
+      else{
+        echo 'Error: '.mysqli_error($con);
+      }
+    }else{
+      echo 'Error in uploading file - '.$_FILES['image']['name'].'<br/>';
+    }
 	}
 } 
 ?>
-
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,46 +90,45 @@ if(isset($_POST['submit'])){
         <div class="card-body">
           <h4 class="card-title">Add New Pet Information</h4>
           <p class="card-description"> </p>
-          <form class="forms-sample"  id="register-form" method="POST" action="updatePetsFunction.php">
+          <form class="forms-sample"  id="register-form" method="POST" action="#" enctype="multipart/form-data">
             <div class="form-group">
               <label for="name">Pet Name</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
             </div>
             <div class="form-group">
               <label for="age"> Age</label>
-              <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+              <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
             </div>
             <div class="form-group">
               <label for="type">Dog or Cat</label>
-              <input type="text" class="form-control" id="type" name="type" placeholder="Animal Type">
+              <input type="text" class="form-control" id="type" name="type" placeholder="Animal Type" required>
             </div>
             <div class="form-group">
               <label for="health">Health Condition/Allergy</label>
-              <input type="text" class="form-control" id="health" name="health" placeholder="Health Condition Status">
+              <input type="text" class="form-control" id="health" name="health" placeholder="Health Condition Status" required>
             </div>
             
            
             <div class="form-group">
               <label for="date">Date Of Arrival to FAS</label>
-              <input type="date" class="form-control" id="date" name="date" placeholder="">
+              <input type="date" class="form-control" id="date" name="date" placeholder="" required>
             </div>
             <div class="form-group">
               <label for="gender">Pet Gender</label>
-              <select class="form-control" id="gender" name="gender">
+              <select class="form-control" id="gender" name="gender" required>
                 <option>Male</option>
                 <option>Female</option>
               </select>
             </div>
             <div class="form-group">
               <label for="story">Pet Story</label>
-              <input type="text" class="form-control" id="story" name="story" placeholder="Pet Story">
+              <input type="text" class="form-control" id="story" name="story" placeholder="Pet Story" required>
             </div>
             
            <div class="form-group">
               <label>Pet Picture upload</label>
-              <form method='post' action='#' enctype='multipart/form-data'>
 	<div class="form-group">
-	 <input type="file" name="image" id="file" multiple>
+	 <input type="file" name="image" id="file" required>
 	</div> 
 	<div class="form-group"> 
 	
@@ -133,7 +136,6 @@ if(isset($_POST['submit'])){
    <button type="submit" class="btn btn-gradient-primary mr-2" name="addPet">Add Pet</button>
             <button class="btn btn-light">Cancel</button>
 	</div> 
-	</form>
 
           </form>
         </div>

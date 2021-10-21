@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+
+    if (isset($_GET['del'])) {
+      $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+      $id = $_GET['del'];
+      mysqli_query($con, "DELETE FROM pets WHERE id='$id'");
+      header('location: updatePets.php');
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -92,8 +102,8 @@ if(mysqli_num_rows($query_run) > 0)
     
     </td>
       <td>
-      <form action="updatePetsFunction.php" method="post">
-      <a href="updatePetsFunction.php?del=<?php echo $row['id']; ?>"   class="btn btn-danger">DELETE</a>
+      <form action="updatePets.php" method="post">
+      <a href="updatePets.php?del=<?php echo $row['id']; ?>"   class="btn btn-danger">DELETE</a>
 
       </td>
     
