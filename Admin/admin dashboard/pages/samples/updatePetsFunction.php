@@ -1,4 +1,3 @@
-
 <?php 
     session_start();
     if(isset($_POST['addPet'])){
@@ -12,38 +11,8 @@
       $_SESSION['message'] = "Address deleted!"; 
       header('location: updatePets.php');
     }
+    ?>
 
-    function addPet(){ //Signup Function and return VKEY for verification
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
-        }else{
-            //Construct SQL statement
-            $name = $_POST['name'];
-        $age = $_POST['age'];
-        $type = $_POST['type'];        
-        $health = ($_POST['health']);
-        $date = $_POST['date'];
-        $gender = $_POST['gender'];
-        $story = $_POST['story'];
-        $image = $_POST['image'];
-
-
-
-            $sql = "insert into pets(name, age, type, health, date, gender, story)
-                values('$name', '$age', '$type', '$health', '$date', '$gender', '$story')";
-        
-        if(!mysqli_query($con, $sql)){
-          
-        }
-            
-        }
-    }
-
-    
-
-  
-?>
 
 
 
@@ -87,7 +56,6 @@
   <body>
 
 
-
 <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
@@ -95,11 +63,11 @@
 
                        
                 <?php
-                  $connection = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-                  $db = mysqli_select_db($connection,'fureveranimalshelter');
+                  $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+                  $db = mysqli_select_db($con,'fureveranimalshelter');
 
                   $query = "SELECT * FROM pets";
-                  $query_run = mysqli_query($connection,$query);
+                  $query_run = mysqli_query($con,$query);
                   ?>
 
 
@@ -114,11 +82,7 @@
     <tr>
         <th scope ="col">ID</th>
       <th scope ="col">NAME</th>
-      <th scope ="col">AGE</th>
-      <th scope ="col">TYPE</th>
       <th scope ="col">HEALTH CONDITION/ALLERGY</th>
-      <th scope ="col">DATE OF ARRIVAL TO FAS</th>
-      <th scope ="col">GENDER</th>
       <th scope ="col">STORY</th>
       <th scope ="col">IMAGE</th>
       <th scope ="col">EDIT</th>
@@ -138,13 +102,10 @@ if ($query)
  <tr>
  <td> <?php echo $row['id'];?> </td>
       <td> <?php echo $row['name'];?> </td>
-      <td> <?php echo $row['age'];?> </td>
-      <td> <?php echo $row['type'];?> </td>
       <td> <?php echo $row['health'];?> </td>
-      <td> <?php echo $row['date'];?> </td>
-      <td> <?php echo $row['gender'];?> </td>
       <td> <?php echo $row['story'];?> </td>
       <td> <?php echo $row['image'];?> </td>
+     
      
 
 
@@ -195,6 +156,38 @@ echo"No Record Found";
             </div>
 			</div>
       <script>
+        <?php
+
+function addPet(){ //Signup Function and return VKEY for verification
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        //Construct SQL statement
+
+    $name = $_POST['name'];
+    $age = $_POST['age'];
+    $type = $_POST['type'];        
+    $health = ($_POST['health']);
+    $date = $_POST['date'];
+    $gender = $_POST['gender'];
+    $story = $_POST['story'];
+    $image = $_POST['image'];
+
+
+
+        $sql = "insert into pets(name, age, type, health, date, gender, story,image)
+            values('$name', '$age', '$type', '$health', '$date', '$gender', '$story','$image')";
+    
+    if(!mysqli_query($con, $sql)){
+      
+    }
+        
+    }
+}
+
+
+?>
   </body>
 </html>
 

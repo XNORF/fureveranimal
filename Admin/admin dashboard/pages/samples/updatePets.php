@@ -44,11 +44,11 @@
 
                        
                 <?php
-                  $connection = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-                  $db = mysqli_select_db($connection,'fureveranimalshelter');
+                  $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+                  $db = mysqli_select_db($con,'fureveranimalshelter');
 
                   $query = "SELECT * FROM pets";
-                  $query_run = mysqli_query($connection,$query);
+                  $query_run = mysqli_query($con,$query);
                   ?>
 
 
@@ -64,11 +64,7 @@
                             
     <th scope ="col">ID</th>
       <th scope ="col">NAME</th>
-      <th scope ="col">AGE</th>
-      <th scope ="col">TYPE</th>
       <th scope ="col">HEALTH CONDITION/ALLERGY</th>
-      <th scope ="col">DATE OF ARRIVAL TO FAS</th>
-      <th scope ="col">GENDER</th>
       <th scope ="col">STORY</th>
       <th scope ="col">IMAGE</th>
       <th scope ="col">EDIT</th>
@@ -89,13 +85,10 @@ if ($query)
       
  <td> <?php echo $row['id'];?> </td>
       <td> <?php echo $row['name'];?> </td>
-      <td> <?php echo $row['age'];?> </td>
-      <td> <?php echo $row['type'];?> </td>
       <td> <?php echo $row['health'];?> </td>
-      <td> <?php echo $row['date'];?> </td>
-      <td> <?php echo $row['gender'];?> </td>
       <td> <?php echo $row['story'];?> </td>
       <td> <?php echo $row['image'];?> </td>
+      
      
 
 
