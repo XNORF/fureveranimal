@@ -206,21 +206,36 @@
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
+           <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+                <span class="menu-title">Check Activity</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-cat  menu-icon"></i>
+              </a>
+              <div class="collapse" id="general-pages">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="pages/samples/appointmentpage.php"> Upcoming Appointment </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
+				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
+                </ul>
+              </div>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="updateAdmin.php">
+                <span class="menu-title">Update Admins</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
+			<li class="nav-item">
+              <a class="nav-link" href="pages/samples/updatePets.php">
+                <span class="menu-title">Update Pets</span>
+                <i class=" mdi mdi-contrast-circle  menu-icon"></i>
               </a>
             </li>
            
               
-            </li>
+       
             <li class="nav-item sidebar-actions">
               <span class="nav-link">
                 <div class="border-bottom">

@@ -207,18 +207,7 @@
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.php">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.php">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
+           
 			<li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Check Activity</span>
@@ -227,7 +216,7 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.php"> My Adoption History </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="pages/samples/appointmentpage.php"> Upcoming Appointment </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
                  <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
@@ -292,7 +281,8 @@
                           <th> Animal Adopted</th>
                           <th> Date </th>
 						  <th> Time </th>
-						  <th>Action</th
+						  <th>Delete</th>
+						  <th>Edit</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -304,8 +294,8 @@
                           <td> Orange </td>
                           <td> May 15, 2015 </td>
 						  <td> 12:30 PM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
-						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</td>
+						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                         <tr class="table-warning">
                           <td> 2 </td>
@@ -316,8 +306,8 @@
                           <td> July 1, 2015 </td>
 						  <td> 10:00 AM </td>
 						   
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
-						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</td>
+						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         <tr class="table-danger">
                           <td> 3 </td>
                           <td> John Richards </td>
@@ -326,8 +316,8 @@
                           <td> Lily </td>
                           <td> Apr 12, 2015 </td>
 						  <td> 11:45 AM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
-						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</td>
+						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                         <tr class="table-success">
                           <td> 4 </td>
@@ -337,8 +327,8 @@
                           <td> Richard </td>
                           <td> May 15, 2015 </td>
 						  <td> 1:20 PM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
-						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</td>
+						  <td> <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                         <tr class="table-primary">
                           <td> 5 </td>
@@ -348,16 +338,16 @@
                           <td> Jojo </td>
                           <td> May 03, 2015 </td>
 						  <td> 1:45 PM </td>
-						  <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;
-						   <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+						  <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</td>
+						   <td><a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
                         </tr>
                       </tbody>
                     </table><br>
 				  </div>
 					<div class="clearfix">
-				<div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div><br>
-				<ul class="pagination">
-					<li class="page-item"><a href="#" class="page-link" >Previous</a></li> 
+				<div class="hint-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Showing <b>5</b> out of <b>25</b> entries</div><br>
+				<ul class="pagination" >
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li class="page-item"><a href="#" class="page-link" >Previous</a></li> 
 					<li class="page-item"><a href="#" class="page-link">1</a></li>
 					<li class="page-item"><a href="#" class="page-link">2</a></li>
 					<li class="page-item active"><a href="#" class="page-link">3</a></li>

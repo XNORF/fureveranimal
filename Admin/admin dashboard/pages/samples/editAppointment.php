@@ -27,11 +27,11 @@
        
           <div class="content-wrapper">
             <div class="page-header">
-              <h3 class="page-title"> Update Admins </h3>
+              <h3 class="page-title"> Edit Appointment </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="indexDashboard.php">Back to dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Update Admins</li>
+                  <li class="breadcrumb-item active" aria-current="page">Edit Appointment</li>
                 </ol>
               </nav>
             </div>
@@ -39,41 +39,41 @@
 				<div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Personal Information</h4>
+                    <h4 class="card-title">Appointment Information</h4>
                     <p class="card-description"> </p>
-                    <form class="forms-sample">
+                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="exampleInputName1">First Name</label>
+                        <label for="exampleInputName">First Name</label>
                         <input type="text" class="form-control" id="exampleInputName1" placeholder="First Name">
                       </div>
 					   <div class="form-group">
-                        <label for="exampleInputName1">Last Name</label>
+                        <label for="exampleInputName">Last Name</label>
                         <input type="text" class="form-control" id="exampleInputName2" placeholder="Last Name">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPhone"> Phone Number</label>
+                        <label for="exampleInputPetAge"> Email</label>
+                        <input type="text" class="form-control" id="exampleInputEmail" placeholder="Email">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputAnimalType">Phone Number</label>
                         <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone Number">
                       </div>
 					  <div class="form-group">
-                        <label for="exampleInputAddress1">Address 1</label>
-                        <input type="text" class="form-control" id="exampleInputAddress1" placeholder="Address 1">
+                        <label for="exampleInputPetHealth">Name Of Animal Adopted</label>
+                        <input type="text" class="form-control" id="exampleInputAnimalAdopted" placeholder="Animal Adopted">
                       </div>
+					  
+                     
 					  <div class="form-group">
-                        <label for="exampleInputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="exampleInputAddress2" placeholder="Address 2">
+                        <label for="exampleInputDOA">Date Of Appointment</label>
+                        <input type="date" class="form-control" id="exampleInputDate" placeholder="">
                       </div>
+                     
 					  <div class="form-group">
-                        <label for="exampleInputPostCode">PostCode</label>
-                        <input type="text" class="form-control" id="exampleInputPostCode" placeholder="Postcode">
+                        <label for="exampleInputPetStory">Time Of Appointment</label>
+                        <input type="time" class="form-control" id="exampleInputTime" placeholder="">
                       </div>
-                     <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="City">
-                      </div>
-					  <div class="form-group">
-                        <label for="exampleInputState">State</label>
-                        <input type="text" class="form-control" id="exampleInputState" placeholder="State">
-                      </div>
+                     
 					  
                       <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
                       <button class="btn btn-light">Cancel</button>
