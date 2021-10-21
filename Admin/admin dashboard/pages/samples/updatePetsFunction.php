@@ -166,7 +166,7 @@ else
         
 
            <a href="\masterfureveranimal\Admin\admin dashboard\pages\samples\NewPets.php"> <input value ="ADD PETS" id="submit" name="submit" class="button button2"></input></a>
-
+           <a href = /masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>
                     </form>
 
    </div>
