@@ -112,15 +112,15 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Cats</li>
-              <li data-filter=".filter-card">Dogs</li>
+              <li data-filter=".filter-cat">Cats</li>
+              <li data-filter=".filter-dog">Dogs</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat5.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -134,7 +134,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog5.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -148,7 +148,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat7.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -162,7 +162,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog9.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -176,7 +176,7 @@
             </div>
           </div>
 		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat10_.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -191,7 +191,7 @@
           </div>
 
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog2.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -205,7 +205,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/blindcat2.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -219,7 +219,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/blindog.jpeg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -233,7 +233,7 @@
             </div>
           </div>
 		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat3.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -247,7 +247,7 @@
             </div>
           </div>
 		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog3.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -260,7 +260,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat8.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -273,7 +273,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog6.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -286,7 +286,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/disabledcat.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -299,7 +299,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog1.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -312,7 +312,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat1.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -325,7 +325,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog11.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -338,7 +338,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-cat">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat12.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
@@ -351,7 +351,7 @@
               </div>
             </div>
           </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+		  <div class="col-lg-4 col-md-6 portfolio-item filter-dog">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/dog12.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
