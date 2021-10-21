@@ -1,3 +1,44 @@
+<?php
+  session_start();    
+  $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+  
+  if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $_SESSION['updatePetID'] = $id;
+    if(!$con){
+        echo mysqli_error($con);
+    }else{
+        $sql = "select * from pets WHERE id = '$id'";        
+        $qry = mysqli_query($con,$sql);
+        $userRecord = mysqli_fetch_assoc($qry);
+        $count = mysqli_num_rows($qry);
+        if($count == 1){
+          $name = $userRecord['name'];
+          $age = $userRecord['age'];
+          $type = $userRecord['type'];
+          $health = $userRecord['health'];
+          $date = $userRecord['date'];
+          $gender = $userRecord['gender'];
+          $story = $userRecord['story'];
+          $image = $userRecord['image'];
+          $_SESSION['petImage'] = $image;
+        }else{
+          header("Location: updatePets.php?pet=invalid");
+        }
+        
+    }
+  }else{
+    header("Location: updatePets.php");
+    exit();
+  }
+
+  if(isset($_POST['cancel'])){
+    header("Location: updatePets.php");
+    exit();
+  }else if(isset($_POST['update'])){
+    updatePet($_POST);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,7 +71,7 @@
               <h3 class="page-title"> Edit Pets </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="indexDashboard.php">Back to dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="../../indexDashboard.php">Back to dashboard</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Edit Pets</li>
                 </ol>
               </nav>
@@ -41,45 +82,46 @@
                   <div class="card-body">
                     <h4 class="card-title">Pet Information</h4>
                     <p class="card-description"> </p>
-                     <form class="forms-sample">
+                     <form class="forms-sample" action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
                       <div class="form-group">
                         <label for="exampleInputName">Pet Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                        <?php echo "<input type='text' class='form-control' id='exampleInputPhone' placeholder='Name' name='name' value='$name'required>";?>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPetAge"> Age</label>
-                        <input type="text" class="form-control" id="exampleInputPhone" placeholder="Age">
+                        <?php echo "<input type='text' class='form-control' id='exampleInputPhone' placeholder='Age' name='age' value='$age'required>";?>
                       </div>
 					  <div class="form-group">
                         <label for="exampleInputAnimalType">Dog or Cat</label>
-                        <input type="text" class="form-control" id="exampleInputAddress1" placeholder="Animal Type">
+                        <?php echo "<input type='text' class='form-control' id='exampleInputPhone' placeholder='Animal Type' name='type' value='$type'required>";?>
                       </div>
 					  <div class="form-group">
                         <label for="exampleInputPetHealth">Health Condition/Allergy</label>
-                        <input type="text" class="form-control" id="exampleInputAddress2" placeholder="Health Condition Status">
+                        <?php echo "<input type='text' class='form-control' id='exampleInputPhone' placeholder='Health Condition Status' name='health' value='$health'required>";?>
                       </div>
 					  
                      
 					  <div class="form-group">
                         <label for="exampleInputDOA">Date Of Arrival to FAS</label>
-                        <input type="date" class="form-control" id="exampleInputDate" placeholder="">
+                        <?php echo "<input type='date' class='form-control' id='exampleInputDate' placeholder='' name='date' value='$date'required>";?>
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGenderPet">Pet Gender</label>
-                        <select class="form-control" id="exampleSelectGender">
+                        <?php echo "<select class='form-control' id='exampleSelectGender' placeholder='Gender' name='gender' value='$gender'required>";?>
                           <option>Male</option>
                           <option>Female</option>
                         </select>
                       </div>
 					  <div class="form-group">
                         <label for="exampleInputPetStory">Pet Story</label>
-                        <input type="text" class="form-control" id="exampleInputPostCode" placeholder="Pet Story">
+                        <?php echo "<input type='text' class='form-control' id='exampleInputPhone' placeholder='Pet Story' name='story' value='$story'required>";?>
                       </div>
                       <div class="form-group">
                         <label>Pet Picture upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <?php echo "<input type='file' name='image' class='file-upload-default' value='upload/$image'>"?>
+                        
                         <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <?php echo "<input type='text' class='form-control file-upload-info' disabled placeholder='Upload Image' name='image' value='$image'required>";?>
                           <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
@@ -87,8 +129,8 @@
                       </div>
                       
 					  
-                      <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <button type="submit" class="btn btn-gradient-primary mr-2" name="update">Update</button>
+                      <button class="btn btn-light" name="cancel">Cancel</button>
                     </form>
                   </div>
                 </div>
@@ -122,3 +164,46 @@
     <!-- End custom js for this page -->
   </body>
 </html>
+
+
+<?php
+  function updatePet(){
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+        if(!$con){
+            echo mysqli_error($con);
+        }else{
+            //Construct SQL statement
+            $id = $_SESSION['updatePetID'];
+            $name = $_POST['name'];
+            $age = $_POST['age'];
+            $type = $_POST['type'];
+            $health = $_POST['health'];
+            $date = $_POST['date'];
+            $gender = $_POST['gender'];
+            $story = $_POST['story'];
+            $image = $_FILES['image']['name'];
+
+            $target = "upload/".basename($_FILES['image']['name']);
+            
+            if(move_uploaded_file($_FILES["image"]["tmp_name"], $target)){
+              // Image db insert sql
+              
+              $sql = "UPDATE pets SET name='$name', age='$age', type='$type', health='$health', date='$date', gender='$gender', story='$story', image='$image' WHERE id='$id'";    
+              if(mysqli_query($con, $sql)){
+                header("Location: editPets.php?id=$id&update=success");
+              }
+              else{
+                echo 'Error: '.mysqli_error($con);
+              }
+            }else{
+              $sql = "UPDATE pets SET name='$name', age='$age', type='$type', health='$health', date='$date', gender='$gender', story='$story' WHERE id='$id'";    
+              if(mysqli_query($con, $sql)){
+                header("Location: editPets.php?id=$id&update=success");
+              }
+              else{
+                echo 'Error: '.mysqli_error($con);
+              }
+            }
+        }
+  }
+?>

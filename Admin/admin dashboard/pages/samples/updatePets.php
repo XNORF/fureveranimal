@@ -97,8 +97,8 @@ if(mysqli_num_rows($query_run) > 0)
       <td> <?php echo $row['story'];?> </td>
       <td><img src="<?php echo "upload/".$row['image']; ?>" width="200px" alt="image"></td>
       <td>
-          
-      <a href=""> <button type ="button" class="btn btn-success editbtn">EDIT</button></a>
+      <?php $id = $row['id'];?>
+      <a href="editPets.php?id=<?php echo $id;?>"> <button type ="button" class="btn btn-success editbtn">EDIT</button></a>
     
     </td>
       <td>
