@@ -5,12 +5,9 @@ session_start();
   if(strlen($_POST['password']) < 6){ //Check if the password is less than 6 in signup form
       header("Location: AddAdmin/signup.php?signup=invalidPass");
   }else{
-      $vkey = signup($_POST);
-      if($vkey!=NULL){
-          //mailverification($vkey);
-          header("Location: loginmain.php?signup=success");
-          exit();
-      } 
+      signup($_POST);
+      header('location: updateAdmin.php');
+      exit();
   }               
 }      
     
@@ -59,6 +56,7 @@ function signup(){ //Signup Function and return VKEY for verification
       mysqli_query($con, "DELETE FROM admin WHERE id=$id");
       $_SESSION['message'] = "Address deleted!"; 
       header('location: updateAdmin.php');
+      exit();
     }
 
   

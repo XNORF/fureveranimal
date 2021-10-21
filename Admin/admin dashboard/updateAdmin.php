@@ -62,8 +62,6 @@
                           <thead>
     <tr>
      
-     
-      <th scope ="col">ID</th>
       <th scope ="col">FIRST NAME</th>
       <th scope ="col">LAST NAME</th>
       <th scope ="col">EMAIL</th>
@@ -84,8 +82,6 @@ if ($query)
 <tbody>
  <tr>
       
-      
-      <td> <?php echo $row['id'];?> </td>
       <td> <?php echo $row['firstname'];?> </td>
       <td> <?php echo $row['lastname'];?> </td>
       <td> <?php echo $row['email'];?> </td>
@@ -94,8 +90,12 @@ if ($query)
 
 
     <td>
-    <a  href="pages/samples/editAdmin.php">
-    <button type="button" class="btn btn-success editbtn">UPDATE</button></a>
+    <?php 
+      $email = $row['email'];
+      echo "<a href='pages/samples/editAdmin.php?email=$email'><button type='button' class='btn btn-success editbtn'>UPDATE</button></a>";
+    ?>
+    
+    
     </td> 
     <td> 
       <form action="UpdateAdminFunction.php" method="post">
