@@ -207,18 +207,7 @@
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.php">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.php">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
+           
 			<li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Check Activity</span>
@@ -227,7 +216,7 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.php"> My Adoption History </a></li>
+                 <li class="nav-item"> <a class="nav-link" href="pages/samples/appointmentpage.php"> Upcoming Appointment </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
                  <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>

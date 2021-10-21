@@ -76,12 +76,14 @@
                     <p class="card-description"> </p>
                     <form class="forms-sample" action="#" method="post">
                       <div class="form-group">
+
                         <label for="exampleInputName1">First name</label>
                         <input type="text" class="form-control" id="exampleInputName1" placeholder="First name" name='firstName' value=<?php echo "'$firstName'";?>>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName2">Last name</label>
                         <input type="text" class="form-control" id="exampleInputName2" placeholder="Last name" name='lastName' value=<?php echo "'$lastName'";?>>
+
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPhone"> Phone Number</label>
