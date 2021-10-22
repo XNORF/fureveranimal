@@ -1,6 +1,16 @@
 <?php 
 session_start();
 
+    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+    if(isset($_GET['del'])) {
+        $id = $_GET['del'];
+        mysqli_query($con, "DELETE FROM admin WHERE id=$id");
+        $_SESSION['message'] = "Address deleted!"; 
+        header('location: updateAdmin.php');
+        exit();
+    }
+
+
  if(isset($_POST['signup'])){
   if(strlen($_POST['password']) < 6){ //Check if the password is less than 6 in signup form
       header("Location: AddAdmin/signup.php?signup=invalidPass");
@@ -51,15 +61,6 @@ function signup(){ //Signup Function and return VKEY for verification
     }
 }
 
-
-     $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-    if (isset($_GET['del'])) {
-      $id = $_GET['del'];
-      mysqli_query($con, "DELETE FROM admin WHERE id=$id");
-      $_SESSION['message'] = "Address deleted!"; 
-      header('location: updateAdmin.php');
-      exit();
-    }
 
   
 ?>
