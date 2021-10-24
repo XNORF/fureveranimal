@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Appointment</title>
+    <title>Fur-Ever Animal Shelter</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
   </head>
   <body>
     <div class="container-scroller">
@@ -202,12 +201,12 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="../../../accountadmin.php.">
+              <a class="nav-link" href=" ../../../accountadmin.php">
                 <span class="menu-title">Account</span>
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
-           
+            
 			<li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Check Activity</span>
@@ -216,7 +215,7 @@
               </a>
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
-                 <li class="nav-item"> <a class="nav-link" href="appointmentpage.php"> Upcoming Appointment </a></li>
+                <li class="nav-item"> <a class="nav-link" href="appointmentpage.php"> Upcoming Appointment </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="adopter-history.php"> Adopter History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="donation-history.php"> Donation History </a></li>
                  <li class="nav-item"> <a class="nav-link" href="volunteer-history.php"> Volunteer History </a></li>
@@ -256,124 +255,114 @@
           </ul>
         </nav>
         <!-- partial -->
-		
-        <div class="main-panel">
-		
+		<div class="main-panel">
           <div class="content-wrapper">
-		  
-		  <h3 class="page-title">Upcoming Appointment</h3><br>
-		 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		  
+              <h3 class="page-title"> Update Admin </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+		<div class="row">
+              <div class="col-12 grid-margin">
                 <div class="card">
-				
                   <div class="card-body">
-				  
-                    <h4 class="card-title">Upcoming Appointment List</h4>
+
+                       
+                <?php
+                  $connection = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
+                  $db = mysqli_select_db($connection,'fureveranimalshelter');
+
+                  $query = "SELECT * FROM admin";
+                  $query_run = mysqli_query($connection,$query);
+                  ?>
+
+
                     
-                    </p>
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th> # </th>
-                          <th> Name </th>
-						  <th>Email</th>
-						<th>Phone</th>
-                          <th> Animal Adopted</th>
-                          <th> Date </th>
-						  <th> Time </th>
-						  <th>Delete</th>
-						  <th>Edit</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="table-info">
-                          <td> 1 </td>
-                          <td> Herman Beck </td>
-						  <td>thomashardy@mail.com</td>
-						<td>(171) 555-2222</td>
-                          <td> Orange </td>
-                          <td> May 15, 2015 </td>
-						  <td> 12:30 PM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-						   <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                        </tr>
-                        <tr class="table-warning">
-                          <td> 2 </td>
-                          <td> Messsy Adam </td>
-						  <td>thomashardy@mail.com</td>
-						<td>(171) 555-2222</td>
-                          <td> Max </td>
-                          <td> July 1, 2015 </td>
-						  <td> 10:00 AM </td>
-						   
-						  <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-						   <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                        <tr class="table-danger">
-                          <td> 3 </td>
-                          <td> John Richards </td>
-						  <td>thomashardy@mail.com</td>
-						<td>(171) 555-2222</td>
-                          <td> Lily </td>
-                          <td> Apr 12, 2015 </td>
-						  <td> 11:45 AM </td>
-						  <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-						   <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                        </tr>
-                        <tr class="table-success">
-                          <td> 4 </td>
-                          <td> Peter Meggik </td>
-						  <td>thomashardy@mail.com</td>
-						<td>(171) 555-2222</td>
-                          <td> Richard </td>
-                          <td> May 15, 2015 </td>
-						  <td> 1:20 PM </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-						   <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                        </tr>
-                        <tr class="table-primary">
-                          <td> 5 </td>
-                          <td> Edward </td>
-						  <td>thomashardy@mail.com</td>
-						<td>(171) 555-2222</td>
-                          <td> Jojo </td>
-                          <td> May 03, 2015 </td>
-						  <td> 1:45 PM </td>
-						  <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-						   <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                        </tr>
-                      </tbody>
-                    </table><br>
-				  </div>
-					<div class="clearfix">
-				<div class="hint-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Showing <b>5</b> out of <b>25</b> entries</div><br>
-				<ul class="pagination" >
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li class="page-item"><a href="#" class="page-link" >Previous</a></li> 
-					<li class="page-item"><a href="#" class="page-link">1</a></li>
-					<li class="page-item"><a href="#" class="page-link">2</a></li>
-					<li class="page-item active"><a href="#" class="page-link">3</a></li>
-					<li class="page-item"><a href="#" class="page-link">4</a></li>
-					<li class="page-item"><a href="#" class="page-link">5</a></li>
-					<li class="page-item"><a href="#" class="page-link">Next</a></li>
-				</ul>
-			</div>
-			<div class="container">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="table-responsive">
+                      <table class="table">
+                        <tbody>
+                          <!-- On tables -->
+
+                          <table class="table table-dark table-hover">
+                          <thead>
+    <tr>
+     
+      <th scope ="col">FIRST NAME</th>
+      <th scope ="col">LAST NAME</th>
+      <th scope ="col">EMAIL</th>
+      <th scope ="col">PHONE NUMBER</th>
+      <th scope ="col">EDIT</th>
+      <th scope ="col">DELETE</th>
+</tr>
+</thead>
+
+<?php
+
+if ($query)
+{
+    foreach($query_run as $row)
+    {
+      ?>
+
+<tbody>
+ <tr>
+      
+      <td> <?php echo $row['firstname'];?> </td>
+      <td> <?php echo $row['lastname'];?> </td>
+      <td> <?php echo $row['email'];?> </td>
+      <td> <?php echo $row['phoneNumber'];?> </td>
+     
+
+
+    <td>
+    <?php 
+      $email = $row['email'];
+      echo "<a href='pages/samples/editAdmin.php?email=$email'><button type='button' class='btn btn-success editbtn'>UPDATE</button></a>";
+    ?>
+    
+    
+    </td> 
+    <td> 
+      <form action="UpdateAdminFunction.php" method="post">
+      <a href="UpdateAdminFunction.php?del=<?php echo $row['id']; ?>" class="btn btn-danger deletebtn">Delete</a>
+    </form>
+    
+</tr> 
+</tbody>
+<?php
+
+}     
+}
+else 
+{
+echo"No Record Found";
+}
+
+?>
+
+</table>
+
+
+
+                      </table>
+					  <div class="container">
+					  <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				  <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
-                  <button type="submit" class="btn btn-gradient-primary mr-2">Cancel</button><br><br><br>
+					  
+            <a  href="../admin dashboard/AddAdmin/signup.php">
+            <button type="submit" class="btn btn-gradient-primary mr-2">ADD ADMIN</button></a>
+			<a href = "indexDashboard.php" button type="submit" class="btn btn-gradient-primary mr-2">BACK TO DASHBOARD</button></a>
+					  </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <footer class="footer">
+			</div>
+      <script>
+	  
+	  <footer class="footer">
             <div class="container-fluid clearfix">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
               <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>

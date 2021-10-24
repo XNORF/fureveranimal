@@ -312,7 +312,7 @@
                           <td> Lily </td>
                           <td> $ 77.99 </td>
                           <td> May 15, 2021 </td>
-						   <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						   <td> <a href="#deleteVolunteerModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-warning">
                           <td> 2 </td>
@@ -320,7 +320,7 @@
                           <td> Nyx </td>
                           <td> $245.30 </td>
                           <td> July 1, 2021 </td>
-						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						  <td> <a href="#deleteVolunteerModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-danger">
                           <td> 3 </td>
@@ -328,7 +328,7 @@
                           <td> Killa </td>
                           <td> $138.00 </td>
                           <td> Apr 12, 2021 </td>
-						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						 <td> <a href="#deleteVolunteerModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-success">
                           <td> 4 </td>
@@ -336,7 +336,7 @@
                           <td> Richard </td>
                           <td> $ 77.99 </td>
                           <td> May 15, 2021 </td>
-						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						 <td> <a href="#deleteVolunteerModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-primary">
                           <td> 5 </td>
@@ -344,7 +344,7 @@
                           <td> Luna </td>
                           <td> $ 160.25 </td>
                           <td> May 03, 2021 </td>
-						  <td> <a href="#deleteVolunteerModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						  <td> <a href="#deleteVolunteerModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                       </tbody>
                     </table><br>

@@ -314,7 +314,7 @@
 						<td>(171) 555-2222</td>
                           <td> Lily </td>
                           <td> May 15, 2021 </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-warning">
                           <td> 2 </td>
@@ -323,7 +323,7 @@
 						<td>(171) 555-2222</td>
                           <td> Nyx </td>
                           <td> July 1, 2021 </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-danger">
                           <td> 3 </td>
@@ -332,7 +332,7 @@
 						<td>(171) 555-2222</td>
                           <td> Killa </td>
                           <td> Apr 12, 2021 </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-success">
                           <td> 4 </td>
@@ -341,7 +341,7 @@
 						<td>(171) 555-2222</td>
                           <td> Richard </td>
                           <td> May 15, 2021 </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                         <tr class="table-primary">
                           <td> 5 </td>
@@ -350,7 +350,7 @@
 						<td>(171) 555-2222</td>
                           <td> Luna </td>
                           <td> May 03, 2021 </td>
-						   <td> <a href="#deleteAdopterModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
+						   <td> <a href="#deleteAdopterModal" class="delete"><i class="btn btn-danger">Delete</a></i></td>
                         </tr>
                       </tbody>
                     </table><br>
