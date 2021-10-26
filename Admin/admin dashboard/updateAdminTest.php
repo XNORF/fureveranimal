@@ -264,6 +264,8 @@
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
+				  <div class="col-md-12" >
+				  <div class="container mt-5">
 
                        
                 <?php
@@ -352,7 +354,7 @@ echo"No Record Found";
 					  
             <a  href="../admin dashboard/AddAdmin/signup.php">
             <button type="submit" class="btn btn-gradient-primary mr-2">ADD ADMIN</button></a>
-			<a href = "indexDashboard.php" button type="submit" class="btn btn-gradient-primary mr-2">BACK TO DASHBOARD</button></a>
+			<!--<a href = "indexDashboard.php" button type="submit" class="btn btn-gradient-primary mr-2">BACK TO DASHBOARD</button></a>-->
 					  </div>
                     </div>
                   </div>
