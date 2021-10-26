@@ -277,6 +277,25 @@
                     <h4 class="card-title">Account</h4>
                     <p class="card-description"> FAS Admin Account</p>
                     <form class="forms-sample">
+					 <div class="form-group avatar">
+                                        <figure class="figure col-md-2 col-sm-3 col-xs-12">
+                                            <img class="img-rounded img-responsive" src="https://i.pinimg.com/originals/51/1e/55/511e55e601bde27297aa70c0a8e717e2.jpg" alt="" width="200">
+                                        </figure>
+                                        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                            
+                                           
+                                        </div>
+                                    </div>
+                      <div class="form-group">
+                        <label>Profile Picture upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
                       <div class="form-group">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -331,7 +350,8 @@
                       <div class="form-check form-check-flat form-check-primary">
                         <label class="form-check-label">
                           <input type="checkbox" class="form-check-input"> Remember me </label>
-                      </div>
+                      </div><br>
+					 <br><br>
                       <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>
@@ -347,25 +367,7 @@
                     <h4 class="card-title">Personal Information</h4><br>
                     <p class="card-description"> </p>
                     <form class="forms-sample">
-					 <div class="form-group avatar">
-                                        <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                            <img class="img-rounded img-responsive" src="https://i.pinimg.com/originals/51/1e/55/511e55e601bde27297aa70c0a8e717e2.jpg" alt="" width="200">
-                                        </figure>
-                                        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                            
-                                           
-                                        </div>
-                                    </div>
-                      <div class="form-group">
-                        <label>Profile Picture upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
+					 
 					
                       <div class="form-group">
                         <label for="exampleInputName1">First Name</label>
