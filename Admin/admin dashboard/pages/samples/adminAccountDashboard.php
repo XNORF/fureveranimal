@@ -206,18 +206,7 @@
                 <i class=" mdi mdi-face  menu-icon"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-            </li>
+            
 			<li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
                 <span class="menu-title">Check Activity</span>
@@ -229,11 +218,22 @@
                   <li class="nav-item"> <a class="nav-link" href="pages/samples/adoption-history.html"> My Adoption History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.html"> Adopter History </a></li>
                  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.html"> Donation History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.html"> Volunteer History </a></li>
+                 <!--<li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.html"> Volunteer History </a></li>-->
                 </ul>
               </div>
             </li>
-           
+           <li class="nav-item">
+              <a class="nav-link" href="../../updateAdmin.php">
+                <span class="menu-title">Admins</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="updatePets.php">
+                <span class="menu-title">Pets</span>
+                <i class=" mdi mdi-contrast-circle  menu-icon"></i>
+              </a>
+            </li>
               
             </li>
             <li class="nav-item sidebar-actions">
@@ -265,8 +265,8 @@
               <h3 class="page-title"> Edit Information </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                  <li class="breadcrumb-item"><a href="#">Admin Account</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Account Information</li>
                 </ol>
               </nav>
             </div>
@@ -278,20 +278,55 @@
                     <p class="card-description"> FAS Admin Account</p>
                     <form class="forms-sample">
                       <div class="form-group">
-                        <label for="exampleInputUsername1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
+                    </div>
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
+                        <label for="exampleInputID">Admin ID Number</label>
+                        <input type="text" class="form-control" id="exampleInputID" placeholder="Admin ID Number">
+                      </div>
+                     
+                      <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input"> Remember me </label>
+                      </div><br>
+					 <br><br>
+                      <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+				
+              </div>
+			   <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Change Account Password</h4>
+                    <p class="card-description" /p>
+					<div class="form-group">
+					<form class="forms-sample">
+                        <label for="exampleInputPassword1">Current Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputConfirmPassword1">Confirm Password</label>
                         <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Password">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputPassword1">New Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Confirm New Password</label>
+                        <input type="password" class="form-control" id="exampleInputConfirmPassword2" placeholder="Password">
                       </div>
                       <div class="form-check form-check-flat form-check-primary">
                         <label class="form-check-label">
@@ -300,77 +335,8 @@
                       <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>
-                  </div>
-                </div>
-              </div>
-			   <div class="col-md-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Amount Donated To FAS</h4>
-                    <p class="card-description" /p>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">@</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text bg-gradient-primary text-white">RM</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                          <span class="input-group-text">.00</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">RM</span>
-                        </div>
-                        <div class="input-group-prepend">
-                          <span class="input-group-text">0.00</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-sm btn-gradient-primary" type="button">Search</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                          </div>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Find in facebook" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                          <button class="btn btn-sm btn-facebook" type="button">
-                            <i class="mdi mdi-facebook"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
+                   
+                    
                   </div>
                 </div>
               </div>
@@ -378,12 +344,36 @@
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Personal Information</h4>
+                    <h4 class="card-title">Personal Information</h4><br>
                     <p class="card-description"> </p>
                     <form class="forms-sample">
+					 <div class="form-group avatar">
+                                        <figure class="figure col-md-2 col-sm-3 col-xs-12">
+                                            <img class="img-rounded img-responsive" src="https://i.pinimg.com/originals/51/1e/55/511e55e601bde27297aa70c0a8e717e2.jpg" alt="" width="200">
+                                        </figure>
+                                        <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                            
+                                           
+                                        </div>
+                                    </div>
                       <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                        <label>Profile Picture upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                          <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
+                        </div>
+                      </div>
+					
+                      <div class="form-group">
+                        <label for="exampleInputName1">First Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="First Name">
+                      </div>
+					  <div class="form-group">
+                        <label for="exampleInputName1">Last Name</label>
+                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Last Name">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPhone"> Phone Number</label>
@@ -424,16 +414,7 @@
                           <option>Female</option>
                         </select>
                       </div>
-                      <div class="form-group">
-                        <label>Profile Picture upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
-                        </div>
-                      </div>
+					 
                       
                       
                       <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
@@ -447,168 +428,11 @@
              
               
               
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Billing Address</h4>
-                    <form class="form-sample">
-                      <p class="card-description"> </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">First Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="Fname" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Last Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="Lname"/>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Gender</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Category</label>
-                            <div class="col-sm-9">
-                              <select class="form-control">
-                                <option>Category1</option>
-                                <option>Category2</option>
-                                <option>Category3</option>
-                                <option>Category4</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                       
-                      </div>
-                      <p class="card-description"> Address </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Address 1</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="address1" />
-                            </div>
-                          </div>
-                        </div>
-                       
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Address 2</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="address2"/>
-                            </div>
-                          </div>
-                        </div>
-						
-                        
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">City</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="city"/>
-                            </div>
-                          </div>
-                        </div>
-						<div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Postcode</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="postcode" />
-                            </div>
-                          </div>
-                        </div>
-						 <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">State</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="state" />
-                            </div>
-                          </div>
-                        </div>
-                         <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Country</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" id="country" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-					  <p class="card-description"> Credit/Debit Card Details </p>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Bank Account Number</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-						
-						<div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Bank Name</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Card Number</label>
-                            <div class="col-sm-9">
-                              <input type="text" class="form-control" />
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      
-						
-						
-						
-						
-						
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
-            <div class="container-fluid clearfix">
-              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>
-            </div>
+            
           </footer>
           <!-- partial -->
         </div>
