@@ -1,12 +1,12 @@
-<?php 
+<?php    
     session_start();
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    
+    include_once '../include/db.php';
     //Load Composer's autoloader
     require 'vendor/autoload.php';
-
+    
     //Handles login & signup functions    
     if(isset($_POST['signup'])){
         if(strlen($_POST['password']) < 6){ //Check if the password is less than 6 in signup form
@@ -35,9 +35,8 @@
 		
 
     function signup(){ //Signup Function and return VKEY for verification
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $firstname = $_POST['firstname'];
@@ -59,8 +58,8 @@
             
             $_SESSION['newuser'] = $email;
         }    
-        if(!mysqli_query($con, $sql)){
-            //echo mysqli_error($con);
+        if(!mysqli_query($GLOBALS['con'], $sql)){
+            //echo mysqli_error($GLOBALS['con']);
             header("Location: register/signup.php?signup=failed");
             exit();
         }else{
@@ -69,17 +68,16 @@
     }
 
     function login(){ //Login Function
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
         $email = $_POST['email'];
         $password = md5($_POST['password']);
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             $sql = "select * from adopter WHERE email = '$email' AND password = '$password' AND verified = '1'"; //Registered & Verified
             $sql2 = "select * from adopter WHERE email = '$email' AND password = '$password' AND verified = '0'"; //Registered & Unverified
             
-            $qry = mysqli_query($con,$sql);
-            $qry2 = mysqli_query($con,$sql2);
+            $qry = mysqli_query($GLOBALS['con'],$sql);
+            $qry2 = mysqli_query($GLOBALS['con'],$sql2);
             
             $count = mysqli_num_rows($qry);
             $count2 = mysqli_num_rows($qry2);
@@ -143,15 +141,14 @@
     }
 	
     function getVkey(){
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $email = $_POST['email'];
 
             $sql = "SELECT vkey FROM adopter WHERE email='$email'";
-            $qry = mysqli_query($con, $sql);
+            $qry = mysqli_query($GLOBALS['con'], $sql);
             $count = mysqli_num_rows($qry);        
             if($count == 1){
                 $userRecord = mysqli_fetch_assoc($qry);
@@ -219,14 +216,13 @@
             exit();
         }else if($pass1 == $pass2){
             $password = md5($pass1); // ADD MD5 LATER
-            $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-            if(!$con){
-                echo mysqli_error($con);
+            if(!$GLOBALS['con']){
+                echo mysqli_error($GLOBALS['con']);
             }else{
                 //Construct SQL statement                       
                 $sql = "UPDATE adopter SET password='$password' WHERE vkey='$vkey' AND email='$email'";
-                if(!mysqli_query($con, $sql)){
-                    //echo mysqli_error($con);
+                if(!mysqli_query($GLOBALS['con'], $sql)){
+                    //echo mysqli_error($GLOBALS['con']);
                     header("Location: loginmain.php?reset=failed");
                     exit();
                 }else{
@@ -242,4 +238,3 @@
         }
            
      }
-?>

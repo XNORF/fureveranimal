@@ -1,4 +1,5 @@
 <?php
+   include_once '../include/db.php';
    session_start();
 
    if(isset($_GET['vkey'])){
@@ -111,17 +112,15 @@
 </html>
 
 <?php
-   function valid(){
-      
-      $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+   function valid(){      
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $vkey = $_SESSION['resetPassVkey'];
             $email = $_SESSION['resetPass'];
             $sql = "SELECT * FROM adopter WHERE email='$email' AND vkey='$vkey'";
-            $qry = mysqli_query($con, $sql);
+            $qry = mysqli_query($GLOBALS['con'], $sql);
             $count = mysqli_num_rows($qry);        
             if($count == 1){
                 return true;

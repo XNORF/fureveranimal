@@ -1,17 +1,17 @@
 <?php
+    include_once '../include/db.php';
     session_start();
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
     $email = $_SESSION['adopter'];
-    if(!$con){
-        echo mysqli_error($con);
+    if(!$GLOBALS['con']){
+        echo mysqli_error($GLOBALS['con']);
     }else{
         $sql = "select * from adopter WHERE email = '$email'";        
-        $qry = mysqli_query($con,$sql);
+        $qry = mysqli_query($GLOBALS['con'],$sql);
         $userRecord = mysqli_fetch_assoc($qry);
         $username = $userRecord['username'];
 
         $sql2 = "select * from billing WHERE email = '$email'";
-        $qry2 = mysqli_query($con,$sql2);
+        $qry2 = mysqli_query($GLOBALS['con'],$sql2);
         $count = mysqli_num_rows($qry2);
 
         if($count == 1){

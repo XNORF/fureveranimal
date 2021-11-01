@@ -1,15 +1,15 @@
 <?php
+  include_once '../include/db.php';
   session_start();
   
   if(isset($_GET['pet']) && isset($_GET['id'])){
     $pet = $_GET['pet'];
     $id = $_GET['id'];
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-    if(!$con){
-      echo mysqli_error($con);
+    if(!$GLOBALS['con']){
+      echo mysqli_error($GLOBALS['con']);
     }else{
         $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";        
-        $qry = mysqli_query($con,$sql);
+        $qry = mysqli_query($GLOBALS['con'],$sql);
         $count = mysqli_num_rows($qry);
         if($count == 1){
           $userRecord = mysqli_fetch_assoc($qry);

@@ -1,4 +1,5 @@
 <?php
+	include_once '../../include/db.php';
 	session_start();
 
 	if(isSet($_POST['login'])){
@@ -8,15 +9,14 @@
 	}
 
 	function login(){		
-		$con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
 		$email = $_POST['email'];
 		$password = md5($_POST['password']);
 		
-		if(!$con){		
-			echo mysqli_error($con);		
+		if(!$GLOBALS['con']){		
+			echo mysqli_error($GLOBALS['con']);		
 		}else{			
 			$sql = "select * from admin WHERE email = '$email' AND password = '$password'";
-			$qry = mysqli_query($con,$sql);
+			$qry = mysqli_query($GLOBALS['con'],$sql);
 			$count = mysqli_num_rows($qry);
 			
 			if($count == 1){

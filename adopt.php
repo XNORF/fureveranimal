@@ -1,8 +1,8 @@
 <?php
-  $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-  $db = mysqli_select_db($con,'fureveranimalshelter');
+  include_once 'include/db.php';
+  $db = mysqli_select_db($GLOBALS['con'],'fureveranimalshelter');
   $qry = "SELECT * FROM pets";
-  $query_run = mysqli_query($con,$qry);
+  $query_run = mysqli_query($GLOBALS['con'],$qry);
 ?>
 
 <!DOCTYPE html>

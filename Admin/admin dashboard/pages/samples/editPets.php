@@ -1,15 +1,15 @@
 <?php
+  include_once '../../../../include/db.php';
   session_start();    
-  $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
   
   if(isset($_GET['id'])){
     $id = $_GET['id'];
     $_SESSION['updatePetID'] = $id;
-    if(!$con){
-        echo mysqli_error($con);
+    if(!$GLOBALS['con']){
+        echo mysqli_error($GLOBALS['con']);
     }else{
         $sql = "select * from pets WHERE id = '$id'";        
-        $qry = mysqli_query($con,$sql);
+        $qry = mysqli_query($GLOBALS['con'],$sql);
         $userRecord = mysqli_fetch_assoc($qry);
         $count = mysqli_num_rows($qry);
         if($count == 1){
@@ -168,9 +168,8 @@
 
 <?php
   function updatePet(){
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $id = $_SESSION['updatePetID'];
@@ -189,19 +188,19 @@
               // Image db insert sql
               
               $sql = "UPDATE pets SET name='$name', age='$age', type='$type', health='$health', date='$date', gender='$gender', story='$story', image='$image' WHERE id='$id'";    
-              if(mysqli_query($con, $sql)){
+              if(mysqli_query($GLOBALS['con'], $sql)){
                 header("Location: editPets.php?id=$id&update=success");
               }
               else{
-                echo 'Error: '.mysqli_error($con);
+                echo 'Error: '.mysqli_error($GLOBALS['con']);
               }
             }else{
               $sql = "UPDATE pets SET name='$name', age='$age', type='$type', health='$health', date='$date', gender='$gender', story='$story' WHERE id='$id'";    
-              if(mysqli_query($con, $sql)){
+              if(mysqli_query($GLOBALS['con'], $sql)){
                 header("Location: editPets.php?id=$id&update=success");
               }
               else{
-                echo 'Error: '.mysqli_error($con);
+                echo 'Error: '.mysqli_error($GLOBALS['con']);
               }
             }
         }

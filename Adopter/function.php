@@ -1,4 +1,5 @@
 <?php
+    include_once '../include/db.php';
     session_start();
     if(isset($_POST['updateProfile'])){
         updateProfile($_POST);
@@ -11,9 +12,8 @@
     }
 
     function updateProfile(){
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $email = $_POST['email'];
@@ -26,8 +26,8 @@
 
             $sql = "UPDATE adopter SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
         }    
-        if(!mysqli_query($con, $sql)){
-            //echo mysqli_error($con);
+        if(!mysqli_query($GLOBALS['con'], $sql)){
+            //echo mysqli_error($GLOBALS['con']);
             header("Location: accountadopter.php?update=failed");
             exit();
         }else{
@@ -44,9 +44,8 @@
         }else if((strlen($_POST['currentPassword']) < 6) || (strlen($_POST['newPassword']) < 6)){
             header("Location: changepassadopter.php?update=invalid");
         }else{
-            $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-            if(!$con){
-                echo mysqli_error($con);
+            if(!$GLOBALS['con']){
+                echo mysqli_error($GLOBALS['con']);
             }else{
                 //Construct SQL statement
                 $email = $_SESSION['adopter'];
@@ -54,12 +53,12 @@
                 $newPassword = md5($_POST['newPassword']);                
                 
                 $sql = "SELECT * FROM adopter WHERE email='$email' AND password='$currentPassword'";
-                $qry = mysqli_query($con,$sql);            
+                $qry = mysqli_query($GLOBALS['con'],$sql);            
                 $count = mysqli_num_rows($qry);
 
                 if($count == 1){
                     $sql2 = "UPDATE adopter SET password='$newPassword' WHERE email='$email' AND password='$currentPassword'";
-                    mysqli_query($con, $sql2);
+                    mysqli_query($GLOBALS['con'], $sql2);
                     header("Location: changepassadopter.php?update=success");
                     exit();
                 }else{
@@ -71,9 +70,8 @@
     }
 
     function updateCard(){
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $email = $_SESSION['adopter'];
@@ -83,12 +81,12 @@
             $cvv = $_POST["cvv"];
 
             $sql = "SELECT * FROM billing WHERE email='$email'";
-            $qry = mysqli_query($con,$sql);            
+            $qry = mysqli_query($GLOBALS['con'],$sql);            
             $count = mysqli_num_rows($qry);
 
             if($count == 1){
                 $sqlupdate = "UPDATE billing SET name='$name', cardnumber='$cardNumber', expdate='$expDate', cvv='$cvv' WHERE email = '$email'";
-                if(!mysqli_query($con,$sqlupdate)){
+                if(!mysqli_query($GLOBALS['con'],$sqlupdate)){
                     header("Location: billingadopter.php?update=failed");
                     exit();
                 }else{                    
@@ -97,7 +95,7 @@
                 }
             }else{
                 $sqlinsert = "INSERT INTO billing (email, name, cardnumber, expdate, cvv) VALUES ('$email', '$name', '$cardNumber', '$expDate', '$cvv')";
-                if(!mysqli_query($con, $sqlinsert)){
+                if(!mysqli_query($GLOBALS['con'], $sqlinsert)){
                     header("Location: billingadopter.php?update=failed");
                     exit();
                 }else{                    

@@ -1,15 +1,15 @@
 <?php
+  include_once '../../../../include/db.php';
   session_start();    
-  $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
   
   if(isset($_GET['email'])){
     $email = $_GET['email'];
     $_SESSION['updateAdminID'] = $email;
-    if(!$con){
-        echo mysqli_error($con);
+    if(!$GLOBALS['con']){
+        echo mysqli_error($GLOBALS['con']);
     }else{
         $sql = "select * from admin WHERE email = '$email'";        
-        $qry = mysqli_query($con,$sql);
+        $qry = mysqli_query($GLOBALS['con'],$sql);
         $userRecord = mysqli_fetch_assoc($qry);
         $firstName = $userRecord['firstname'];
         $lastName = $userRecord['lastname'];
@@ -148,9 +148,8 @@
 
 <?php
   function updateAdmin(){
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $email = $_SESSION['updateAdminID'];
@@ -165,8 +164,8 @@
 
             $sql = "UPDATE admin SET firstname='$firstName', lastname='$lastName', phoneNumber='$phoneNumber', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
         }    
-        if(!mysqli_query($con, $sql)){
-            //echo mysqli_error($con);
+        if(!mysqli_query($GLOBALS['con'], $sql)){
+            //echo mysqli_error($GLOBALS['con']);
             header('Location: editAdmin.php?email='.$email.'&update=failed');
             exit();
         }else{

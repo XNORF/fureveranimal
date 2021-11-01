@@ -1,4 +1,5 @@
 <?php
+  include_once '../include/db.php';
   session_start();
   if(isset($_GET['pet']) && isset($_GET['id'])){
     $pet = $_GET['pet'];
@@ -6,12 +7,11 @@
     $_SESSION['pet'] = $pet;
     $_SESSION['id'] = $id;
 
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-    if(!$con){
-      echo mysqli_error($con);
+    if(!$GLOBALS['con']){
+      echo mysqli_error($GLOBALS['con']);
     }else{
         $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";        
-        $qry = mysqli_query($con,$sql);
+        $qry = mysqli_query($GLOBALS['con'],$sql);
         $count = mysqli_num_rows($qry);
         if($count == 1){
         }else{
@@ -39,12 +39,11 @@
       header("Location: appointmentpage.php?pet=$pet&id=$id&error=invalid-day");
       exit();
     }else{
-      $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-      if(!$con){
-        echo mysqli_error($con);
+      if(!$GLOBALS['con']){
+        echo mysqli_error($GLOBALS['con']);
       }else{
           $sql = "select * from ";// Update here one day
-          $qry = mysqli_query($con,$sql);
+          $qry = mysqli_query($GLOBALS['con'],$sql);
           $count = mysqli_num_rows($qry);
           if($count == 0){
           }else{

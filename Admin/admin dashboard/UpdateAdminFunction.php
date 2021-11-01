@@ -1,10 +1,10 @@
 <?php 
+include_once '../../include/db.php';
 session_start();
 
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
     if(isset($_GET['del'])) {
         $id = $_GET['del'];
-        mysqli_query($con, "DELETE FROM admin WHERE id=$id");
+        mysqli_query($GLOBALS['con'], "DELETE FROM admin WHERE id=$id");
         $_SESSION['message'] = "Address deleted!"; 
         header('location: updateAdmin.php');
         exit();
@@ -29,9 +29,8 @@ session_start();
 <?php
 
 function signup(){ //Signup Function and return VKEY for verification
-    $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-    if(!$con){
-        echo mysqli_error($con);
+    if(!$GLOBALS['con']){
+        echo mysqli_error($GLOBALS['con']);
     }else{
         //Construct SQL statement
         $firstname = $_POST['firstname'];
@@ -52,8 +51,8 @@ function signup(){ //Signup Function and return VKEY for verification
         
      
     }    
-    if(!mysqli_query($con, $sql)){
-        //echo mysqli_error($con);
+    if(!mysqli_query($GLOBALS['con'], $sql)){
+        //echo mysqli_error($GLOBALS['con']);
         header("Location: AddAdmin/signup.php?signup=failed");
         exit();
     }else{

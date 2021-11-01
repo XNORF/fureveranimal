@@ -1,4 +1,5 @@
 <?php
+    include_once '../include/db.php';
     if(isset($_POST['updateProfile'])){
         updateProfile($_POST);
     }else if(isset($_POST['updateImg'])){
@@ -6,9 +7,8 @@
     }
 
     function updateProfile(){
-        $con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-        if(!$con){
-            echo mysqli_error($con);
+        if(!$GLOBALS['con']){
+            echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $email = $_POST['email'];
@@ -21,8 +21,8 @@
 
             $sql = "UPDATE admin SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
         }    
-        if(!mysqli_query($con, $sql)){
-            //echo mysqli_error($con);
+        if(!mysqli_query($GLOBALS['con'], $sql)){
+            //echo mysqli_error($GLOBALS['con']);
             header("Location: accountadmin.php?update=failed");
             exit();
         }else{

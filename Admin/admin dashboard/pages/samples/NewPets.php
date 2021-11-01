@@ -1,7 +1,6 @@
 <?php 
-
+include_once '../../../../include/db.php';
 // database Connection
-$con = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
 
 if(isset($_POST['addPet'])){
   //the targeted path to store the uploaded image
@@ -31,11 +30,11 @@ if(isset($_POST['addPet'])){
       // Image db insert sql
       
       $insert = "INSERT into pets(name, age, type, health, date, gender, story, image) values('$name', '$age', '$type', '$health', '$date', '$gender', '$story', '$image')";    
-      if(mysqli_query($con, $insert)){
+      if(mysqli_query($GLOBALS['con'], $insert)){
         header("Location: updatePets.php");
       }
       else{
-        echo 'Error: '.mysqli_error($con);
+        echo 'Error: '.mysqli_error($GLOBALS['con']);
       }
     }else{
       echo 'Error in uploading file - '.$_FILES['image']['name'].'<br/>';
