@@ -1,7 +1,7 @@
 <?php
-  include_once '../include/db.php';
-  $qry = "SELECT * FROM pets";
-  $query_run = mysqli_query($GLOBALS['con'],$qry);
+include_once '../include/db.php';
+$qry = "SELECT * FROM pets";
+$query_run = mysqli_query($GLOBALS['con'], $qry);
 ?>
 
 <!DOCTYPE html>
@@ -48,33 +48,35 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
-	
-		
+        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png"></span></a></h1>
+
+
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="index.php">About Us</a></li>
+          <li><a class="nav-link scrollto" href="index.php#about">About Us</a></li>
           <li class="dropdown"><a href="#"><span>What We Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="rehoming.php">Shelter, Rehabilitation & Rehoming</a></li>
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
-		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="donation/donation.php">Donate</a></li>
-			  <li><a href="volunteer.php">Volunteer</a></li>
+              <li><a href="volunteer.php">Volunteer</a></li>
             </ul>
           </li>
-		   
+
           <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
-		  <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
-      <form action="adopterFunction.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form>
+          <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
+          <form action="adopterFunction.php" method="POST">
+            <li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li>
+          </form>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -127,17 +129,17 @@
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
           <?php
-            if(mysqli_num_rows($query_run) > 0){
-              foreach($query_run as $row){
-                $id = $row['id'];
-                $name = $row['name'];
-                $age = $row['age'];
-                $image = $row['image'];
-                $type = $row['type'];
+          if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $row) {
+              $id = $row['id'];
+              $name = $row['name'];
+              $age = $row['age'];
+              $image = $row['image'];
+              $type = $row['type'];
 
-                if($type == "Cat"){
-                  echo 
-                  "<div class='col-lg-4 col-md-6 portfolio-item filter-cat'>
+              if ($type == "Cat") {
+                echo
+                "<div class='col-lg-4 col-md-6 portfolio-item filter-cat'>
                     <div class='portfolio-wrap'>
                       <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' class='img-fluid' alt=''>
                       <div class='portfolio-links'>
@@ -150,9 +152,9 @@
                       </div>
                     </div>
                   </div>";
-                }else if($type == "Dog"){
-                  echo 
-                  "<div class='col-lg-4 col-md-6 portfolio-item filter-dog'>
+              } else if ($type == "Dog") {
+                echo
+                "<div class='col-lg-4 col-md-6 portfolio-item filter-dog'>
                     <div class='portfolio-wrap'>
                       <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' class='img-fluid' alt=''>
                       <div class='portfolio-links'>
@@ -165,11 +167,10 @@
                       </div>
                     </div>
                   </div>";
-                }
               }
-            }else{
-
             }
+          } else {
+          }
           ?>
 
         </div>
@@ -177,7 +178,7 @@
       </div>
     </section><!-- End Portfolio Section -->
 
-    
+
 
   </main><!-- End #main -->
 
@@ -190,7 +191,7 @@
           <div class="col-lg-6">
             <h4>Report Animal Cruelty</h4>
             <p>To protect the animals from being abused, click this button.</p>
-			<a href="https://akh.dvs.gov.my/support" class="btn-get-started scrollto"><b>REPORT</b></a>
+            <a href="https://akh.dvs.gov.my/support" class="btn-get-started scrollto"><b>REPORT</b></a>
             </form>
           </div>
         </div>
@@ -206,8 +207,8 @@
             <p>
               Jalan Sultan Yahya Petra,<br>
               Kampung Datuk Keramat,<br>
-			   54100 Kuala Lumpur, <br>
-              Wilayah Persekutuan Kuala Lumpur  <br><br>
+              54100 Kuala Lumpur, <br>
+              Wilayah Persekutuan Kuala Lumpur <br><br>
               <strong>Phone:</strong> +03-4256 5312<br>
               <strong>Email:</strong> fureveranimal@gmail.com<br>
             </p>
@@ -251,7 +252,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
+
     </div>
   </footer><!-- End Footer -->
 
