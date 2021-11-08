@@ -8,24 +8,23 @@ if (!$GLOBALS['con']) {
   $sql = "select * from admin WHERE email = '$email'";
   $qry = mysqli_query($GLOBALS['con'], $sql);
   $userRecord = mysqli_fetch_assoc($qry);
+  $id = $userRecord['id'];
   $username = $userRecord['username'];
+  $firstName = $userRecord['firstname'];
+  $lastName = $userRecord['lastname'];
+  $address1 = $userRecord['address1'];
+  $address2 = $userRecord['address2'];
+  $postcode = $userRecord['postcode'];
+  $city = $userRecord['city'];
+  $state = $userRecord['state'];
   $profileimg = $userRecord['image'];
 }
 
-if (isset($_GET['del'])) {
-  $id = $_GET['del'];
-  mysqli_query($GLOBALS['con'], "DELETE FROM pets WHERE id='$id'");
-  header('location: updatePets.php?msg=delSuccess');
-}
-
-if (isset($_GET['msg'])) {
-  $msgCheck = $_GET['msg'];
-
-  if (isset($_GET['id'])) {
-    $requestedId = $_GET['id'];
-  }
+if (isset($_GET['update'])) {
+  $updateCheck = $_GET['update'];
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,59 +34,44 @@ if (isset($_GET['msg'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Fur-Ever Animal Shelter</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <!-- endinject -->
   <!-- Layout styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <link rel="stylesheet" href="assets/css/dataTableStyle.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-
+  <link rel="stylesheet" href="../../assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body>
-
   <?php
-  if (isset($msgCheck)) {
-    if ($msgCheck == "confirmDelete" && isset($requestedId)) {
-      echo "<script type='text/javascript'>
-              Swal.fire({
-                title: 'Are you sure?',
-                text: 'You won\'t be able to revert this!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-              }).then((result) => {
-                if (result.isConfirmed) {
-                  window.location = 'updatePets.php?del=$requestedId';
-                }else{
-                  window.location = 'updatePets.php?';
-                }
-              })
-            </script>";
-    } else if ($msgCheck == "delSuccess") {
-      echo "<script type='text/javascript'>
-              Swal.fire(
-                'Deleted!',
-                'Pet has been deleted.',
-                'success'
-              )
-            </script>";
+  if (isset($updateCheck)) {
+    if ($updateCheck == "failed") {
+      echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+                </script>";
+    } else if ($updateCheck == "success") {
+      echo "<script>
+                Swal.fire(
+                    'Success',
+                    'Update Successful',
+                    'success'
+                )
+                </script>";
     }
   }
   ?>
+
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -270,7 +254,7 @@ if (isset($_GET['msg'])) {
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href=" accountadmin.php">
+            <a class="nav-link" href="accountadmin.php">
               <span class="menu-title">Account</span>
               <i class=" mdi mdi-face  menu-icon"></i>
             </a>
@@ -323,158 +307,137 @@ if (isset($_GET['msg'])) {
         </ul>
       </nav>
       <!-- partial -->
+
+
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="container">
-            <div class="row">
-              <h3 class="page-title col-md-1">
-                <center>PETS</center>
-              </h3>
-              <div class="col-md-8"></div>
-              <div class="col-md-2">
-                <center><a href="\masterfureveranimal\Admin\admin dashboard\pages\samples\NewPets.php"> <input value="ADD PETS" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
-              </div>
-            </div>
+          <div class="page-header">
+            <h3 class="page-title"> Edit Information </h3>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Admin Account</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Account Information</li>
+              </ol>
+            </nav>
           </div>
-
-          <div class="container mt-2">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="">
-                  <div class="">
-                    <?php
-
-                    $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
-
-                    $query = "SELECT * FROM pets";
-                    $query_run = mysqli_query($GLOBALS['con'], $query);
-
-                    ?>
-
-
-                    <table class="table" style="background-color:#F0C6F2">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <tbody>
-                            <!-- On tables -->
-
-                            <table id="petTable" class="table table-light table-hover table-striped table-md">
-                              <thead>
-                                <tr>
-
-                                  <th scope="col" class="th-sm">IMAGE</th>
-                                  <th scope="col" class="th-sm">NAME</th>
-                                  <th scope="col" class="th-sm">HEALTH CONDITION/ALLERGY</th>
-                                  <!--<th scope="col">STORY</th>-->
-                                  <th scope="col" class="th-sm">DATE ARRIVED</th>
-                                  <th scope="col" class="th-sm">STATUS</th>
-                                  <th scope="col" class="th-sm">UPDATE</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-
-                                <?php
-
-                                if (mysqli_num_rows($query_run) > 0) {
-
-                                  foreach ($query_run as $row) {
-                                ?>
-                                    <tr class="text-black">
-
-                                      <td>
-                                        <h1 visibility: hidden><?php echo $row['id']; ?></h1>
-                                        <img src="<?php echo "upload/" . $row['image']; ?>" class="col-xs-12" alt="<?php echo $row['image']; ?>">
-                                      </td>
-                                      <td> <?php echo $row['name']; ?> </td>
-                                      <td> <?php echo $row['health']; ?> </td>
-                                      <td> <?php echo $row['date']; ?> </td>
-                                      <td> <?php
-                                            if ($row['status'] == 0) {
-                                              echo "Available";
-                                            } else if ($row['status'] == 1) {
-                                              echo "Booked";
-                                            } else if ($row['status'] == 2) {
-                                              echo "Adopted";
-                                            }
-                                            ?> </td>
-                                      <!--<td> <?php //echo $row['story']; 
-                                                ?> </td>-->
-                                      <td>
-                                        <?php $id = $row['id']; ?>
-                                        <a href="editPets.php?id=<?php echo $id; ?>"> <button type="button" class="btn btn-success">&nbsp&nbsp&nbspEDIT&nbsp&nbsp&nbsp</button></a><br>
-                                        <form action="updatePets.php" method="post">
-                                          <a href="updatePets.php?msg=confirmDelete&id=<?php echo $row['id']; ?>"> <button type="button" class="btn btn-danger">DELETE</button></a>
-
-                                      </td>
-
-                                    </tr>
-
-                                  <?php
-                                  }
-                                } else {
-                                  ?>
-
-                                  <tr>
-
-                                    <td>No Record Available</td>
-
-                                  </tr>
-
-                                <?php
-                                }
-                                ?>
-
-                              </tbody>
-                            </table>
-
-                            <div class="container">
-                              <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-                              <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
-                              </form>
-
-                            </div>
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Account</h4>
+                  <p class="card-description"> FAS Admin Account</p>
+                  <form class="forms-sample" method="POST" action="../../../function.php" enctype="multipart/form-data">
+                    <div class="form-group avatar">
+                      <center>
+                        <figure class="figure">
+                          <img class="img-profile rounded-circle img-responsive center-block" src="<?php echo "../../../../profileimg/" . $profileimg; ?>" alt="" width="200" height="200">
+                        </figure>
+                      </center>
+                    </div>
+                    <div class="form-group">
+                      <label>Profile Picture upload</label>
+                      <input type="file" name="image" class="file-upload-default" value="<?php echo $profileimg; ?>">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
                       </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">@</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="<?php echo $username; ?>">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email" value="<?php echo $email; ?>" readonly>
+                    </div>
+                    <div class=" form-group">
+                      <label for="exampleInputID">Admin ID Number</label>
+                      <input type="text" class="form-control" id="exampleInputID" placeholder="Admin ID Number" name="id" value="<?php echo $id; ?>" readonly>
+                    </div>
+                    <br><br><br>
+                    <button type="submit" class="btn btn-gradient-primary mr-2" name="updateProfile">Update</button>
 
-                  </div>
                 </div>
-
               </div>
-              <!-- partial -->
+
             </div>
-            <!-- main-panel ends -->
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Personal Information</h4>
+                  <p class="card-description"></p>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">First Name</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="First Name" name="firstname" value="<?php echo $firstName; ?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Last Name</label>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword1" placeholder="Last Name" name="lastname" value="<?php echo $lastName; ?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Address 1</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Address 1" name="address1" value="<?php echo $address1; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Address 2</label>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="Address 2" name="address2" value="<?php echo $address2; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">Postcode</label>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="Postcode" name="postcode" value="<?php echo $postcode; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">City</label>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="City" name="city" value="<?php echo $city; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputConfirmPassword1">State</label>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword2" placeholder="State" name="state" value="<?php echo $state; ?>">
+                  </div>
+                  <br><br>
+                  <button type="submit" class="btn btn-gradient-primary mr-2" name="updateProfile">Update</button>
+                  </form>
+
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+            <!-- content-wrapper ends -->
+            <!-- partial:../../partials/_footer.html -->
+            <!-- partial -->
           </div>
-          <!-- page-body-wrapper ends -->
-
-          <!-- container-scroller -->
-          <!-- plugins:js -->
-          <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-          <!-- endinject -->
-          <!-- Plugin js for this page -->
-          <!-- End plugin js for this page -->
-          <!-- inject:js -->
-          <script src="../../assets/js/off-canvas.js"></script>
-          <script src="../../assets/js/hoverable-collapse.js"></script>
-          <script src="../../assets/js/misc.js"></script>
-
-          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-          <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-          <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
-
-          <script type="text/javascript">
-            $(document).ready(function() {
-              $('#petTable').DataTable();
-            });
-          </script>
-          <!-- endinject -->
-          <!-- Custom js for this page -->
-          <!-- End custom js for this page -->
+          <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+      </div>
+      <!-- container-scroller -->
+      <!-- plugins:js -->
+      <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+      <!-- endinject -->
+      <!-- Plugin js for this page -->
+      <!-- End plugin js for this page -->
+      <!-- inject:js -->
+      <script src="../../assets/js/off-canvas.js"></script>
+      <script src="../../assets/js/hoverable-collapse.js"></script>
+      <script src="../../assets/js/misc.js"></script>
+      <!-- endinject -->
+      <!-- Custom js for this page -->
+      <script src="../../assets/js/file-upload.js"></script>
+      <!-- End custom js for this page -->
 </body>
 
 </html>

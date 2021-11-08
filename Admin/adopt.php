@@ -1,3 +1,9 @@
+<?php
+include_once '../include/db.php';
+$qry = "SELECT * FROM pets";
+$query_run = mysqli_query($GLOBALS['con'], $qry);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +48,9 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
-	
-		
+        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png"></span></a></h1>
+
+
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -58,17 +64,17 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
-		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
-              <li><a href="donation/donation.php">Donate</a></li>
-			  <li><a href="volunteer.php">Volunteer</a></li>
             </ul>
           </li>
-		   
+
           <li><a class="nav-link scrollto" href="index.php">Contact</a></li>
-		  <li><a class="nav-link scrollto" href="accountadmin.php">Account</a></li>
-      <form action="login/function.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form>
+          <li><a class="nav-link scrollto" href="admin%20dashboard/pages/samples/accountadmin.php">Account</a></li>
+          <form action="login/function.php" method="POST">
+            <li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li>
+          </form>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -112,265 +118,62 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Cats</li>
-              <li data-filter=".filter-card">Dogs</li>
+              <li data-filter=".filter-cat">Cats</li>
+              <li data-filter=".filter-dog">Dogs</li>
             </ul>
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Lily"><i class="bi bi-plus"></i></a>
-                <a href="lily.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Lily</h4>
-                <p>5 months old</p>
-              </div>
-            </div>
-          </div>
+          <?php
+          if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $row) {
+              $id = $row['id'];
+              $name = $row['name'];
+              $age = $row['age'];
+              $image = $row['image'];
+              $type = $row['type'];
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Marshmallow"><i class="bi bi-plus"></i></a>
-                <a href="marshmallow.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Marshmallow</h4>
-                <p>2 years old</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Nyx"><i class="bi bi-plus"></i></a>
-                <a href="nyx.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Nyx</h4>
-                <p>1 year old</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Peanut"><i class="bi bi-plus"></i></a>
-                <a href="peanut.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Peanut</h4>
-                <p>9 months old</p>
-              </div>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat10_.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat10_.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Grey"><i class="bi bi-plus"></i></a>
-                <a href="grey.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Grey</h4>
-                <p>1.5 years old</p>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="King"><i class="bi bi-plus"></i></a>
-                <a href="king.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>King</h4>
-                <p>10 months old</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/blindcat2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/blindcat2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bailey"><i class="bi bi-plus"></i></a>
-                <a href="bailey.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Bailey</h4>
-                <p>3 years old</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/blindog.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/blindog.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                <a href="cooper.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Cooper</h4>
-                <p>2 years old</p>
-              </div>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
-                <a href="luna.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Luna</h4>
-                <p>1 year old</p>
-              </div>
-            </div>
-          </div>
-		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                <a href="ian.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Ian</h4>
-                <p>8 months old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
-                <a href="killa.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Killa</h4>
-                <p>1.3 year old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                <a href="wolfie.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Wolfie</h4>
-                <p>4 years old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/disabledcat.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/disabledcat.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
-                <a href="jojo.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Jojo</h4>
-                <p>4.2 years old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                <a href="richard.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Richard</h4>
-                <p>1.1 years old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
-                <a href="cassie.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Cassie</h4>
-                <p>4 months old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog11.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog11.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                <a href="fraiser.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Fraiser</h4>
-                <p>5 years old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/cat12.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat12.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
-                <a href="darcy.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Darcy</h4>
-                <p>1.8 years old</p>
-              </div>
-            </div>
-          </div>
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dog12.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dog12.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
-                <a href="marius.php" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>Marius</h4>
-                <p>2.3 years old</p>
-              </div>
-            </div>
-          </div>
-
+              if ($type == "Cat") {
+                echo
+                "<div class='col-lg-4 col-md-6 portfolio-item filter-cat'>
+                    <div class='portfolio-wrap'>
+                      <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' class='img-fluid' alt=''>
+                      <div class='portfolio-links'>
+                        <a href='../Admin/admin%20dashboard/pages/samples/upload/$image' data-gallery='portfolioGallery' class='portfolio-lightbox' title='$name'><i class='bi bi-plus'></i></a>
+                      </div>
+                      <div class='portfolio-info'>
+                        <h4>$name</h4>
+                        <p>$age old</p>
+                      </div>
+                    </div>
+                  </div>";
+              } else if ($type == "Dog") {
+                echo
+                "<div class='col-lg-4 col-md-6 portfolio-item filter-dog'>
+                    <div class='portfolio-wrap'>
+                      <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' class='img-fluid' alt=''>
+                      <div class='portfolio-links'>
+                        <a href='../Admin/admin%20dashboard/pages/samples/upload/$image' data-gallery='portfolioGallery' class='portfolio-lightbox' title='$name'><i class='bi bi-plus'></i></a>
+                      </div>
+                      <div class='portfolio-info'>
+                        <h4>$name</h4>
+                        <p>$age old</p>
+                      </div>
+                    </div>
+                  </div>";
+              }
+            }
+          } else {
+          }
+          ?>
         </div>
 
       </div>
     </section><!-- End Portfolio Section -->
 
-    
+
 
   </main><!-- End #main -->
 
@@ -383,7 +186,7 @@
           <div class="col-lg-6">
             <h4>Report Animal Cruelty</h4>
             <p>To protect the animals from being abused, click this button.</p>
-			<a href="https://akh.dvs.gov.my/support" class="btn-get-started scrollto"><b>REPORT</b></a>
+            <a href="https://akh.dvs.gov.my/support" class="btn-get-started scrollto"><b>REPORT</b></a>
             </form>
           </div>
         </div>
@@ -399,8 +202,8 @@
             <p>
               Jalan Sultan Yahya Petra,<br>
               Kampung Datuk Keramat,<br>
-			   54100 Kuala Lumpur, <br>
-              Wilayah Persekutuan Kuala Lumpur  <br><br>
+              54100 Kuala Lumpur, <br>
+              Wilayah Persekutuan Kuala Lumpur <br><br>
               <strong>Phone:</strong> +03-4256 5312<br>
               <strong>Email:</strong> fureveranimal@gmail.com<br>
             </p>
@@ -444,7 +247,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
+
     </div>
   </footer><!-- End Footer -->
 

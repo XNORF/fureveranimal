@@ -28,7 +28,7 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/boxdesign.css" rel="stylesheet">
   <link href="assets/css/payment.css" rel="stylesheet">
-  
+
 
   <!-- =======================================================
   * Template Name: Ninestars - v4.3.0
@@ -39,95 +39,94 @@
 </head>
 
 <body>
-<div class="container">
-  <div class="title">
+  <div class="container">
+    <div class="title">
       <h2>Adoption Order Form</h2>
-</div>
-<div class="d-flex">
-  <form action="" method="">
-    <label>
-      <span class="fname">First Name <span class="required">*</span></span>
-      <input type="text" name="fname">
-    </label>
-    <label>
-      <span class="lname">Last Name <span class="required">*</span></span>
-      <input type="text" name="lname">
-    </label>
-    <label>
-      <span>Company Name (Optional)</span>
-      <input type="text" name="cn">
-    </label><br>
-    <label>
-      <span>Address 1<span class="required">*</span></span>
-      <input type="text" name="houseadd" placeholder="House number and street name" required>
-    </label>
-    <label>
-	<span>Address 2<span class="required">*</span></span>
-      <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
-    </label>
-    <label>
-      <span>Town / City <span class="required">*</span></span>
-      <input type="text" name="city"> 
-    </label>
-    <label>
-      <span>State / County <span class="required">*</span></span>
-      <input type="text" name="city"> 
-    </label>
-    <label>
-      <span>Postcode / ZIP <span class="required">*</span></span>
-      <input type="text" name="city"> 
-    </label>
-    <label>
-      <span>Phone <span class="required">*</span></span>
-      <input type="tel" name="city"> 
-    </label>
-    <label>
-      <span>Email Address <span class="required">*</span></span>
-      <input type="email" name="city"> 
-    </label>
-  </form>
-  <div class="Yorder">
-    <table>
-      <tr>
-        <th colspan="2">Your Order</th>
-      </tr>
-      <tr>
-	   <td width="20%"> <img src="assets/img/dog3.jpg" width="90"> </td>
-                                    <td> 
- <div class="product-qty"> <span class="d-block">Name: Ian</span><span>Type: Dog</span> <span>Age: 1 y/o</span> </div>
-                                    </td>
-      
-        <td>RM100.00</td>
-      </tr>
-	   <tr>
-        <td>Extra Fees:<hr>
-		    Health Care<br>
-			Tax
-			Insurances</td>
-        <td><br><br>
-		    RM60<br>
-			RM10<br>
-			RM120</td>
-      </tr>
-      <tr>
-        <td><b>Subtotal</b></td>
-        <td>RM290.00</td>
-      </tr>
-     
-    </table><br>
-    <div>
-      <input type="radio" name="dbt" value="dbt" checked> Direct Bank Transfer
     </div>
-    
-    <div>
-      <input type="radio" name="dbt" value="cd"> Cash (Pay Over The Counter)
+    <div class="d-flex">
+      <form action="" method="">
+        <br><br><br>
+        <label>
+          <span class="fname">First Name <span class="required">*</span></span>
+          <input type="text" name="fname">
+        </label>
+        <label>
+          <span class="lname">Last Name <span class="required">*</span></span>
+          <input type="text" name="lname">
+        </label>
+        <label>
+          <span>Company Name (Optional)</span>
+          <input type="text" name="cn">
+        </label><br>
+        <label>
+          <span>Address 1<span class="required">*</span></span>
+          <input type="text" name="houseadd" placeholder="House number and street name" required>
+        </label>
+        <label>
+          <span>Address 2<span class="required">*</span></span>
+          <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
+        </label>
+        <label>
+          <span>Town / City <span class="required">*</span></span>
+          <input type="text" name="city">
+        </label>
+        <label>
+          <span>State / County <span class="required">*</span></span>
+          <input type="text" name="city">
+        </label>
+        <label>
+          <span>Postcode / ZIP <span class="required">*</span></span>
+          <input type="text" name="city">
+        </label>
+        <label>
+          <span>Phone <span class="required">*</span></span>
+          <input type="tel" name="city">
+        </label>
+        <label>
+          <span>Email Address <span class="required">*</span></span>
+          <input type="email" name="city">
+        </label>
+      </form>
+      <div class="Yorder">
+        <table>
+          <tr>
+            <th colspan="2">Your Order</th>
+          </tr>
+          <tr>
+            <td width="20%"> <img src="assets/img/dog3.jpg" width="90"> </td>
+            <td>
+              <div class="product-qty"> <span class="d-block">Name: Ian</span><span>Type: Dog</span> <span>Age: 1 y/o</span> </div>
+            </td>
+
+            <td>RM100.00</td>
+          </tr>
+          <tr>
+            <td>Extra Fees:
+              <hr>
+              Health Care<br>
+              Tax
+              Insurances
+            </td>
+            <td><br><br>
+              RM60<br>
+              RM10<br>
+              RM120</td>
+          </tr>
+          <tr>
+            <td><b>Subtotal</b></td>
+            <td>RM290.00</td>
+          </tr>
+
+        </table><br>
+        <div>
+          <input type="radio" name="dbt" value="cd"> Cash (Pay Over The Counter)
+        </div>
+        <div>
+          <input type="radio" name="dbt" value="cd"> Credit Card/Debit Card <span>
+            <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+          </span>
+        </div><br>
+        <button type="button">Place Order</button>
+      </div><!-- Yorder -->
     </div>
-    <div>
-      <input type="radio" name="dbt" value="cd"> Credit Card/Debit Card <span>
-      <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
-      </span>
-    </div><br>
-    <button type="button">Place Order</button>
-  </div><!-- Yorder -->
- </div>
-</div>
+  </div>

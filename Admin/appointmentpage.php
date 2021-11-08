@@ -27,7 +27,7 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/boxdesign.css" rel="stylesheet">
-  
+
 
   <!-- =======================================================
   * Template Name: Ninestars - v4.3.0
@@ -44,9 +44,9 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
-	
-		
+        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png"></span></a></h1>
+
+
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -60,14 +60,14 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
-		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="donation/donation.php">Donate</a></li>
-			  <li><a href="volunteer.php">Volunteer</a></li>
+              <li><a href="volunteer.php">Volunteer</a></li>
             </ul>
           </li>
-		    <li><a class="nav-link scrollto" href="accountadmin.php">Account</a></li>
+          <li><a class="nav-link scrollto" href="admin%20dashboard/pages/samples/accountadmin.php">Account</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="login/login.php">Log Out</a></li>
         </ul>
@@ -78,41 +78,44 @@
   </header><!-- End Header -->
 
   <!-- ======= Payment Section ======= -->
-<section id="payment" class="d-flex align-items-center">
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
-	  
-	  
-	  <div class="row">
-          <div class="col-50">
-		  
-            <br><br><h3><b>Appointment Information</b></h3><br> 
-			<div id="container">
-			
-    <div id="label" class="center" ><b>Operating Hours</b></div>
-	<br><br><p class="center">  Monday: Closed for adoptions and viewing</p>
+  <section id="payment" class="d-flex align-items-center">
+    <div class="row">
+      <div class="col-75">
+        <div class="container">
+          <form action="/action_page.php">
 
-<p class="center"> Tuesday: 12:00 p.m. – 8:00 p.m</p>
 
-<p class="center">Wednesday: Closed for adoptions and viewing</p>
+            <div class="row">
+              <div class="col-50">
 
-<p class="center"> Thursday: 12:00 noon – 8:00 p.m.</p>
+                <br><br>
+                <h3><b>Appointment Information</b></h3><br>
+                <div id="container">
 
-<p class="center"> Friday: 12:00 noon – 5:00 p.m.</p>
+                  <div id="label" class="center"><b>Operating Hours</b></div>
+                  <br><br>
+                  <p class="center"> Monday: Closed for adoptions and viewing</p>
 
-<p class="center"> Saturday & Sunday: 12:00 noon – 3:00 p.m.</p>
-</div>
-<br>
-            <label for="fname"><i class="fa fa-user"></i> Appointment Date</label><br>
-            <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:134px;height:50px;"><br><br>
-            <label for="email"><i class="fa fa-envelope"></i>Appointment Time</label><br>
-            <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:125px;height:50px;"><br><br>
-			<input type="submit" value="Check availability" class="btn-get-started scrollto"><br><br><hr>
+                  <p class="center"> Tuesday: 12:00 p.m. – 8:00 p.m</p>
 
-        
-	  
-    </div>
-  </div>
-</div>
+                  <p class="center">Wednesday: Closed for adoptions and viewing</p>
+
+                  <p class="center"> Thursday: 12:00 noon – 8:00 p.m.</p>
+
+                  <p class="center"> Friday: 12:00 noon – 5:00 p.m.</p>
+
+                  <p class="center"> Saturday & Sunday: 12:00 noon – 3:00 p.m.</p>
+                </div>
+                <br>
+                <label for="fname"><i class="fa fa-user"></i> Appointment Date</label><br>
+                <input type="date" id="appDate" name="appointmentDate" placeholder="" style="width:134px;height:50px;"><br><br>
+                <label for="email"><i class="fa fa-envelope"></i>Appointment Time</label><br>
+                <input type="time" id="appTime" name="appointmentTime" placeholder="" style="width:125px;height:50px;"><br><br>
+                <input type="submit" value="Check availability" class="btn-get-started scrollto"><br><br>
+                <hr>
+
+
+
+              </div>
+            </div>
+        </div>

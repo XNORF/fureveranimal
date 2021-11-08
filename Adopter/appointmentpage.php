@@ -144,10 +144,48 @@ if (isset($_GET['error'])) {
       });
     });
   </script>
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-
+  <?php
+  if (isset($errorCheck)) {
+    if ($errorCheck == "invalid-day") {
+      echo "<script>
+              Swal.fire({
+                icon: 'error',
+                title: 'Day\'s closed',
+                text: 'Monday & Wednesday are closed... Sorry :(',
+              })
+            </script>";
+    } else if ($errorCheck == "invalid-time") {
+      echo "<script>
+              Swal.fire({
+                icon: 'error',
+                title: 'Out of schedule',
+                text: 'Time is out of schedule',
+              })
+            </script>";
+    } else if ($errorCheck == "full-slot") {
+      echo "<script>
+              Swal.fire({
+                icon: 'error',
+                title: 'Slot\'s full',
+                text: 'Sorry, maybe another date :(',
+              })
+            </script>";
+    } else if ($errorCheck == "none") {
+      echo "<script>
+              Swal.fire(
+                'Slot available',
+                'You\'re one step closer! :D',
+                'success'
+              )
+            </script>";
+    }
+  }
+  ?>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
@@ -176,8 +214,8 @@ if (isset($_GET['error'])) {
               <li><a href="volunteer.php">Volunteer</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="accountadmin.php">Account</a></li>
           <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
           <form action="adopterFunction.php" method="POST">
             <li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li>
           </form>
@@ -234,16 +272,7 @@ if (isset($_GET['error'])) {
                                         echo "value=" . $_GET['time'];
                                       }
                                       ?> id="appTime" name="appointmentTime" placeholder="" style="width:170px;height:50px;" min="12:00" max="19:45" required><br><br>
-                  <?php
-                  if (isset($errorCheck)) {
-                    if ($errorCheck == "invalid-day") {
-                      echo "<label for='fname'><i class='fa fa-user'>Mondays and Wednesdays are unavailable</i></label><br>";
-                    } else if ($errorCheck == "none") {
-                      echo "<label for='fname'><i class='fa fa-user'>Available</i></label><br>";
-                    }
-                  }
 
-                  ?>
                   <input type="submit" value="Check availability" class="btn-get-started scrollto" name="availabilitybtn">
 
                   <?php

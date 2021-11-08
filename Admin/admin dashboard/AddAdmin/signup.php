@@ -1,10 +1,11 @@
 <?php
-    if(isset($_GET['signup'])){
-        $signupCheck = $_GET['signup'];
-    }
+if (isset($_GET['signup'])) {
+    $signupCheck = $_GET['signup'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,38 +17,39 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- Sweet Alert 2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
-<?php
-		if(isset($signupCheck)){
-			if($signupCheck == "invalidPass"){
-				echo "<script>
+    <?php
+    if (isset($signupCheck)) {
+        if ($signupCheck == "invalidPass") {
+            echo "<script>
 				Swal.fire({
 					icon: 'error',
 					title: 'Oops...',
 					text: 'Your password need to be at least 6 characters!',
 				  })
-				</script>";			
-			}else if($signupCheck == "failed"){
-				echo "<script>
+				</script>";
+        } else if ($signupCheck == "failed") {
+            echo "<script>
 				Swal.fire({
 					icon: 'error',
 					title: 'Sign up failed',
 					text: 'You already have an account registered using that email',
 				  })
-				</script>";			
-			}
-		}
-	?>
+				</script>";
+        }
+    }
+    ?>
 
-    <div class="main" >
+    <div class="main">
 
         <div class="container">
-		
+
             <div class="signup-content">
                 <div class="signup-img">
                     <img src="images/catto3.jpg" alt="">
@@ -62,34 +64,34 @@
                             <div class="form-group">
                                 <div class="form-input">
                                     <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="firstname" id="firstname" required placeholder="JOHN"/>
+                                    <input type="text" name="firstname" id="firstname" required placeholder="JOHN" />
                                 </div>
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="lastname" id="lastname" required placeholder="DOE"/>
+                                    <input type="text" name="lastname" id="lastname" required placeholder="DOE" />
                                 </div>
-                                
+
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
-                                    <input type="text" name="email" id="email" required placeholder="johndoe@gmail.com"/>
+                                    <input type="text" name="email" id="email" required placeholder="johndoe@gmail.com" />
                                 </div>
-								 <div class="form-input">
-                                    <label for="password" class="required">Password</label>                                    
-                                    <input type="password" name="password" id="password" required placeholder="PLEASE ENTER AT LEAST 6 CHARACTERS."/>
-                                                                      
+                                <div class="form-input">
+                                    <label for="password" class="required">ID</label>
+                                    <input type="text" name="password" id="password" required placeholder="AXXDWYYYY" />
+
                                 </div>
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
-                                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="0123456789"/>
+                                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="0123456789" />
                                 </div>
-								<div class="form-input">
+                                <div class="form-input">
                                     <label for="DOB" class="required">Date Of Birth</label>
-                                    <input type="date" name="dob" id="dob" required/>
+                                    <input type="date" name="dob" id="dob" required />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-select">
-                                    <label for="gender" class="required">Gender</label>                                    
+                                    <label for="gender" class="required">Gender</label>
                                     <div class="select-list">
                                         <select name="gender" id="meal_preference" required>
                                             <option disabled selected value> -- select an option -- </option>
@@ -100,31 +102,31 @@
                                 </div>
                                 <div class="form-input">
                                     <label for="address1" class="required">Address 1</label>
-                                    <input type="text" name="address1" id="address1" required placeholder="NO. 246 LRG ENAU OFF"/>
+                                    <input type="text" name="address1" id="address1" required placeholder="NO. 246 LRG ENAU OFF" />
                                 </div>
                                 <div class="form-input">
                                     <label for="address2" class="required">Address 2</label>
-                                    <input type="text" name="address2" id="address2" required placeholder="JLN SULTAN AZLAN SHAH"/>
+                                    <input type="text" name="address2" id="address2" required placeholder="JLN SULTAN AZLAN SHAH" />
                                 </div>
-								<div class="form-input">
+                                <div class="form-input">
                                     <label for="postcode" class="required">Postcode</label>
-                                    <input type="text" name="postcode" id="postcode" required placeholder="11700"/>
+                                    <input type="text" name="postcode" id="postcode" required placeholder="11700" />
                                 </div>
                                 <div class="form-input">
                                     <label for="city" class="required">City</label>
-                                    <input type="text" name="city" id="city" required placeholder="GELUGOR"/>
+                                    <input type="text" name="city" id="city" required placeholder="GELUGOR" />
                                 </div>
                                 <div class="form-input">
                                     <label for="state" class="required">State</label>
-                                    <input type="text" name="state" id="state" required placeholder="PULAU PINANG"/>
+                                    <input type="text" name="state" id="state" required placeholder="PULAU PINANG" />
                                 </div>
-								
+
                             </div>
                         </div>
-                        
+
                         <div class="form-submit">
                             <input type="submit" value="Submit" class="submit" id="submit" name="signup" />
-                            <input type="submit" value="Cancel" class="submit" id="reset" name="reset" formnovalidate/>
+                            <input type="submit" value="Cancel" class="submit" id="reset" name="reset" formnovalidate />
                         </div>
                     </form>
                 </div>
@@ -141,4 +143,5 @@
     <script src="vendor/jquery-validation/dist/additional-methods.min.js"></script>
     <script src="js/main.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
 </html>
