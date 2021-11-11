@@ -16,7 +16,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="../../assets/images/logofurever.png" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
@@ -219,7 +219,7 @@
                  <li class="nav-item"> <a class="nav-link" href="pages/samples/appointmentpage.php"> Upcoming Appointment </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/adopter-history.php"> Adopter History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="pages/samples/donation-history.php"> Donation History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="pages/samples/volunteer-history.php"> Volunteer History </a></li>
+                
                 </ul>
               </div>
             </li>

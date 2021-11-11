@@ -31,7 +31,7 @@ if (!$GLOBALS['con']) {
   <!-- Layout styles -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="../../assets/images/logofurever.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 

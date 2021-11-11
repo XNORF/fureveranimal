@@ -49,7 +49,7 @@ if (isset($_GET['msg'])) {
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
 
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="assets/images/logofurever.png" />
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

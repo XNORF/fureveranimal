@@ -78,7 +78,7 @@ if (isset($_POST['addPet'])) {
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="assets/images/logofurever.png" />
 </head>
 
 <body>

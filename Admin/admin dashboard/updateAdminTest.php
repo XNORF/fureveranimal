@@ -16,7 +16,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="assets/images/logofurever.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -218,7 +218,7 @@
                 <li class="nav-item"> <a class="nav-link" href="appointmentpage.php"> Upcoming Appointment </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="adopter-history.php"> Adopter History </a></li>
 				  <li class="nav-item"> <a class="nav-link" href="donation-history.php"> Donation History </a></li>
-                 <li class="nav-item"> <a class="nav-link" href="volunteer-history.php"> Volunteer History </a></li>
+                
                 </ul>
               </div>
             </li>
