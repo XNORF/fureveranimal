@@ -113,39 +113,32 @@ body {
                                             <div class="text-left"> <span class="text-muted">Subtotal</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span>RM 100</span> </div>
+                                            <div class="text-right"> <span>RM 30</span> </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text-left"> <span class="text-muted">Health Care Fee</span> </div>
+                                            <div class="text-left"> <span class="text-muted">Food Fee</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span>RM 60</span> </div>
+                                            <div class="text-right"> <span>RM 50</span> </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text-left"> <span class="text-muted">Tax Fee</span> </div>
+                                            <div class="text-left"> <span class="text-muted">Supplies Fee</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span>RM 10</span> </div>
+                                            <div class="text-right"> <span>RM 40</span> </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text-left"> <span class="text-muted">Insurance Fee</span> </div>
-                                        </td>
-                                        <td>
-                                            <div class="text-right"> <span class="text-success">RM 120</span> </div> 
-                                        </td>
-                                    </tr>
+                                    
                                     <tr class="border-top border-bottom">
                                         <td>
                                             <div class="text-left"> <span class="font-weight-bold">Subtotal</span> </div>
                                         </td>
                                         <td>
-                                            <div class="text-right"> <span class="font-weight-bold">RM 290</span> </div>
+                                            <div class="text-right"> <span class="font-weight-bold">RM 120</span> </div>
                                         </td>
                                     </tr>
                                 </tbody>

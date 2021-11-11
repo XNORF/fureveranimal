@@ -68,7 +68,7 @@ $query_run = mysqli_query($GLOBALS['con'], $qry);
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="donation/donation.php">Donate</a></li>
-              <li><a href="volunteer.php">Volunteer</a></li>
+              
             </ul>
           </li>
 

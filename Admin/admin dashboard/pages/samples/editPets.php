@@ -58,7 +58,7 @@ if (isset($_GET['update'])) {
   <!-- Layout styles -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="../../assets/images/logofurever.png" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

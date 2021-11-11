@@ -121,7 +121,7 @@ if (isset($_GET['update'])) {
                         <ul>
                             <li><a href="adopt.php">Adopt</a></li>
                             <li><a href="donation/donation.php">Donate</a></li>
-                            <li><a href="volunteer.php">Volunteer</a></li>
+                            
                         </ul>
                     </li>
 
@@ -160,7 +160,7 @@ if (isset($_GET['update'])) {
                                 <li><a href="billingadopter.php"><span class="fa fa-credit-card"></span> Billing</a></li>
                                 <li><a href="adoptionhistoryadopter.php"><span class="fa fa-envelope"></span> Adoption History</a></li>
                                 <li class="active"><a href="changepassadopter.php"><span class="fa fa-th"></span> Change Password</a></li>
-                                <li><a href="certificate.php"><span class="fa fa-th"></span> View Certificate</a></li>
+                                
                             </ul>
                         </nav>
                     </div>
