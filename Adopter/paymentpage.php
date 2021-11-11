@@ -41,23 +41,31 @@
 <body>
   <div class="container">
     <div class="title">
-      <h2>Adoption Order Form</h2>
+      <h2>Adoption Payment Form</h2>
     </div>
     <div class="d-flex">
-      <form action="" method="">
-        <br><br><br>
+      <form action="./charge.php" id="payment-form">
+        <br><br>
+
         <label>
-          <span class="fname">First Name <span class="required">*</span></span>
+          <div id="card-element" class="form-control col-md-8">
+            <!-- a Stripe Element will be inserted here. -->
+          </div>
+          <!-- Used to display form errors -->
+          <div id="card-errors" role="alert"></div>
+        </label>
+        <label>
+          <span>Name on card <span class="required">*</span></span>
           <input type="text" name="fname">
         </label>
         <label>
-          <span class="lname">Last Name <span class="required">*</span></span>
-          <input type="text" name="lname">
+          <span>Email Address <span class="required">*</span></span>
+          <input type="email" name="city">
         </label>
         <label>
-          <span>Company Name (Optional)</span>
-          <input type="text" name="cn">
-        </label><br>
+          <span>Phone <span class="required">*</span></span>
+          <input type="tel" name="city">
+        </label>
         <label>
           <span>Address 1<span class="required">*</span></span>
           <input type="text" name="houseadd" placeholder="House number and street name" required>
@@ -78,15 +86,8 @@
           <span>Postcode / ZIP <span class="required">*</span></span>
           <input type="text" name="city">
         </label>
-        <label>
-          <span>Phone <span class="required">*</span></span>
-          <input type="tel" name="city">
-        </label>
-        <label>
-          <span>Email Address <span class="required">*</span></span>
-          <input type="email" name="city">
-        </label>
       </form>
+
       <div class="Yorder">
         <table>
           <tr>
@@ -95,38 +96,36 @@
           <tr>
             <td width="20%"> <img src="assets/img/dog3.jpg" width="90"> </td>
             <td>
-              <div class="product-qty"> <span class="d-block">Name: Ian</span><span>Type: Dog</span> <span>Age: 1 y/o</span> </div>
+              <div class="product-qty"> <span class="d-block">Name: Ian</span><span class="d-block">Type: Dog</span><span class="d-block">Age: 1 y/o</span></div>
             </td>
 
-            <td>RM100.00</td>
           </tr>
           <tr>
-            <td>Extra Fees:
+            <td>Fees:
               <hr>
-              Health Care<br>
-              Tax
-              Insurances
+              Adoption<br>
+              Food
+              Supplies
             </td>
             <td><br><br>
-              RM60<br>
-              RM10<br>
-              RM120</td>
+              RM 30.00<br>
+              RM 50.00<br>
+              RM 40.00<br>
           </tr>
           <tr>
             <td><b>Subtotal</b></td>
-            <td>RM290.00</td>
+            <td>RM 120.00</td>
           </tr>
-
         </table><br>
-        <div>
-          <input type="radio" name="dbt" value="cd"> Cash (Pay Over The Counter)
-        </div>
-        <div>
-          <input type="radio" name="dbt" value="cd"> Credit Card/Debit Card <span>
-            <img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
-          </span>
-        </div><br>
         <button type="button">Place Order</button>
       </div><!-- Yorder -->
     </div>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="assets/js/charge.js"></script>
+
+</body>
+
+</html>
