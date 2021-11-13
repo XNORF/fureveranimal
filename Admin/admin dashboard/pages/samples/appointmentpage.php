@@ -273,131 +273,106 @@ if (!$GLOBALS['con']) {
       <!-- partial -->
 
       <div class="main-panel">
-
         <div class="content-wrapper">
+          <div class="container">
+            <div class="row">
+              <h3 class="page-title col-md-1">
+                <center>APPOINTMENT</center>
+              </h3>
+             
 
-          <h3 class="page-title">Upcoming Appointment</h3><br>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+          <div class="container mt-2">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="">
+                  <div class="">
+                    <?php
 
-          <div class="card">
+                    $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
 
-            <div class="card-body">
+                    $query = "SELECT * FROM appointment";
+                    $query_run = mysqli_query($GLOBALS['con'], $query);
 
-              <h4 class="card-title">Upcoming Appointment List</h4>
+                    ?>
 
-              </p>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th> # </th>
-                    <th> Name </th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th> Animal Adopted</th>
-                    <th> Date </th>
-                    <th> Time </th>
-                    <th>Delete</th>
-                    <th>Edit</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="table-info">
-                    <td> 1 </td>
-                    <td> Herman Beck </td>
-                    <td>thomashardy@mail.com</td>
-                    <td>(171) 555-2222</td>
-                    <td> Orange </td>
-                    <td> May 15, 2015 </td>
-                    <td> 12:30 PM </td>
-                    <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-                    <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                  </tr>
-                  <tr class="table-warning">
-                    <td> 2 </td>
-                    <td> Messsy Adam </td>
-                    <td>thomashardy@mail.com</td>
-                    <td>(171) 555-2222</td>
-                    <td> Max </td>
-                    <td> July 1, 2015 </td>
-                    <td> 10:00 AM </td>
 
-                    <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-                    <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                  <tr class="table-danger">
-                    <td> 3 </td>
-                    <td> John Richards </td>
-                    <td>thomashardy@mail.com</td>
-                    <td>(171) 555-2222</td>
-                    <td> Lily </td>
-                    <td> Apr 12, 2015 </td>
-                    <td> 11:45 AM </td>
-                    <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-                    <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                  </tr>
-                  <tr class="table-success">
-                    <td> 4 </td>
-                    <td> Peter Meggik </td>
-                    <td>thomashardy@mail.com</td>
-                    <td>(171) 555-2222</td>
-                    <td> Richard </td>
-                    <td> May 15, 2015 </td>
-                    <td> 1:20 PM </td>
-                    <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-                    <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                  </tr>
-                  <tr class="table-primary">
-                    <td> 5 </td>
-                    <td> Edward </td>
-                    <td>thomashardy@mail.com</td>
-                    <td>(171) 555-2222</td>
-                    <td> Jojo </td>
-                    <td> May 03, 2015 </td>
-                    <td> 1:45 PM </td>
-                    <td> <a href="#deleteAdopterModal" class="delete" class="delete"><i class="btn btn-danger">Delete</a></i></td>
-                    <td><a href="#editEmployeeModal" class="edit"><i class="btn btn-success editbtn">Edit</a></i></td>
-                  </tr>
-                </tbody>
-              </table><br>
+                    <table class="table" style="background-color:#F0C6F2">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <tbody>
+                            <!-- On tables -->
+
+                            <table id="appointmentTable" class="table table-light table-hover table-striped table-md">
+                              <thead>
+                                <tr>
+
+                                  <th scope="col" class="th-sm">ADOPTER</th>
+                                  <th scope="col" class="th-sm">PET</th>
+                                  <th scope="col" class="th-sm">DATE</th>
+                                  <th scope="col" class="th-sm">TIME</th>
+                                  <th scope="col" class="th-sm">STATUS</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                <?php
+
+                                if (mysqli_num_rows($query_run) > 0) {
+
+                                  foreach ($query_run as $row) {
+                                ?>
+                                    <tr class="text-black">
+                                  
+                                        <h1 visibility: hidden><?php echo $row['id']; ?></h1>
+                                  
+                                      <td> <?php echo $row['adopter']; ?> </td>
+                                      <td> <?php echo $row['pet']; ?> </td>
+                                      <td> <?php echo $row['date']; ?> </td>
+                                      <td> <?php echo $row['time']; ?> </td>
+                                      <td> <?php echo $row['status']; ?>  </td>
+                                    </tr>
+
+                                  <?php
+                                  }
+                                } else {
+                                  ?>
+
+                                  <tr>
+
+                                    <td>No Record Available</td>
+
+                                  </tr>
+
+                                <?php
+                                }
+                                ?>
+
+                              </tbody>
+                            </table>
+
+                            <div class="container">
+                              <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
+                              </form>
+
+                            </div>
+                      </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <!-- partial -->
             </div>
-            <div class="clearfix">
-              <div class="hint-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Showing <b>5</b> out of <b>25</b> entries</div><br>
-              <ul class="pagination">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<li class="page-item"><a href="#" class="page-link">Previous</a></li>
-                <li class="page-item"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link">5</a></li>
-                <li class="page-item"><a href="#" class="page-link">Next</a></li>
-              </ul>
-            </div>
-            <div class="container">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
-              <button type="submit" class="btn btn-gradient-primary mr-2">Cancel</button><br><br><br>
-            </div>
+            <!-- main-panel ends -->
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- content-wrapper ends -->
-  <!-- partial:../../partials/_footer.html -->
-  <footer class="footer">
-    <div class="container-fluid clearfix">
-      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>
-    </div>
-  </footer>
-  <!-- partial -->
-  </div>
-  <!-- main-panel ends -->
-  </div>
   <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->

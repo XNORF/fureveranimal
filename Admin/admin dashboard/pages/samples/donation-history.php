@@ -271,110 +271,111 @@ if (!$GLOBALS['con']) {
       </nav>
       <!-- partial -->
 
+ <!-- partial -->
 
-      <div class="main-panel">
+
+ <div class="main-panel">
         <div class="content-wrapper">
-          <div class="page-header">
-            <h3 class="page-title"> Donation History </h3>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Charts</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Chart-js</li>
-              </ol>
-            </nav>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Line chart</h4>
-                  <canvas id="lineChart" style="height:250px"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Doughnut chart</h4>
-                  <canvas id="doughnutChart" style="height:250px"></canvas>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-12 stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Donation History List</h4>
+          <div class="container">
+            <div class="row">
+              <h3 class="page-title col-md-1">
+                <center>PAYMENT</center>
+              </h3>
+             
 
-                </p>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th> # </th>
-                      <th> First name </th>
-                      <th> Phone Number </th>
-                      <th> Amount </th>
-                      <th> Date </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="table-info">
-                      <td> 1 </td>
-                      <td> Herman Beck </td>
-                      <td> Lily </td>
-                      <td> $ 77.99 </td>
-                      <td> May 15, 2021 </td>
-                    </tr>
-                    <tr class="table-warning">
-                      <td> 2 </td>
-                      <td> Messsy Adam </td>
-                      <td> Nyx </td>
-                      <td> $245.30 </td>
-                      <td> July 1, 2021 </td>
-                    </tr>
-                    <tr class="table-danger">
-                      <td> 3 </td>
-                      <td> John Richards </td>
-                      <td> Killa </td>
-                      <td> $138.00 </td>
-                      <td> Apr 12, 2021 </td>
-                    </tr>
-                    <tr class="table-success">
-                      <td> 4 </td>
-                      <td> Peter Meggik </td>
-                      <td> Richard </td>
-                      <td> $ 77.99 </td>
-                      <td> May 15, 2021 </td>
-                    </tr>
-                    <tr class="table-primary">
-                      <td> 5 </td>
-                      <td> Edward </td>
-                      <td> Luna </td>
-                      <td> $ 160.25 </td>
-                      <td> May 03, 2021 </td>
-                    </tr>
-                  </tbody>
-                </table>
+          <div class="container mt-2">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="">
+                  <div class="">
+                    <?php
+
+                    $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
+
+                    $query = "SELECT * FROM transaction";
+                    $query_run = mysqli_query($GLOBALS['con'], $query);
+
+                    ?>
+
+
+                    <table class="table" style="background-color:#F0C6F2">
+                      <div class="table-responsive">
+                        <table class="table">
+                          <tbody>
+                            <!-- On tables -->
+
+                            <table id="petTable" class="table table-light table-hover table-striped table-md">
+                              <thead>
+                                <tr>
+
+                                  <th scope="col" class="th-sm">ADOPTER</th>
+                                  <th scope="col" class="th-sm">TYPE</th>
+                                  <th scope="col" class="th-sm">AMOUNT</th>
+                                  <th scope="col" class="th-sm">DATE</th>
+                                
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                <?php
+
+                                if (mysqli_num_rows($query_run) > 0) {
+
+                                  foreach ($query_run as $row) {
+                                ?>
+                                    <tr class="text-black">
+
+                                    
+                                        <h1 visibility: hidden><?php echo $row['id']; ?></h1>
+                                      
+                                      <td> <?php echo $row['adopter']; ?> </td>
+                                      <td> <?php echo $row['type']; ?> </td>
+                                      <td> <?php echo $row['amount']; ?> </td>
+                                      <td> <?php echo $row['dated']; ?> </td>
+                                   
+                                    </tr>
+
+                                  <?php
+                                  }
+                                } else {
+                                  ?>
+
+                                  <tr>
+
+                                    <td>No Record Available</td>
+
+                                  </tr>
+
+                                <?php
+                                }
+                                ?>
+
+                              </tbody>
+                            </table>
+
+                            <div class="container">
+                              <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                              <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
+                              </form>
+
+                            </div>
+                      </div>
+
+                  </div>
+                </div>
+
               </div>
+              <!-- partial -->
             </div>
+            <!-- main-panel ends -->
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:../../partials/_footer.html -->
-    <footer class="footer">
-      <div class="container-fluid clearfix">
-        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates </a> from Bootstrapdash.com</span>
-      </div>
-    </footer>
-    <!-- partial -->
-  </div>
-  <!-- main-panel ends -->
-  </div>
-  <!-- page-body-wrapper ends -->
-  </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
