@@ -24,8 +24,7 @@ if (isset($_GET['id'])) {
     }
   }
 } else {
-  header("Location: updatePets.php");
-  exit();
+  header("Location: updatePets.php?pet=invalid");
 }
 
 if (isset($_POST['cancel'])) {

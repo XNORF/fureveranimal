@@ -53,10 +53,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
-    
-        <!-- partial -->
-        
-			
+ 
        
           <div class="content-wrapper">
             <div class="page-header">
@@ -68,46 +65,48 @@
                 </ol>
               </nav>
             </div>
+
+    
                 
 				<div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Personal Information</h4>
                     <p class="card-description"> </p>
-                    <form class="forms-sample" action="#" method="post">
-                      <div class="form-group">
-
-                        <label for="exampleInputName1">First name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="First name" name='firstName' value=<?php echo "'$firstName'";?>>
-                      </div>
+                    <form class="forms-sample" action="#" method="post"  enctype="multipart/form-data" autocomplete="off">
+                     
+                    <div class="form-group">
+                         <label for="exampleInputName">First Name</label>
+                        <input type='text' class='form-control' id='exampleInputName' placeholder='First name' name='firstname'   <?php echo '$firstName';?> >
+                        </div>
                       <div class="form-group">
                         <label for="exampleInputName2">Last name</label>
-                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Last name" name='lastName' value=<?php echo "'$lastName'";?>>
-
+                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Last name" name='lastname' <?php echo '$lastName';?>>
+                  
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPhone"> Phone Number</label>
-                        <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone Number" name='phoneNumber' value=<?php echo "'$phoneNumber'";?>>
+                        <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone Number" name='phoneNumber' <?php echo '$phoneNumber';?>>
                       </div>
 					            <div class="form-group">
                         <label for="exampleInputAddress1">Address 1</label>
-                        <input type="text" class="form-control" id="exampleInputAddress1" placeholder="Address 1" name='address1' value=<?php echo "'$address1'";?>>
+                        <input type="text" class="form-control" id="exampleInputAddress1" placeholder="Address 1" name='address1' <?php echo '$address1';?>>
                       </div>
 					            <div class="form-group">
                         <label for="exampleInputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="exampleInputAddress2" placeholder="Address 2" name='address2' value=<?php echo "'$address2'";?>>
+                        <input type="text" class="form-control" id="exampleInputAddress2" placeholder="Address 2" name='address2' <?php echo '$address2';?>>
                       </div>
 					            <div class="form-group">
                         <label for="exampleInputPostCode">PostCode</label>
-                        <input type="text" class="form-control" id="exampleInputPostCode" placeholder="Postcode" name='postcode' value=<?php echo "'$postcode'";?>>
+                        <input type="text" class="form-control" id="exampleInputPostCode" placeholder="Postcode" name='postcode' <?php echo '$postcode';?>>
                       </div>
                      <div class="form-group">
                         <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="City" name='city' value=<?php echo "'$city'";?>>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="City" name='city' <?php echo '$city';?>>
                       </div>
 					            <div class="form-group">
                         <label for="exampleInputState">State</label>
-                        <input type="text" class="form-control" id="exampleInputState" placeholder="State" name='state' value=<?php echo "'$state'";?>>
+                        <input type="text" class="form-control" id="exampleInputState" placeholder="State" name='state' <?php echo '$state';?>>
                       </div>
 					  
                       <button type="submit" class="btn btn-gradient-primary mr-2" name="update">Update</button>
@@ -147,14 +146,15 @@
 </html>
 
 <?php
-  function updateAdmin(){
+  function updateAdmin()
+  {
         if(!$GLOBALS['con']){
             echo mysqli_error($GLOBALS['con']);
         }else{
             //Construct SQL statement
             $email = $_SESSION['updateAdminID'];
-            $firstName = $_POST['firstName'];
-            $lastName = $_POST['lastName'];
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
             $phoneNumber = $_POST['phoneNumber'];
             $address1 = $_POST['address1'];
             $address2 = $_POST['address2'];
@@ -167,10 +167,13 @@
         if(!mysqli_query($GLOBALS['con'], $sql)){
             //echo mysqli_error($GLOBALS['con']);
             header('Location: editAdmin.php?email='.$email.'&update=failed');
-            exit();
         }else{
-          header('Location: editAdmin.php?email='.$email.'&update=success');
-            exit();
+          echo 'Error: ' . mysqli_error($GLOBALS['con']);
         }
-  }
+
+
+header('Location: editAdmin.php?email='.$email.'&update=success');
+      exit();
+}
+
 ?>

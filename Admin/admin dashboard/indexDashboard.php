@@ -239,7 +239,7 @@ if (!$GLOBALS['con']) {
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="updateAdmin.php">
+            <a class="nav-link" href="pages/samples/updateAdmin.php">
               <span class="menu-title">Admins</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>

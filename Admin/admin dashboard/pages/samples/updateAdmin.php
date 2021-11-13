@@ -14,8 +14,8 @@ if (!$GLOBALS['con']) {
 
 if (isset($_GET['del'])) {
   $id = $_GET['del'];
-  mysqli_query($GLOBALS['con'], "DELETE FROM pets WHERE id='$id'");
-  header('location: updatePets.php?msg=delSuccess');
+  mysqli_query($GLOBALS['con'], "DELETE FROM admin WHERE id='$id'");
+  header('location: updateAdmin.php?msg=delSuccess');
 }
 
 if (isset($_GET['msg'])) {
@@ -26,6 +26,8 @@ if (isset($_GET['msg'])) {
   }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +59,7 @@ if (isset($_GET['msg'])) {
 
 <body>
 
-  <?php
+<?php
   if (isset($msgCheck)) {
     if ($msgCheck == "confirmDelete" && isset($requestedId)) {
       echo "<script type='text/javascript'>
@@ -71,9 +73,9 @@ if (isset($_GET['msg'])) {
                 confirmButtonText: 'Yes, delete it!'
               }).then((result) => {
                 if (result.isConfirmed) {
-                  window.location = 'updatePets.php?del=$requestedId';
+                  window.location = 'updateAdmin.php?del=$requestedId';
                 }else{
-                  window.location = 'updatePets.php?';
+                  window.location = 'updateAdmin.php?';
                 }
               })
             </script>";
@@ -81,7 +83,7 @@ if (isset($_GET['msg'])) {
       echo "<script type='text/javascript'>
               Swal.fire(
                 'Deleted!',
-                'Pet has been deleted.',
+                'Admin has been deleted.',
                 'success'
               )
             </script>";
@@ -291,7 +293,7 @@ if (isset($_GET['msg'])) {
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="updateAdmin.php">
+            <a class="nav-link" href="../../updateAdmin.php">
               <span class="menu-title">Admins</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
@@ -328,11 +330,11 @@ if (isset($_GET['msg'])) {
           <div class="container">
             <div class="row">
               <h3 class="page-title col-md-1">
-                <center>PETS</center>
+                <center>ADMIN</center>
               </h3>
               <div class="col-md-8"></div>
               <div class="col-md-2">
-                <center><a href="\masterfureveranimal\Admin\admin dashboard\pages\samples\NewPets.php"> <input value="ADD PETS" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
+                <center><a href="\masterfureveranimal\Admin\admin dashboard\AddAdmin/signup.php"> <input value="ADD ADMIN" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
               </div>
             </div>
           </div>
@@ -346,7 +348,7 @@ if (isset($_GET['msg'])) {
 
                     $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
 
-                    $query = "SELECT * FROM pets";
+                    $query = "SELECT * FROM admin";
                     $query_run = mysqli_query($GLOBALS['con'], $query);
 
                     ?>
@@ -364,11 +366,8 @@ if (isset($_GET['msg'])) {
 
                                   <th scope="col" class="th-sm">IMAGE</th>
                                   <th scope="col" class="th-sm">NAME</th>
-                                  <th scope="col" class="th-sm">HEALTH CONDITION/ALLERGY</th>
-                                  <!--<th scope="col">STORY</th>-->
-                                  <th scope="col" class="th-sm">DATE ARRIVED</th>
-                                  <th scope="col" class="th-sm">STATUS</th>
-                                  <th scope="col" class="th-sm">UPDATE</th>
+                                  <th scope="col" class="th-sm">EMAIL</th>
+                                  <th scope="col" class="th-sm">NO PHONE</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -385,25 +384,14 @@ if (isset($_GET['msg'])) {
                                         <h1 visibility: hidden><?php echo $row['id']; ?></h1>
                                         <img src="<?php echo "upload/" . $row['image']; ?>" class="col-xs-12" alt="<?php echo $row['image']; ?>">
                                       </td>
-                                      <td> <?php echo $row['name']; ?> </td>
-                                      <td> <?php echo $row['health']; ?> </td>
-                                      <td> <?php echo $row['date']; ?> </td>
-                                      <td> <?php
-                                            if ($row['status'] == 0) {
-                                              echo "Available";
-                                            } else if ($row['status'] == 1) {
-                                              echo "Booked";
-                                            } else if ($row['status'] == 2) {
-                                              echo "Adopted";
-                                            }
-                                            ?> </td>
-                                      <!--<td> <?php //echo $row['story']; 
-                                                ?> </td>-->
+                                      <td> <?php echo $row['username']; ?> </td>
+                                      <td> <?php echo $row['email']; ?> </td>
+                                      <td> <?php echo $row['phoneNumber']; ?> </td>
                                       <td>
                                         <?php $id = $row['id']; ?>
-                                        <a href="editPets.php?id=<?php echo $id; ?>"> <button type="button" class="btn btn-success">&nbsp&nbsp&nbspEDIT&nbsp&nbsp&nbsp</button></a><br>
-                                        <form action="updatePets.php" method="post">
-                                          <a href="updatePets.php?msg=confirmDelete&id=<?php echo $row['id']; ?>"> <button type="button" class="btn btn-danger">DELETE</button></a>
+                                        <a href="editAdmin.php?id=<?php echo $id; ?>"> <button type="button" class="btn btn-success">&nbsp&nbsp&nbspEDIT&nbsp&nbsp&nbsp</button></a><br>
+                                        <form action="updateAdmin.php" method="post">
+                                          <a href="updateAdmin.php?msg=confirmDelete&id=<?php echo $row['id']; ?>"> <button type="button" class="btn btn-danger">DELETE</button></a>
 
                                       </td>
 

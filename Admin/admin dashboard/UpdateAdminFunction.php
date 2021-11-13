@@ -5,7 +5,7 @@ session_start();
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
     mysqli_query($GLOBALS['con'], "DELETE FROM admin WHERE id='$id'");
-    header('location: updateAdmin.php');
+    header('location: /pages/samples/updateAdmin.php');
     exit();
 }
 
@@ -15,11 +15,11 @@ if (isset($_POST['signup'])) {
         header("Location: AddAdmin/signup.php?signup=invalidPass");
     } else {
         signup($_POST);
-        header('location: updateAdmin.php');
+        header('location: \masterfureveranimal\Admin\admin dashboard\pages\samples/updateAdmin.php');
         exit();
     }
 } else {
-    header('location: updateAdmin.php');
+    header('location: \masterfureveranimal\Admin\admin dashboard\pages\samples/updateAdmin.php');
     exit();
 }
 
