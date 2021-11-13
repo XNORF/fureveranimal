@@ -59,7 +59,7 @@ if (isset($_GET['msg'])) {
 
 <body>
 
-<?php
+  <?php
   if (isset($msgCheck)) {
     if ($msgCheck == "confirmDelete" && isset($requestedId)) {
       echo "<script type='text/javascript'>
@@ -293,7 +293,7 @@ if (isset($_GET['msg'])) {
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../updateAdmin.php">
+            <a class="nav-link" href="updateAdmin.php">
               <span class="menu-title">Admins</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
@@ -345,9 +345,6 @@ if (isset($_GET['msg'])) {
                 <div class="">
                   <div class="">
                     <?php
-
-                    $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
-
                     $query = "SELECT * FROM admin";
                     $query_run = mysqli_query($GLOBALS['con'], $query);
 
@@ -360,14 +357,16 @@ if (isset($_GET['msg'])) {
                           <tbody>
                             <!-- On tables -->
 
-                            <table id="petTable" class="table table-light table-hover table-striped table-md">
+                            <table id="adminTable" class="table table-light table-hover table-striped table-md">
                               <thead>
                                 <tr>
 
                                   <th scope="col" class="th-sm">IMAGE</th>
-                                  <th scope="col" class="th-sm">NAME</th>
+                                  <th scope="col" class="th-sm">FIRST NAME</th>
+                                  <th scope="col" class="th-sm">LAST NAME</th>
                                   <th scope="col" class="th-sm">EMAIL</th>
                                   <th scope="col" class="th-sm">NO PHONE</th>
+                                  <th scope="col" class="th-sm">UPDATE</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -382,9 +381,10 @@ if (isset($_GET['msg'])) {
 
                                       <td>
                                         <h1 visibility: hidden><?php echo $row['id']; ?></h1>
-                                        <img src="<?php echo "upload/" . $row['image']; ?>" class="col-xs-12" alt="<?php echo $row['image']; ?>">
+                                        <img src="<?php echo "../../../../profileimg/" . $row['image']; ?>" class="col-xs-12" alt="<?php echo $row['image']; ?>">
                                       </td>
-                                      <td> <?php echo $row['username']; ?> </td>
+                                      <td> <?php echo $row['firstname']; ?> </td>
+                                      <td> <?php echo $row['lastname']; ?> </td>
                                       <td> <?php echo $row['email']; ?> </td>
                                       <td> <?php echo $row['phoneNumber']; ?> </td>
                                       <td>
@@ -457,7 +457,7 @@ if (isset($_GET['msg'])) {
 
           <script type="text/javascript">
             $(document).ready(function() {
-              $('#petTable').DataTable();
+              $('#adminTable').DataTable();
             });
           </script>
           <!-- endinject -->
