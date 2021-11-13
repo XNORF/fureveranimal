@@ -19,20 +19,28 @@ if (!$GLOBALS['con']) {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Donation History</title>
+  <title>Fur-Ever Animal Shelter</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <!-- endinject -->
   <!-- Layout styles -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="stylesheet" href="assets/css/dataTableStyle.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="../../assets/images/logofurever.png" />
+  <link rel="shortcut icon" href="assets/images/logofurever.png" />
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
+
 
 <body>
   <div class="container-scroller">
@@ -304,7 +312,7 @@ if (!$GLOBALS['con']) {
                           <tbody>
                             <!-- On tables -->
 
-                            <table id="petTable" class="table table-light table-hover table-striped table-md">
+                            <table id="donationTable" class="table table-light table-hover table-striped table-md">
                               <thead>
                                 <tr>
 
@@ -376,19 +384,29 @@ if (!$GLOBALS['con']) {
             </div>
             <!-- main-panel ends -->
           </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="../../assets/js/off-canvas.js"></script>
-  <script src="../../assets/js/hoverable-collapse.js"></script>
-  <script src="../../assets/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <!-- End custom js for this page -->
+    <!-- container-scroller -->
+          <!-- plugins:js -->
+          <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+          <!-- endinject -->
+          <!-- Plugin js for this page -->
+          <!-- End plugin js for this page -->
+          <!-- inject:js -->
+          <script src="../../assets/js/off-canvas.js"></script>
+          <script src="../../assets/js/hoverable-collapse.js"></script>
+          <script src="../../assets/js/misc.js"></script>
+
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $('#donationTable').DataTable();
+            });
+          </script>
+          <!-- endinject -->
+          <!-- Custom js for this page -->
+          <!-- End custom js for this page -->
 </body>
 
 </html>

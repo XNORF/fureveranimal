@@ -11,6 +11,21 @@ if (!$GLOBALS['con']) {
   $username = $userRecord['username'];
   $profileimg = $userRecord['image'];
 }
+
+if (isset($_GET['del'])) {
+  $id = $_GET['del'];
+  mysqli_query($GLOBALS['con'], "DELETE FROM appointment WHERE id='$id'");
+  header('location: appointmentpage.php?msg=delSuccess');
+}
+
+if (isset($_GET['msg'])) {
+  $msgCheck = $_GET['msg'];
+
+  if (isset($_GET['id'])) {
+    $requestedId = $_GET['id'];
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,23 +34,67 @@ if (!$GLOBALS['con']) {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Appointment</title>
+  <title>Fur-Ever Animal Shelter</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <!-- endinject -->
   <!-- Layout styles -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="stylesheet" href="assets/css/dataTableStyle.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="../../assets/images/logofurever.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="shortcut icon" href="assets/images/logofurever.png" />
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
+
 <body>
+
+<?php
+  if (isset($msgCheck)) {
+    if ($msgCheck == "confirmDelete" && isset($requestedId)) {
+      echo "<script type='text/javascript'>
+              Swal.fire({
+                title: 'Are you sure?',
+                text: 'You won\'t be able to revert this!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  window.location = 'appointmentpage.php?del=$requestedId';
+                }else{
+                  window.location = 'appointmentpage.php?';
+                }
+              })
+            </script>";
+    } else if ($msgCheck == "delSuccess") {
+      echo "<script type='text/javascript'>
+              Swal.fire(
+                'Deleted!',
+                'Appointment has been deleted.',
+                'success'
+              )
+            </script>";
+    }
+  }
+  ?>
+
+
+
+
+
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -311,25 +370,44 @@ if (!$GLOBALS['con']) {
                                   <th scope="col" class="th-sm">DATE</th>
                                   <th scope="col" class="th-sm">TIME</th>
                                   <th scope="col" class="th-sm">STATUS</th>
+                                  <th scope="col" class="th-sm">UPDATE</th>
                                 </tr>
                               </thead>
                               <tbody>
 
-                                <?php
+                              <?php
+
 
                                 if (mysqli_num_rows($query_run) > 0) {
 
                                   foreach ($query_run as $row) {
                                 ?>
                                     <tr class="text-black">
-                                  
+
+                                      
                                         <h1 visibility: hidden><?php echo $row['id']; ?></h1>
-                                  
+                                       
                                       <td> <?php echo $row['adopter']; ?> </td>
                                       <td> <?php echo $row['pet']; ?> </td>
                                       <td> <?php echo $row['date']; ?> </td>
                                       <td> <?php echo $row['time']; ?> </td>
-                                      <td> <?php echo $row['status']; ?>  </td>
+                                      <td> <?php
+                                            if ($row['status'] == 0) {
+                                              echo "UPCOMING APPOINTMENT";
+                                            } else if ($row['status'] == 1) {
+                                              echo "DONE";
+                                            } 
+                                            ?> </td>
+                                      <!--<td> <?php //echo $row['story']; 
+                                                ?> </td>-->
+                                      <td>
+                                        <?php $id = $row['id']; ?>
+                                        <a href="editAppointment.php?id=<?php echo $id; ?>"> <button type="button" class="btn btn-success">&nbsp&nbsp&nbspEDIT&nbsp&nbsp&nbsp</button></a><br>
+                                        <form action="appointmentpage.php" method="post">
+                                          <a href="appointmentpage.php?msg=confirmDelete&id=<?php echo $row['id']; ?>"> <button type="button" class="btn btn-danger">DELETE</button></a>
+
+                                      </td>
+
                                     </tr>
 
                                   <?php
@@ -375,19 +453,29 @@ if (!$GLOBALS['con']) {
           </div>
   <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="../../assets/js/off-canvas.js"></script>
-  <script src="../../assets/js/hoverable-collapse.js"></script>
-  <script src="../../assets/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <!-- End custom js for this page -->
+    <!-- container-scroller -->
+          <!-- plugins:js -->
+          <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+          <!-- endinject -->
+          <!-- Plugin js for this page -->
+          <!-- End plugin js for this page -->
+          <!-- inject:js -->
+          <script src="../../assets/js/off-canvas.js"></script>
+          <script src="../../assets/js/hoverable-collapse.js"></script>
+          <script src="../../assets/js/misc.js"></script>
+
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $('#appointmentTable').DataTable();
+            });
+          </script>
+          <!-- endinject -->
+          <!-- Custom js for this page -->
+          <!-- End custom js for this page -->
 </body>
 
 </html>

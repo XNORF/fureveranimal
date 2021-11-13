@@ -19,21 +19,28 @@ if (!$GLOBALS['con']) {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Adopter History</title>
+  <title>Fur-Ever Animal Shelter</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <!-- endinject -->
   <!-- Layout styles -->
-  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <link rel="stylesheet" href="assets/css/dataTableStyle.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="../../assets/images/logofurever.png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="shortcut icon" href="assets/images/logofurever.png" />
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
+
 
 <body>
   <div class="container-scroller">
@@ -291,7 +298,7 @@ if (!$GLOBALS['con']) {
 
                     $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
 
-                    $query = "SELECT * FROM adopter";
+                    $query = "SELECT * FROM appointment";
                     $query_run = mysqli_query($GLOBALS['con'], $query);
 
                     ?>
@@ -307,10 +314,12 @@ if (!$GLOBALS['con']) {
                               <thead>
                                 <tr>
 
-                                  <th scope="col" class="th-sm">IMAGE</th>
-                                  <th scope="col" class="th-sm">NAME</th>
-                                  <th scope="col" class="th-sm">EMAIL</th>
-                                  <th scope="col" class="th-sm">NO PHONE</th>
+                              
+                                <th scope="col" class="th-sm">ADOPTER</th>
+                                  <th scope="col" class="th-sm">TYPE</th>
+                                  <th scope="col" class="th-sm">AMOUNT</th>
+                                  <th scope="col" class="th-sm">DATE</th>
+                                  <th scope="col" class="th-sm">STATUS</th>
                                 </tr>
                               </thead>
                               <tbody>
@@ -323,13 +332,21 @@ if (!$GLOBALS['con']) {
                                 ?>
                                     <tr class="text-black">
 
-                                      <td>
+                                     
                                         <h1 visibility: hidden><?php echo $row['id']; ?></h1>
-                                        <img src="<?php echo "upload/" . $row['image']; ?>" class="col-xs-12" alt="<?php echo $row['image']; ?>">
-                                      </td>
-                                      <td> <?php echo $row['username']; ?> </td>
-                                      <td> <?php echo $row['email']; ?> </td>
-                                      <td> <?php echo $row['phoneNumber']; ?> </td>
+
+                                        <td> <?php echo $row['adopter']; ?> </td>
+                                      <td> <?php echo $row['pet']; ?> </td>
+                                      <td> <?php echo $row['date']; ?> </td>
+                                      <td> <?php echo $row['time']; ?> </td>
+                                      <td> <?php
+                                            if ($row['status'] == 0) {
+                                              echo "UPCOMING";
+                                            } else if ($row['status'] == 1) {
+                                              echo "DONE";
+                                            } 
+                                            
+                                            ?> </td>
                                     </tr>
 
                                   <?php
@@ -382,25 +399,29 @@ if (!$GLOBALS['con']) {
   </div>
   <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="../../assets/js/off-canvas.js"></script>
-  <script src="../../assets/js/hoverable-collapse.js"></script>
-  <script src="../../assets/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <!-- End custom js for this page -->
+   <!-- container-scroller -->
+          <!-- plugins:js -->
+          <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+          <!-- endinject -->
+          <!-- Plugin js for this page -->
+          <!-- End plugin js for this page -->
+          <!-- inject:js -->
+          <script src="../../assets/js/off-canvas.js"></script>
+          <script src="../../assets/js/hoverable-collapse.js"></script>
+          <script src="../../assets/js/misc.js"></script>
 
-  <script type="text/javascript">
+          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+          <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+
+          <script type="text/javascript">
             $(document).ready(function() {
               $('#adopterTable').DataTable();
             });
           </script>
+          <!-- endinject -->
+          <!-- Custom js for this page -->
+          <!-- End custom js for this page -->
 </body>
 
 </html>
