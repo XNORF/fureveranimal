@@ -1,6 +1,17 @@
 <?php
 include_once '../include/db.php';
 session_start();
+
+$adopter = $_SESSION['adopter'];
+
+$sql = "select * from appointment WHERE adopter = '$adopter' AND status = '0'";
+$qry = mysqli_query($GLOBALS['con'], $sql);
+$count = mysqli_num_rows($qry);
+
+if ($count == 1) {
+  header("Location: adopt.php?status=existed");
+}
+
 if (isset($_GET['pet']) && isset($_GET['id'])) {
   $pet = $_GET['pet'];
   $id = $_GET['id'];

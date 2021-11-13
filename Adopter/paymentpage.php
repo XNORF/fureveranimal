@@ -142,7 +142,7 @@ include_once '../include/db.php';
               <th colspan="2">Your Payment</th>
             </tr>
             <tr>
-              <td width="20%"> <img src="<?php echo '../Admin/admin%20dashboard/pages/samples/upload/' . $image . '' ?>" width=" 90"> </td>
+              <td width="20%"> <img src="<?php echo '../Admin/admin%20dashboard/pages/samples/upload/' . $image ?>" width=" 90"> </td>
               <td>
                 <div class="product-qty"> <span class="d-block">Name: <?php echo $pet ?></span><span class="d-block">Type: <?php echo $type ?></span><span class="d-block">Age: <?php echo $age ?></span></div>
               </td>
