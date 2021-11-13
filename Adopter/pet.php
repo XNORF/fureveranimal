@@ -1,31 +1,31 @@
 <?php
-  include_once '../include/db.php';
-  session_start();
-  
-  if(isset($_GET['pet']) && isset($_GET['id'])){
-    $pet = $_GET['pet'];
-    $id = $_GET['id'];
-    if(!$GLOBALS['con']){
-      echo mysqli_error($GLOBALS['con']);
-    }else{
-        $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";        
-        $qry = mysqli_query($GLOBALS['con'],$sql);
-        $count = mysqli_num_rows($qry);
-        if($count == 1){
-          $userRecord = mysqli_fetch_assoc($qry);
-          $name = $userRecord['name'];
-          $age = $userRecord['age'];
-          $gender = $userRecord['gender'];
-          $health = $userRecord['health'];
-          $story = $userRecord['story'];
-          $image = $userRecord['image'];
-        }else{
-          header("Location: adopt.php");
-        }
+include_once '../include/db.php';
+session_start();
+
+if (isset($_GET['pet']) && isset($_GET['id'])) {
+  $pet = $_GET['pet'];
+  $id = $_GET['id'];
+  if (!$GLOBALS['con']) {
+    echo mysqli_error($GLOBALS['con']);
+  } else {
+    $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";
+    $qry = mysqli_query($GLOBALS['con'], $sql);
+    $count = mysqli_num_rows($qry);
+    if ($count == 1) {
+      $userRecord = mysqli_fetch_assoc($qry);
+      $name = $userRecord['name'];
+      $age = $userRecord['age'];
+      $gender = $userRecord['gender'];
+      $health = $userRecord['health'];
+      $story = $userRecord['story'];
+      $image = $userRecord['image'];
+    } else {
+      header("Location: adopt.php");
     }
-  }else{
-    header("Location: adopt.php");
   }
+} else {
+  header("Location: adopt.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <?php echo "<title>$name</title>";?>
+  <?php echo "<title>$name</title>"; ?>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -72,7 +72,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png"></span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -86,17 +86,19 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
-		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="donation/donation.php">Donate</a></li>
-			
+
             </ul>
           </li>
-		   
+
           <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>
-		  <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
-          <form action="adopterFunction.php" method="POST"><li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li></form>
+          <li><a class="nav-link scrollto" href="accountadopter.php">Account</a></li>
+          <form action="adopterFunction.php" method="POST">
+            <li><button class="getstarted scrollto" formmethod="POST" name="logout">Log Out</button></li>
+          </form>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -132,7 +134,7 @@
             <div class="portfolio-details-slider swiper-container">
               <div class="swiper-wrapper align-items-center">
                 <div>
-                  <?php echo "<img src='../Admin/admin%20dashboard/pages/samples/upload/$image' width= 800 height = 800 alt=''>";?>
+                  <?php echo "<img src='../Admin/admin%20dashboard/pages/samples/upload/$image' width= 800 height = 800 alt=''>"; ?>
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -146,41 +148,41 @@
                 <?php echo "<li><strong>Name</strong>: $name</li>
                 <li><strong>Age</strong>: $age Old</li>
                 <li><strong>Gender</strong>: $gender</li>
-				        <li><strong>Health Condition(s)</strong>: $health</li>";?>                
-               
+				        <li><strong>Health Condition(s)</strong>: $health</li>"; ?>
+
               </ul>
             </div>
-			
+
             <div class="portfolio-description">
-			
-              <h2>Story of <?php echo $name;?>'s life</h2>
+
+              <h2>Story of <?php echo $name; ?>'s life</h2>
               <?php echo "<p>
                 $story
-              </p>";?>
-              
-			  <br>
-			  <br>
-			   <div class="container">
-        <div class="row justify-content-center">
-		<div class="col-lg-6">
-           <div class="portfolio">
-		   
-			<?php echo "<a href='appointmentpage.php?pet=$name&id=$id' class='btn-get-started scrollto'><b>ADOPT</b></a>";?>
-			</div>
-            
-          </div>
-        </div>
-      </div>
-    </div>
+              </p>"; ?>
+
+              <br>
+              <br>
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-6">
+                    <div class="portfolio">
+
+                      <?php echo "<a href='appointmentpage.php?pet=$name&id=$id' class='btn-get-started scrollto'><b>ADOPT</b></a>"; ?>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
 
       </div>
-	  
+
+      </div>
+
     </section><!-- End Portfolio Details Section -->
-	
+
 
   </main><!-- End #main -->
 
@@ -191,13 +193,13 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
-            
+
           </div>
         </div>
       </div>
     </div>
 
-     <div class="footer-top">
+    <div class="footer-top">
       <div class="container">
         <div class="row">
 
@@ -206,8 +208,8 @@
             <p>
               Jalan Sultan Yahya Petra,<br>
               Kampung Datuk Keramat,<br>
-			   54100 Kuala Lumpur, <br>
-              Wilayah Persekutuan Kuala Lumpur  <br><br>
+              54100 Kuala Lumpur, <br>
+              Wilayah Persekutuan Kuala Lumpur <br><br>
               <strong>Phone:</strong> +03-4256 5312<br>
               <strong>Email:</strong> fureveranimal@gmail.com<br>
             </p>
@@ -251,7 +253,7 @@
       <div class="copyright">
         &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
       </div>
-      
+
     </div>
   </footer><!-- End Footer -->
 

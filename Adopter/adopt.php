@@ -1,6 +1,6 @@
 <?php
 include_once '../include/db.php';
-$qry = "SELECT * FROM pets";
+$qry = "SELECT * FROM pets WHERE status = '0'";
 $query_run = mysqli_query($GLOBALS['con'], $qry);
 ?>
 
@@ -68,7 +68,7 @@ $query_run = mysqli_query($GLOBALS['con'], $qry);
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="donation/donation.php">Donate</a></li>
-              
+
             </ul>
           </li>
 
@@ -141,7 +141,7 @@ $query_run = mysqli_query($GLOBALS['con'], $qry);
                 echo
                 "<div class='col-lg-4 col-md-6 portfolio-item filter-cat'>
                     <div class='portfolio-wrap'>
-                      <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' class='img-fluid' alt=''>
+                      <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' width='416px' height='416px' alt=''class='img-fluid' alt=''>
                       <div class='portfolio-links'>
                         <a href='../Admin/admin%20dashboard/pages/samples/upload/$image' data-gallery='portfolioGallery' class='portfolio-lightbox' title='$name'><i class='bi bi-plus'></i></a>
                         <a href='pet.php?pet=$name&id=$id' title='More Details'><i class='bi bi-link'></i></a>
@@ -156,7 +156,7 @@ $query_run = mysqli_query($GLOBALS['con'], $qry);
                 echo
                 "<div class='col-lg-4 col-md-6 portfolio-item filter-dog'>
                     <div class='portfolio-wrap'>
-                      <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' class='img-fluid' alt=''>
+                      <img src='../Admin/admin%20dashboard/pages/samples/upload/$image' width='416px' height='416px' class='img-fluid' alt=''>
                       <div class='portfolio-links'>
                         <a href='../Admin/admin%20dashboard/pages/samples/upload/$image' data-gallery='portfolioGallery' class='portfolio-lightbox' title='$name'><i class='bi bi-plus'></i></a>
                         <a href='pet.php?pet=$name&id=$id' title='More Details'><i class='bi bi-link'></i></a>

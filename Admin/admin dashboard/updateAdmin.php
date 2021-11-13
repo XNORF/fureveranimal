@@ -42,11 +42,8 @@
 
 
           <?php
-          $connection = mysqli_connect("localhost", "pet2021", "fureveranimal", "fureveranimalshelter");
-          $db = mysqli_select_db($connection, 'fureveranimalshelter');
-
           $query = "SELECT * FROM admin";
-          $query_run = mysqli_query($connection, $query);
+          $query_run = mysqli_query($GLOBALS['con'], $query);
           ?>
 
 

@@ -4,6 +4,14 @@ session_start();
 if (isset($_GET['pet']) && isset($_GET['id'])) {
   $pet = $_GET['pet'];
   $id = $_GET['id'];
+  $_SESSION['ppet'] = $pet;
+  $_SESSION['pid'] = $id;
+
+  if (isset($_GET['date']) && isset($_GET['time'])) {
+    $_SESSION['pdate'] = $_GET['date'];
+    $_SESSION['ptime'] = $_GET['time'];
+  }
+
   $_SESSION['pet'] = $pet;
   $_SESSION['id'] = $id;
 
@@ -25,7 +33,7 @@ if (isset($_GET['pet']) && isset($_GET['id'])) {
 if (isset($_POST['availabilitybtn'])) {
   checkAvailability($_POST);
 } else if (isset($_POST['paymentbtn'])) {
-  header("Location: paymentpage.php");
+  header("Location: paymentpage.php?pet=" . $_SESSION['ppet'] . "&id=" . $_SESSION['pid'] . "&date=" . $_SESSION['pdate'] . "&time=" . $_SESSION['ptime'] . "");
 }
 
 function checkAvailability()
@@ -211,7 +219,7 @@ if (isset($_GET['error'])) {
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="donation/donation.php">Donate</a></li>
-             
+
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="index.php#contact">Contact</a></li>

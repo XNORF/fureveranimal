@@ -1,3 +1,7 @@
+<?php
+include_once '../include/db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,80 +48,124 @@
       <h2>Adoption Payment Form</h2>
     </div>
     <div class="d-flex">
-      <form action="./charge.php" id="payment-form">
+      <form action="./charge.php" method="post" id="payment-form">
         <br><br>
 
-        <label>
-          <div id="card-element" class="form-control col-md-8">
-            <!-- a Stripe Element will be inserted here. -->
-          </div>
-          <!-- Used to display form errors -->
-          <div id="card-errors" role="alert"></div>
-        </label>
-        <label>
-          <span>Name on card <span class="required">*</span></span>
-          <input type="text" name="fname">
-        </label>
-        <label>
-          <span>Email Address <span class="required">*</span></span>
-          <input type="email" name="city">
-        </label>
-        <label>
-          <span>Phone <span class="required">*</span></span>
-          <input type="tel" name="city">
-        </label>
-        <label>
-          <span>Address 1<span class="required">*</span></span>
-          <input type="text" name="houseadd" placeholder="House number and street name" required>
-        </label>
-        <label>
-          <span>Address 2<span class="required">*</span></span>
-          <input type="text" name="apartment" placeholder="Apartment, suite, unit etc. (optional)">
-        </label>
-        <label>
-          <span>Town / City <span class="required">*</span></span>
-          <input type="text" name="city">
-        </label>
-        <label>
-          <span>State / County <span class="required">*</span></span>
-          <input type="text" name="city">
-        </label>
-        <label>
-          <span>Postcode / ZIP <span class="required">*</span></span>
-          <input type="text" name="city">
-        </label>
+        <?php
+        if (isset($_GET['pet']) && isset($_GET['id']) && isset($_GET['date']) && isset($_GET['time'])) {
+          $pet = $_GET['pet'];
+          $id = $_GET['id'];
+          $date = $_GET['date'];
+          $time = $_GET['time'];
+
+          $sql = "select * from pets WHERE name = '$pet' AND id = '$id'";
+          $qry = mysqli_query($GLOBALS['con'], $sql);
+          $count = mysqli_num_rows($qry);
+          if ($count == 1) {
+            $userRecord = mysqli_fetch_assoc($qry);
+            $age = $userRecord['age'];
+            $type = $userRecord['type'];
+            $image = $userRecord['image'];
+          }
+        }
+        ?>
+
+
+        <input type="hidden" name="petname" value="<?php echo $pet ?>" required>
+        <input type="hidden" name="petid" value="<?php echo $id ?>" required>
+        <input type="hidden" name="date" value="<?php echo $date ?>" required>
+        <input type="hidden" name="time" value="<?php echo $time ?>" required>
+        <input type="hidden" name="price" value="120" required>
+
+        <div class="row">
+          <center>
+            <div class=" class col-md-11">
+              <!-- Used to display form errors -->
+              <div id="card-errors" role="alert"></div>
+              <div id="card-element" class="form-control">
+                <!-- a Stripe Element will be inserted here. -->
+              </div>
+            </div>
+          </center>
+        </div>
+        <br>
+        <div class="row">
+          <span class="class col-md-3">Name on card</span>
+          <input type="text" class="col-md-9" name="cardname" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">Email Address</span>
+          <input type="email" class="col-md-9" name="email" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">Phone</span>
+          <input type="text" class="col-md-9" name="phone" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">Address 1</span>
+          <input type="text" class="col-md-9" name="address1" placeholder="House number and street name" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">Address 2</span>
+          <input type="text" class="col-md-9" name="address2" placeholder="Apartment, suite, unit etc. (optional)" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">Town / City</span>
+          <input type="text" class="col-md-9" name="city" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">State / Country</span>
+          <input type="text" class="col-md-9" name="state" required>
+        </div>
+
+        <div class="row">
+          <span class="class col-md-3">Postcode / ZIP</span>
+          <input type="text" class="col-md-9" name="postcode" required>
+        </div>
+        <br>
+        <div class="row">
+          <div class="class col-md-8"></div>
+          <button name="orderBtn" class="col-md-3">Place Payment</button>
+        </div>
       </form>
 
       <div class="Yorder">
-        <table>
-          <tr>
-            <th colspan="2">Your Order</th>
-          </tr>
-          <tr>
-            <td width="20%"> <img src="assets/img/dog3.jpg" width="90"> </td>
-            <td>
-              <div class="product-qty"> <span class="d-block">Name: Ian</span><span class="d-block">Type: Dog</span><span class="d-block">Age: 1 y/o</span></div>
-            </td>
+        <form>
+          <table>
+            <tr>
+              <th colspan="2">Your Payment</th>
+            </tr>
+            <tr>
+              <td width="20%"> <img src="<?php echo '../Admin/admin%20dashboard/pages/samples/upload/' . $image . '' ?>" width=" 90"> </td>
+              <td>
+                <div class="product-qty"> <span class="d-block">Name: <?php echo $pet ?></span><span class="d-block">Type: <?php echo $type ?></span><span class="d-block">Age: <?php echo $age ?></span></div>
+              </td>
 
-          </tr>
-          <tr>
-            <td>Fees:
-              <hr>
-              Adoption<br>
-              Food
-              Supplies
-            </td>
-            <td><br><br>
-              RM 30.00<br>
-              RM 50.00<br>
-              RM 40.00<br>
-          </tr>
-          <tr>
-            <td><b>Subtotal</b></td>
-            <td>RM 120.00</td>
-          </tr>
-        </table><br>
-        <button type="button">Place Order</button>
+            </tr>
+            <tr>
+              <td>Fees:
+                <hr>
+                Adoption<br>
+                Food
+                Supplies
+              </td>
+              <td><br><br>
+                RM 30.00<br>
+                RM 50.00<br>
+                RM 40.00<br>
+            </tr>
+            <tr>
+              <td><b>Subtotal</b></td>
+              <td>RM 120.00</td>
+            </tr>
+          </table><br>
+        </form>
       </div><!-- Yorder -->
     </div>
   </div>
