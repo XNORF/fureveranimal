@@ -44,39 +44,49 @@
                      <form class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputName">First Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="First Name">
+                        <input type="text" class="form-control" name=" firstname" id="exampleInputName1" placeholder="First Name" readonly>
                       </div>
 					   <div class="form-group">
                         <label for="exampleInputName">Last Name</label>
-                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Last Name">
+                        <input type="text" class="form-control" name="lastname" id="exampleInputName2" placeholder="Last Name" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPetAge"> Email</label>
-                        <input type="text" class="form-control" id="exampleInputEmail" placeholder="Email">
+                        <input type="text" class="form-control" name="email" id="exampleInputEmail" placeholder="Email" readonly>
                       </div>
 					  <div class="form-group">
                         <label for="exampleInputAnimalType">Phone Number</label>
-                        <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone Number">
+                        <input type="text" class="form-control" name="phonenumber" id="exampleInputPhone" placeholder="Phone Number" readonly>
                       </div>
 					  <div class="form-group">
                         <label for="exampleInputPetHealth">Name Of Animal Adopted</label>
-                        <input type="text" class="form-control" id="exampleInputAnimalAdopted" placeholder="Animal Adopted">
+                        <input type="text" class="form-control" name="animaladopted" id="exampleInputAnimalAdopted" placeholder="Animal Adopted" readonly>
                       </div>
 					  
                      
 					  <div class="form-group">
                         <label for="exampleInputDOA">Date Of Appointment</label>
-                        <input type="date" class="form-control" id="exampleInputDate" placeholder="">
+                        <input type="date" class="form-control" name="InputDate" id="exampleInputDate" placeholder="">
                       </div>
                      
 					  <div class="form-group">
                         <label for="exampleInputPetStory">Time Of Appointment</label>
-                        <input type="time" class="form-control" id="exampleInputTime" placeholder="">
+                        <input type="time" class="form-control" name="InputTime" id="exampleInputTime" placeholder="">
+                      </div>
+					  
+					  <div class="form-group">
+                        <label for="exampleFormControlSelect1">Appointment Status</label>
+                        <select class="form-control" name="SelectStatus" id="exampleSelectStatus">
+                          <option>COMPLETED</option>
+                          <option>PENDING</option>
+						  <option>CANCELLED</option>
+                        </select>
                       </div>
                      
 					  
                       <button type="submit" class="btn btn-gradient-primary mr-2">Update</button>
-                      <button class="btn btn-light">Cancel</button>
+                      <button class="btn btn-light">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  <button type="submit" class="btn btn-gradient-danger btn-fw">Cancel Appointment</button>
                     </form>
                   </div>
                 </div>
