@@ -561,7 +561,7 @@ if (isset($_GET['signout'])) {
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>fureveranimal@gmail.com</p>
+                <p>fureveranimalshelter@gmail.com</p>
               </div>
 
               <div class="phone">
@@ -639,7 +639,7 @@ if (isset($_GET['signout'])) {
               54100 Kuala Lumpur, <br>
               Wilayah Persekutuan Kuala Lumpur <br><br>
               <strong>Phone:</strong> +03-4256 5312<br>
-              <strong>Email:</strong> fureveranimal@gmail.com<br>
+              <strong>Email:</strong> fureveranimalshelter@gmail.com<br>
             </p>
           </div>
 
