@@ -1,11 +1,11 @@
 <?php
-	session_start();
-	if(isset($_SESSION['adopter'])){
-	  header("Location: Adopter/index.php");
-	}else if(isset($_SESSION['admin'])){
-	  header("Location: Admin/index.php");
-	}{
-	}
+session_start();
+if (isset($_SESSION['adopter'])) {
+  header("Location: Adopter/index.php");
+} else if (isset($_SESSION['admin'])) {
+  header("Location: Admin/index.php");
+} {
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png" ></span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span><img src="assets/img/logofur.png"></span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.php"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -65,22 +65,22 @@
               <li><a href="spay.php">Spay & Neuter</a></li>
             </ul>
           </li>
-		  
-		  <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
+
+          <li class="dropdown"><a href="#"><span>What You Can Do</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="adopt.php">Adopt</a></li>
               <li><a href="login/loginmain.php">Donate</a></li>
-			  
+
             </ul>
           </li>
-		   
+
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="login/loginmain.php">Login / Signup</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
-	
+
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -93,7 +93,7 @@
           <h2 class="text-dark">Saving one animal won't change the world, but it will change the world for that one animal.</h2>
           <div>
             <a href="adopt.php" class="btn-get-started scrollto"><b>ADOPT</b></a>
-			<a href="login/loginmain.php" class="btn-get-started scrollto"><b>DONATE</b></a>
+            <a href="login/loginmain.php" class="btn-get-started scrollto"><b>DONATE</b></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -113,25 +113,26 @@
           <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
             <img src="assets/img/catd2.png" class="img-fluid" alt="" data-aos="zoom-in">
           </div>
-		  
+
           <div class="col-lg-6 pt-5 pt-lg-0">
             <h3 data-aos="fade-up">Wanna know more about us?</h3>
             <p data-aos="fade-up" data-aos-delay="100"></p>
-			
+
             <div class="row">
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <i class="bx bx-book-heart"></i>
                 <h4>Our Story</h4>
-                <p>Fur-Ever Animal Shelter is a nonprofit organization that finds homes for abandoned cats and dogs throughout Kuala Lumpur and Selangor area and provides behavior intervention when needed to improve chances of adoption. Founded in 2021, we operate an animal shelter in Jalan Semarak, Kuala Lumpur. 
-				<br>We also provide programs that enhance the bond between animals and people.</p>
+                <p>Fur-Ever Animal Shelter is a nonprofit organization that finds homes for abandoned cats and dogs throughout Kuala Lumpur and Selangor area and provides behavior intervention when needed to improve chances of adoption. Founded in 2021, we operate an animal shelter in Jalan Semarak, Kuala Lumpur.
+                  <br>We also provide programs that enhance the bond between animals and people.
+                </p>
               </div>
-			  
+
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <i class="bx bx-donate-heart"></i>
                 <h4>Mission</h4>
                 <p>As an animal adoption and rescue organization, we always have hundreds of dogs, cats, puppies and kittens available, and that special one is waiting for you. Adopt a pet, save a life and add to your loving family.
 
-                   Search our available pets and begin one of the most rewarding journeys of your life.​ Don’t see what you are looking for? Give us a call or stop in, new pets in need arrive every day.</p>
+                  Search our available pets and begin one of the most rewarding journeys of your life.​ Don’t see what you are looking for? Give us a call or stop in, new pets in need arrive every day.</p>
               </div>
             </div>
           </div>
@@ -210,7 +211,7 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/cat5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Lily"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Lily</h4>
                 <p>5 months old</p>
@@ -223,7 +224,7 @@
               <img src="assets/img/portfolio/dog5.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dog5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Marshmallow"><i class="bi bi-plus"></i></a>
-                
+
               </div>
               <div class="portfolio-info">
                 <h4>Marshmallow</h4>
@@ -238,7 +239,7 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/cat7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Nyx"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Nyx</h4>
                 <p>1 year old</p>
@@ -252,21 +253,21 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dog9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Peanut"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Peanut</h4>
                 <p>9 months old</p>
               </div>
             </div>
           </div>
-		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat10_.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/cat10_.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Grey"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Grey</h4>
                 <p>1.5 years old</p>
@@ -281,7 +282,7 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dog2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="King"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>King</h4>
                 <p>10 months old</p>
@@ -295,7 +296,7 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/blindcat2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Bailey"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Bailey</h4>
                 <p>3 years old</p>
@@ -309,21 +310,21 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/blindog.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Cooper"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Cooper</h4>
                 <p>2 years old</p>
               </div>
             </div>
           </div>
-		  
-		  <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/cat3.jpg" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/cat3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a> 
+                <a href="assets/img/portfolio/cat3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Luna"><i class="bi bi-plus"></i></a>
               </div>
-			  
+
               <div class="portfolio-info">
                 <h4>Luna</h4>
                 <p>1 year old</p>
@@ -350,7 +351,7 @@
                 Fur-Ever Animal Shelter is located at Jalan Sultan Yahya Petra, Kampung Datuk Keramat, 54100 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur
             </div>
           </li>
-		  
+
           <li>
             <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">What are your hours? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
             <div id="faq2" class="collapse" data-bs-parent=".faq-list">
@@ -372,7 +373,7 @@
               <p>
                 The entire adoption process varies but the goal is for the adoption to be completed within 2 to 3 days.
               </p>
-			  <p>
+              <p>
                 Due to limited space and insurance reasons, only adopters accompanied by FAS personnel can be brought back to view the animals.
               </p>
             </div>
@@ -391,9 +392,9 @@
             <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Will I Get To Choose The Cat Or Dog To Foster? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
             <div id="faq5" class="collapse" data-bs-parent=".faq-list">
               <p>
-                We will tell you about the animals that are in need of foster homes and you can let us know your preference. 
-				If we feel that the animal is a good match for your home we will set you up as a foster home. 
-				We do our best to place an animal that fits your lifestyle. If you live in an apartment, you can ask for or an older animal who is low energy or a cat or dog in medical recovery who needs to be kept quiet. If you are an active family, you can ask for a dog who needs lots of walks and plenty of exercise. If someone in your family is comfortable working with dogs, they can help with some basic obedience or teach him some tricks.
+                We will tell you about the animals that are in need of foster homes and you can let us know your preference.
+                If we feel that the animal is a good match for your home we will set you up as a foster home.
+                We do our best to place an animal that fits your lifestyle. If you live in an apartment, you can ask for or an older animal who is low energy or a cat or dog in medical recovery who needs to be kept quiet. If you are an active family, you can ask for a dog who needs lots of walks and plenty of exercise. If someone in your family is comfortable working with dogs, they can help with some basic obedience or teach him some tricks.
               </p>
             </div>
           </li>
@@ -408,7 +409,7 @@
           </li>
         </ul>
       </div>
-	  
+
     </section><!-- End F.A.Q Section -->
 
     <!-- ======= Team Section ======= -->
@@ -492,7 +493,7 @@
             </div>
           </div>
 
-      </div>
+        </div>
     </section><!-- End Team Section -->
 
     <!-- ======= Clients Section ======= -->
@@ -597,7 +598,7 @@
           <div class="col-lg-6">
             <h4>Report Animal Cruelty</h4>
             <p>To protect the animals from being abused, click this button.</p>
-			<a href="https://akh.dvs.gov.my/support" class="btn-get-started scrollto"><b>REPORT</b></a>
+            <a href="https://akh.dvs.gov.my/support" class="btn-get-started scrollto"><b>REPORT</b></a>
             </form>
           </div>
         </div>
@@ -613,8 +614,8 @@
             <p>
               Jalan Sultan Yahya Petra,<br>
               Kampung Datuk Keramat,<br>
-			   54100 Kuala Lumpur, <br>
-              Wilayah Persekutuan Kuala Lumpur  <br><br>
+              54100 Kuala Lumpur, <br>
+              Wilayah Persekutuan Kuala Lumpur <br><br>
               <strong>Phone:</strong> +03-4256 5312<br>
               <strong>Email:</strong> fureveranimal@gmail.com<br>
             </p>
@@ -674,4 +675,5 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
