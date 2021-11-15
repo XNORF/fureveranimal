@@ -9,7 +9,9 @@ $qry = mysqli_query($GLOBALS['con'], $sql);
 $count = mysqli_num_rows($qry);
 
 if ($count == 1) {
-  header("Location: adopt.php?status=existed");
+  $userRecord = mysqli_fetch_assoc($qry);
+  $appointmentid = $userRecord['id'];
+  header("Location: adopt.php?status=existed&id=$appointmentid");
 }
 
 if (isset($_GET['pet']) && isset($_GET['id'])) {

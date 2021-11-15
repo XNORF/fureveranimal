@@ -2,6 +2,11 @@
 include_once '../include/db.php';
 $qry = "SELECT * FROM pets WHERE status = '0'";
 $query_run = mysqli_query($GLOBALS['con'], $qry);
+
+if (isset($_GET['status']) && isset($_GET['id'])) {
+  $statusCheck = $_GET['status'];
+  $id = $_GET['id'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +44,25 @@ $query_run = mysqli_query($GLOBALS['con'], $qry);
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-
+  <?php
+  if (isset($statusCheck)) {
+    if ($statusCheck == "existed") {
+      echo "<script type='text/javascript'>
+              Swal.fire({
+                icon: 'error',
+                title: 'Pending Appointment',
+                text: 'You already have a pending appointment: $id',
+                footer: '<a href=\'index.php#contact\'>Please contact support if there\'s a problem</a>'
+              })
+            </script>";
+    }
+  }
+  ?>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">

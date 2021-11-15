@@ -94,8 +94,8 @@ if (isset($_GET['msg'])) {
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../../index.html"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="../../../index.php"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="../../../index.php"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -253,7 +253,7 @@ if (isset($_GET['msg'])) {
               </div>
               <div class="nav-profile-text d-flex flex-column">
                 <?php echo "<span class='font-weight-bold mb-2'>$username</span>" ?>
-                <span class="text-secondary text-small">FAS Front-End Admin</span>
+                <span class="text-secondary text-small">FAS Admin</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
@@ -288,7 +288,7 @@ if (isset($_GET['msg'])) {
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="appointmentpage.php"> Upcoming Appointment </a></li>
                 <li class="nav-item"> <a class="nav-link" href="adopter-history.php"> Adopter History </a></li>
-                <li class="nav-item"> <a class="nav-link" href="donation-history.php"> Donation History </a></li>
+                <li class="nav-item"> <a class="nav-link" href="transaction-history.php"> Transactions History </a></li>
               </ul>
             </div>
           </li>

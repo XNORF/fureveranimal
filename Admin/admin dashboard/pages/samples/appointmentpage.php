@@ -1,6 +1,11 @@
 <?php
 include_once '../../../../include/db.php';
+
 session_start();
+if (!isset($_SESSION['admin'])) {
+  header('Location: ../../../../index.php');
+}
+
 $email = $_SESSION['admin'];
 if (!$GLOBALS['con']) {
   echo mysqli_error($GLOBALS['con']);
@@ -59,7 +64,7 @@ if (isset($_GET['msg'])) {
 
 <body>
 
-<?php
+  <?php
   if (isset($msgCheck)) {
     if ($msgCheck == "confirmDelete" && isset($requestedId)) {
       echo "<script type='text/javascript'>
@@ -99,8 +104,8 @@ if (isset($_GET['msg'])) {
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../../index.html"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="../../../index.php"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="../../../index.php"><img src="assets/images/logofureveranimal.jpeg" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -131,7 +136,7 @@ if (isset($_GET['msg'])) {
               <a class="dropdown-item" href="#">
                 <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">
+              <a class="dropdown-item" href="../../../index.php?signout=1">
                 <i class="mdi mdi-logout mr-2 text-primary"></i> Signout </a>
             </div>
           </li>
@@ -258,7 +263,7 @@ if (isset($_GET['msg'])) {
               </div>
               <div class="nav-profile-text d-flex flex-column">
                 <?php echo "<span class='font-weight-bold mb-2'>$username</span>" ?>
-                <span class="text-secondary text-small">FAS Front-End Admin</span>
+                <span class="text-secondary text-small">FAS Admin</span>
               </div>
               <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
             </a>
@@ -293,12 +298,12 @@ if (isset($_GET['msg'])) {
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="appointmentpage.php"> Upcoming Appointment </a></li>
                 <li class="nav-item"> <a class="nav-link" href="adopter-history.php"> Adopter History </a></li>
-                <li class="nav-item"> <a class="nav-link" href="donation-history.php"> Donation History </a></li>
+                <li class="nav-item"> <a class="nav-link" href="transaction-history.php"> Transactions History </a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../../updateAdmin.php">
+            <a class="nav-link" href="updateAdmin.php">
               <span class="menu-title">Admins</span>
               <i class="mdi mdi-table-large menu-icon"></i>
             </a>
@@ -336,146 +341,139 @@ if (isset($_GET['msg'])) {
           <div class="container">
             <div class="row">
               <h3 class="page-title col-md-1">
-                <center>APPOINTMENT</center>
+                <center>APPOINTMENTS</center>
               </h3>
-             
-
-          <div class="container mt-2">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="">
-                  <div class="">
-                    <?php
-
-                    $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
-
-                    $query = "SELECT * FROM appointment";
-                    $query_run = mysqli_query($GLOBALS['con'], $query);
-
-                    ?>
 
 
-                    <table class="table" style="background-color:#F0C6F2">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <tbody>
-                            <!-- On tables -->
+              <div class="container mt-2">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="">
+                      <div class="">
+                        <?php
 
-                            <table id="appointmentTable" class="table table-light table-hover table-striped table-md">
-                              <thead>
-                                <tr>
+                        $db = mysqli_select_db($GLOBALS['con'], 'fureveranimalshelter');
 
-                                  <th scope="col" class="th-sm">ADOPTER</th>
-                                  <th scope="col" class="th-sm">PET</th>
-                                  <th scope="col" class="th-sm">DATE</th>
-                                  <th scope="col" class="th-sm">TIME</th>
-                                  <th scope="col" class="th-sm">STATUS</th>
-                                  <th scope="col" class="th-sm">UPDATE</th>
-                                </tr>
-                              </thead>
+                        $query = "SELECT adopter.firstname, adopter.lastname, pets.name, appointment.*
+                        FROM appointment, adopter, pets
+                        WHERE appointment.adopter=adopter.email AND appointment.pet=pets.id AND appointment.status IN (0)";
+                        $query_run = mysqli_query($GLOBALS['con'], $query);
+
+                        ?>
+
+
+                        <table class="table" style="background-color:#F0C6F2">
+                          <div class="table-responsive">
+                            <table class="table">
                               <tbody>
+                                <!-- On tables -->
 
-                              <?php
+                                <table id="appointmentTable" class="table table-light table-hover table-striped table-md">
+                                  <thead>
+                                    <tr>
 
-
-                                if (mysqli_num_rows($query_run) > 0) {
-
-                                  foreach ($query_run as $row) {
-                                ?>
-                                    <tr class="text-black">
-
-                                      
-                                        <h1 visibility: hidden><?php echo $row['id']; ?></h1>
-                                       
-                                      <td> <?php echo $row['adopter']; ?> </td>
-                                      <td> <?php echo $row['pet']; ?> </td>
-                                      <td> <?php echo $row['date']; ?> </td>
-                                      <td> <?php echo $row['time']; ?> </td>
-                                      <td> <?php
-                                            if ($row['status'] == 0) {
-                                              echo "UPCOMING APPOINTMENT";
-                                            } else if ($row['status'] == 1) {
-                                              echo "DONE";
-                                            } 
-                                            ?> </td>
-                                      <!--<td> <?php //echo $row['story']; 
-                                                ?> </td>-->
-                                      <td>
-                                        <?php $id = $row['id']; ?>
-                                        <a href="editAppointment.php?id=<?php echo $id; ?>"> <button type="button" class="btn btn-success">&nbsp&nbsp&nbspEDIT&nbsp&nbsp&nbsp</button></a><br>
-                                        <form action="appointmentpage.php" method="post">
-                                          <a href="appointmentpage.php?msg=confirmDelete&id=<?php echo $row['id']; ?>"> <button type="button" class="btn btn-danger">DELETE</button></a>
-
-                                      </td>
-
+                                      <th scope="col" class="th-sm">ID</th>
+                                      <th scope="col" class="th-sm">ADOPTER</th>
+                                      <th scope="col" class="th-sm">PET</th>
+                                      <th scope="col" class="th-sm">DATE</th>
+                                      <th scope="col" class="th-sm">TIME</th>
+                                      <th scope="col" class="th-sm">UPDATE</th>
                                     </tr>
+                                  </thead>
+                                  <tbody>
 
-                                  <?php
-                                  }
-                                } else {
-                                  ?>
-
-                                  <tr>
-
-                                    <td>No Record Available</td>
-
-                                  </tr>
-
-                                <?php
-                                }
-                                ?>
-
-                              </tbody>
-                            </table>
-
-                            <div class="container">
-                              <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <?php
 
 
+                                    if (mysqli_num_rows($query_run) > 0) {
 
-                              <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
-                              </form>
+                                      foreach ($query_run as $row) {
+                                    ?>
+                                        <tr class="text-black">
 
-                            </div>
+
+                                          <td> <?php echo $row['id']; ?> </td>
+                                          <td> <?php echo $row['firstname'] . " " . $row['lastname']; ?></td>
+                                          <td> <?php echo $row['name']; ?> </td>
+                                          <td> <?php echo $row['date']; ?> </td>
+                                          <td> <?php echo $row['time']; ?> </td>
+                                          <!--<td> <?php //echo $row['story']; 
+                                                    ?> </td>-->
+                                          <td>
+                                            <?php $id = $row['id']; ?>
+                                            <a href="editAppointment.php?id=<?php echo $id; ?>"> <button type="button" class="btn btn-success">&nbsp&nbsp&nbspEDIT&nbsp&nbsp&nbsp</button></a><br>
+                                            <form action="appointmentpage.php" method="post">
+
+                                          </td>
+
+                                        </tr>
+
+                                      <?php
+                                      }
+                                    } else {
+                                      ?>
+
+                                      <tr>
+
+                                        <td>No Record Available</td>
+
+                                      </tr>
+
+                                    <?php
+                                    }
+                                    ?>
+
+                                  </tbody>
+                                </table>
+
+                                <div class="container">
+                                  <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+                                  <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
+                                  </form>
+
+                                </div>
+                          </div>
+
                       </div>
+                    </div>
 
                   </div>
+                  <!-- partial -->
                 </div>
-
+                <!-- main-panel ends -->
               </div>
-              <!-- partial -->
+              <!-- page-body-wrapper ends -->
             </div>
-            <!-- main-panel ends -->
-          </div>
-  <!-- page-body-wrapper ends -->
-  </div>
-    <!-- container-scroller -->
-          <!-- plugins:js -->
-          <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
-          <!-- endinject -->
-          <!-- Plugin js for this page -->
-          <!-- End plugin js for this page -->
-          <!-- inject:js -->
-          <script src="../../assets/js/off-canvas.js"></script>
-          <script src="../../assets/js/hoverable-collapse.js"></script>
-          <script src="../../assets/js/misc.js"></script>
+            <!-- container-scroller -->
+            <!-- plugins:js -->
+            <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+            <!-- endinject -->
+            <!-- Plugin js for this page -->
+            <!-- End plugin js for this page -->
+            <!-- inject:js -->
+            <script src="../../assets/js/off-canvas.js"></script>
+            <script src="../../assets/js/hoverable-collapse.js"></script>
+            <script src="../../assets/js/misc.js"></script>
 
-          <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-          <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-          <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
-          <script type="text/javascript">
-            $(document).ready(function() {
-              $('#appointmentTable').DataTable();
-            });
-          </script>
-          <!-- endinject -->
-          <!-- Custom js for this page -->
-          <!-- End custom js for this page -->
+            <script type="text/javascript">
+              $(document).ready(function() {
+                $('#appointmentTable').DataTable();
+              });
+            </script>
+            <!-- endinject -->
+            <!-- Custom js for this page -->
+            <!-- End custom js for this page -->
 </body>
 
 </html>

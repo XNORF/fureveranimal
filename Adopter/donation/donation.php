@@ -1,3 +1,9 @@
+<?php
+if (isset($_GET['error'])) {
+    $errorCheck = $_GET['error'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,10 +23,33 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
+    <?php
+    if (isset($errorCheck)) {
+        if ($errorCheck == "insufficient") {
+            echo "<script>
+				Swal.fire({
+					icon: 'warning',
+					title: 'Insufficient Balance',
+					text: 'Your card does not have sufficient funds!',
+				  })
+				</script>";
+        } else if ($errorCheck == "declined") {
+            echo "<script>
+				Swal.fire({
+					icon: 'warning',
+					title: 'Declined',
+					text: 'Your card has been declined, please contact your bank for more information.',
+				  })
+				</script>";
+        }
+    }
+    ?>
 
     <div class="main">
 
@@ -43,21 +72,21 @@
                                         <h1>Billing Address</h1>
                                     </label><br>
                                     <label for="first_name" class="required">First name</label>
-                                    <input type="text" name="firstname" id="first_name" />
+                                    <input type="text" name="firstname" id="first_name" required />
                                 </div>
 
                                 <div class="form-input">
                                     <label for="last_name" class="required">Last name</label>
-                                    <input type="text" name="lastname" id="last_name" />
+                                    <input type="text" name="lastname" id="last_name" required />
                                 </div>
 
                                 <div class="form-input">
                                     <label for="email" class="required">Email</label>
-                                    <input type="text" name="email" id="email" />
+                                    <input type="text" name="email" id="email" required />
                                 </div>
                                 <div class="form-input">
                                     <label for="phone_number" class="required">Phone number</label>
-                                    <input type="text" name="phone" id="phone_number" />
+                                    <input type="text" name="phone" id="phone_number" required />
                                 </div>
                                 <br> <label for="payment">
                                     <h1>Payment</h1>
@@ -86,19 +115,19 @@
                                 <div class="form-input"><br><br>
 
                                     <label for="address_1" class="required">Address 1</label>
-                                    <input type="text" name="address1" id="address_1" />
+                                    <input type="text" name="address1" id="address_1" required />
                                 </div>
                                 <div class="form-input">
                                     <label for="address_2" class="required">Address 2</label>
-                                    <input type="text" name="address2" id="address_2" />
+                                    <input type="text" name="address2" id="address_2" required />
                                 </div>
                                 <div class="form-input">
                                     <label for="postcode" class="required">Post Code</label>
-                                    <input type="text" name="postcode" id="postcode" />
+                                    <input type="text" name="postcode" id="postcode" required />
                                 </div>
                                 <div class="form-input">
                                     <label for="state" class="required">State</label>
-                                    <input type="text" name="state" id="state" />
+                                    <input type="text" name="state" id="state" required />
                                 </div>
                                 <br>
 
@@ -118,12 +147,12 @@
                                 </div>
                                 <div class="form-input">
                                     <label for="state" class="required">Name On Card</label>
-                                    <input type="text" name="namecard" id="namecard" />
+                                    <input type="text" name="namecard" id="namecard" required />
                                 </div>
 
                                 <div class="form-input">
                                     <label for="state" class="required">Donation Amount (RM)</label>
-                                    <input type="number" name="price" id="namecard" min="1" />
+                                    <input type="number" name="price" id="namecard" min="1" required />
                                 </div>
                             </div>
                         </div>

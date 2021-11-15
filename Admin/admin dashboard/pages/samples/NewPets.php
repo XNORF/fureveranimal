@@ -96,10 +96,16 @@ if (isset($_POST['addPet'])) {
           <label for="age"> Age</label>
           <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
         </div>
+
         <div class="form-group">
-          <label for="type">Dog or Cat</label>
-          <input type="text" class="form-control" id="type" name="type" placeholder="Animal Type" required>
+          <label for="gender">Animal Type</label>
+          <select class="form-control" id="type" name="type" required>
+            <option value="" disabled selected>Animal Type</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+          </select>
         </div>
+
         <div class="form-group">
           <label for="health">Health Condition/Allergy</label>
           <input type="text" class="form-control" id="health" name="health" placeholder="Health Condition Status" required>
@@ -113,8 +119,9 @@ if (isset($_POST['addPet'])) {
         <div class="form-group">
           <label for="gender">Pet Gender</label>
           <select class="form-control" id="gender" name="gender" required>
-            <option>Male</option>
-            <option>Female</option>
+            <option value="" disabled selected>Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
           </select>
         </div>
         <div class="form-group">

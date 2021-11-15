@@ -1,6 +1,10 @@
 <?php
 include_once '../../../../include/db.php';
+
 session_start();
+if (!isset($_SESSION['admin'])) {
+  header('Location: ../../../../index.php');
+}
 
 if (isset($_GET['id'])) {
   $id = $_GET['id'];

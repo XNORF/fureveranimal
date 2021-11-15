@@ -1,5 +1,10 @@
 <?php
 include_once '../include/db.php';
+
+if (isset($_GET['error'])) {
+  $errorCheck = $_GET['error'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +45,33 @@ include_once '../include/db.php';
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
+  <?php
+  if (isset($errorCheck)) {
+    if ($errorCheck == "insufficient") {
+      echo "<script>
+				Swal.fire({
+					icon: 'warning',
+					title: 'Insufficient Balance',
+					text: 'Your card does not have sufficient funds!',
+				  })
+				</script>";
+    } else if ($errorCheck == "declined") {
+      echo "<script>
+				Swal.fire({
+					icon: 'warning',
+					title: 'Declined',
+					text: 'Your card has been declined, please contact your bank for more information.',
+				  })
+				</script>";
+    }
+  }
+  ?>
+
   <div class="container">
     <div class="title">
       <h2>Adoption Payment Form</h2>
@@ -131,7 +160,7 @@ include_once '../include/db.php';
         <br>
         <div class="row">
           <div class="class col-md-8"></div>
-          <button name="orderBtn" class="col-md-3">Place Payment</button>
+          <button name="orderBtn" class="btn col-md-3">Place Payment</button>
         </div>
       </form>
 
