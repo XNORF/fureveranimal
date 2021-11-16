@@ -158,7 +158,6 @@ if (isset($_GET['error'])) {
                         </div>
                         <div class="form-submit">
                             <button name="orderBtn" class="submit col-md-3">Submit</button>
-                            <button name="orderBtn" class="submit col-md-3">Reset</button>
                         </div>
                     </form>
                 </div>

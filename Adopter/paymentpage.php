@@ -160,7 +160,7 @@ if (isset($_GET['error'])) {
         <br>
         <div class="row">
           <div class="class col-md-8"></div>
-          <button name="orderBtn" class="btn col-md-3">Place Payment</button>
+          <button name="orderBtn" class="col-md-3">Place Payment</button>
         </div>
       </form>
 

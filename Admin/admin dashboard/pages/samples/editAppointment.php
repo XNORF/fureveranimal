@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
   } else {
     $sql = "SELECT adopter.firstname, adopter.lastname, adopter.phoneNumber, pets.name, appointment.*
     FROM appointment, adopter, pets
-    WHERE appointment.adopter=adopter.email AND appointment.pet=pets.id AND appointment.id = 'cus_KaWv1eJSm8L52Z'";
+    WHERE appointment.adopter=adopter.email AND appointment.pet=pets.id AND appointment.id = '$id'";
     $qry = mysqli_query($GLOBALS['con'], $sql);
     $userRecord = mysqli_fetch_assoc($qry);
     $count = mysqli_num_rows($qry);

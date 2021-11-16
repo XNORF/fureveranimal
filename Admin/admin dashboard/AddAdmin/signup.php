@@ -59,7 +59,7 @@ if (isset($_GET['signup'])) {
                     </div>
                 </div>
                 <div class="signup-form">
-                    <form class="register-form" id="register-form" method="POST" action="../UpdateAdminFunction.php">
+                    <form class="register-form" id="register-form" method="POST" action="function.php">
                         <div class="form-row">
                             <div class="form-group">
                                 <div class="form-input">

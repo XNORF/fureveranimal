@@ -150,7 +150,7 @@ if (isset($_GET['update'])) {
                         <nav class="side-menu">
                             <ul class="nav">
                                 <li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
-                                <li><a href="adoptionhistoryadopter.php"><span class="fa fa-envelope"></span> Adoption History</a></li>
+                                <li><a href="history.php"><span class="fa fa-envelope"></span> History</a></li>
                                 <li><a href="changepassadopter.php"><span class="fa fa-th"></span> Change Password</a></li>
 
                             </ul>

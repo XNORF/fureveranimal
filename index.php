@@ -380,7 +380,7 @@ if (isset($_SESSION['adopter'])) {
           </li>
 
           <li>
-            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Why Should I Foster A Cat Or A Dog? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Why should I foster a cat or a dog? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
             <div id="faq4" class="collapse" data-bs-parent=".faq-list">
               <p>
                 As a foster parent, you will be able to love, care for, and enjoy knowing different cats and dogs. And you will be doing a wonderful thing – giving these deserving animals a chance at a new life.
@@ -389,7 +389,7 @@ if (isset($_SESSION['adopter'])) {
           </li>
 
           <li>
-            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Will I Get To Choose The Cat Or Dog To Foster? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Will I get to choose the cat or dog to foster? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
             <div id="faq5" class="collapse" data-bs-parent=".faq-list">
               <p>
                 We will tell you about the animals that are in need of foster homes and you can let us know your preference.
