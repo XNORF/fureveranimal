@@ -47,6 +47,9 @@ function updateProfile()
                     header("Location: accountadopter.php?update=failed");
                     exit();
                 }
+            } else {
+                header("Location: accountadopter.php?update=failed");
+                exit();
             }
         } else {
             $sql = "UPDATE adopter SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
