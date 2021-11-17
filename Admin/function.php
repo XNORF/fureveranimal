@@ -31,19 +31,24 @@ function updateProfile()
         // valid file extensions
         $extensions_arr = array("jpg", "jpeg", "png", "gif");
 
-        // Check extension
-        if (in_array($imageFileType, $extensions_arr)) {
 
             if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)) {
-                // Image db insert sql
-                $sql = "UPDATE admin SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state', image='$image' WHERE email='$email'";
-                if (mysqli_query($GLOBALS['con'], $sql)) {
-                    header("Location: admin%20dashboard/pages/samples/accountadmin.php?update=success");
-                    exit();
+                
+        // Check extension
+                if (in_array($imageFileType, $extensions_arr)) {
+                        // Image db insert sql
+                        $sql = "UPDATE admin SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state', image='$image' WHERE email='$email'";
+                        if (mysqli_query($GLOBALS['con'], $sql)) {
+                            header("Location: admin%20dashboard/pages/samples/accountadmin.php?update=success");
+                            exit();
+                        } else {
+                            //echo mysqli_error($GLOBALS['con']);
+                            header("Location: admin%20dashboard/pages/samples/accountadmin.php?update=failed");
+                            exit();
+                        }
+                        
                 } else {
-                    //echo mysqli_error($GLOBALS['con']);
                     header("Location: admin%20dashboard/pages/samples/accountadmin.php?update=failed");
-                    exit();
                 }
             } else {
                 $sql = "UPDATE admin SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
@@ -56,8 +61,5 @@ function updateProfile()
                     exit();
                 }
             }
-        } else {
-            header("Location: admin%20dashboard/pages/samples/accountadmin.php?update=failed");
-        }
     }
 }

@@ -11,11 +11,11 @@ if (isset($_GET['error'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Donation Form</title>
+    <title>Donation | Fur-Ever Animal Shelter</title>
 
     <!-- Favicons -->
-    <link href="assets/img/logofurever.png" rel="icon">
-    <link href="assets/img/logofurever.png" rel="apple-touch-icon">
+    <link href="../assets/img/logofurever.png" rel="icon">
+    <link href="../assets/img/logofurever.png" rel="apple-touch-icon">
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -152,7 +152,7 @@ if (isset($_GET['error'])) {
 
                                 <div class="form-input">
                                     <label for="state" class="required">Donation Amount (RM)</label>
-                                    <input type="number" name="price" id="namecard" min="1" required />
+                                    <input type="number" name="price" id="namecard" min="2" max="999999" required />
                                 </div>
                             </div>
                         </div>
@@ -164,7 +164,7 @@ if (isset($_GET['error'])) {
             </div>
         </div>
 
-    </div>-->
+    </div>
 
 
     <!-- JS -->

@@ -20,17 +20,17 @@ $contact = new PHP_Email_Form;
 $contact->ajax = true;
 
 $contact->to = $receiving_email_address;
-$contact->from_name = $_POST['name'];
-$contact->from_email = $_POST['email'];
-$contact->subject = $_POST['subject'];
+$contact->from_name = "Fur-Ever Support";
+$contact->from_email = $receiving_email_address;
+$contact->subject = "Contact Form";
 
 // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
 
 $contact->smtp = array(
-  'host' => 'smtp.gmail.com',
-  'username' => 'fureveranimalshelter@gmail.com',
-  'password' => '@fureveranimal6',
-  'port' => '587'
+  'host' => 'mail.fureveranimal.com',
+  'username' => 'noreply@fureveranimal.com',
+  'password' => 'fureveranimal',
+  'port' => '26'
 );
 
 

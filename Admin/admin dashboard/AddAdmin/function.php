@@ -15,7 +15,7 @@
             header("Location: signup.php?signup=invalidPass");
         } else {
             signup($_POST);
-            header('location: ../pages/samples/updateAdmin.php');
+            header('location: ../pages/samples/updateAdmin.php?msg=addSuccess');
             exit();
         }
     } else {

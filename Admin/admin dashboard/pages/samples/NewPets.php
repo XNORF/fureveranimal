@@ -31,7 +31,7 @@ if (isset($_POST['addPet'])) {
 
       $insert = "INSERT into pets(name, age, type, health, date, gender, story, image) values('$name', '$age', '$type', '$health', '$date', '$gender', '$story', '$image')";
       if (mysqli_query($GLOBALS['con'], $insert)) {
-        header("Location: updatePets.php");
+        header("Location: updatePets.php?msg=addSuccess");
       } else {
         echo 'Error: ' . mysqli_error($GLOBALS['con']);
       }

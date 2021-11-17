@@ -85,6 +85,14 @@ if (isset($_GET['msg'])) {
                 'success'
               )
             </script>";
+    } else if ($msgCheck == "addSuccess") {
+      echo "<script type='text/javascript'>
+              Swal.fire(
+                'Added!',
+                'A new pet has been added.',
+                'success'
+              )
+            </script>";
     }
   }
   ?>
@@ -332,7 +340,7 @@ if (isset($_GET['msg'])) {
               </h3>
               <div class="col-md-8"></div>
               <div class="col-md-2">
-                <center><a href="\masterfureveranimal\Admin\admin dashboard\pages\samples\NewPets.php"> <input value="ADD PETS" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
+                <center><a href="NewPets.php"> <input value="ADD PETS" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
               </div>
             </div>
           </div>
@@ -433,11 +441,7 @@ if (isset($_GET['msg'])) {
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-                              <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
-                              </form>
+                            </form>
 
                             </div>
                       </div>

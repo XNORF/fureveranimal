@@ -15,7 +15,7 @@ if (isset($_SESSION['adopter'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Fur-Ever Animal Shelter</title>
+  <title>Homepage | Fur-Ever Animal Shelter</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 

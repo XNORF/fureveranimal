@@ -87,6 +87,14 @@ if (isset($_GET['msg'])) {
                 'success'
               )
             </script>";
+    } else if ($msgCheck == "addSuccess") {
+      echo "<script type='text/javascript'>
+              Swal.fire(
+                'Added!',
+                'An admin has been added.',
+                'success'
+              )
+            </script>";
     }
   }
   ?>
@@ -334,7 +342,7 @@ if (isset($_GET['msg'])) {
               </h3>
               <div class="col-md-8"></div>
               <div class="col-md-2">
-                <center><a href="\masterfureveranimal\Admin\admin dashboard\AddAdmin/signup.php"> <input value="ADD ADMIN" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
+                <center><a href="../../AddAdmin/signup.php"> <input value="ADD ADMIN" id="submit" name="submit" class="btn btn-gradient-primary mr-2"></input></a></center>
               </div>
             </div>
           </div>
@@ -423,8 +431,6 @@ if (isset($_GET['msg'])) {
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
-
-                              <!--<a href = "/masterfureveranimal/Admin/admin%20dashboard/indexDashboard.php" button type="submit" class="button button2">BACK TO DASHBOARD</button></a>-->
                               </form>
 
                             </div>
