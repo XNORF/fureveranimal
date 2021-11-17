@@ -1,132 +1,144 @@
 <?php
-   include_once '../include/db.php';
-   session_start();
+include_once '../include/db.php';
+session_start();
 
-   if(isset($_GET['vkey'])){
-      $_SESSION['resetPassVkey'] = $_GET['vkey'];
-      valid();
-      if(isset($_GET['reset'])){
-			$resetCheck = $_GET['reset'];
-		}
-   }else{
+if (isset($_GET['vkey'])) {
+   $_SESSION['resetPassVkey'] = $_GET['vkey'];
+   if (!valid()) {
       header("Location: ../index.php");
    }
-   
+   if (isset($_GET['reset'])) {
+      $resetCheck = $_GET['reset'];
+   }
+} else {
+   header("Location: ../index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
-      <title>Reset Password</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
-	  integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-      <style>
-         body {
-         background-color: #ffe3f3  ;
+   <title>Reset Password</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+   <style>
+      body {
+         background-color: #ffe3f3;
          font-family: Nunito Sans;
-         }
-         .btn {
-         background-color: #aa52c4 ;
+      }
+
+      .btn {
+         background-color: #aa52c4;
          width: 100%;
          color: #fff;
          padding: 10px;
          font-size: 18px;
-         }
-         .btn:hover {
-         background-color: #f598cc  ;
+      }
+
+      .btn:hover {
+         background-color: #f598cc;
          color: #fff;
-         }
-         input {
+      }
+
+      input {
          height: 50px !important;
-         }
-         .form-control:focus {
+      }
+
+      .form-control:focus {
          border-color: #18dcff;
          box-shadow: none;
-         }
-         h3 {
+      }
+
+      h3 {
          color: #17c0eb;
          font-size: 36px;
-         }
-         .cw {
+      }
+
+      .cw {
          width: 35%;
-         }
-         @media(max-width: 992px) {
+      }
+
+      @media(max-width: 992px) {
          .cw {
-         width: 60%;
+            width: 60%;
          }
-         }
-         @media(max-width: 768px) {
+      }
+
+      @media(max-width: 768px) {
          .cw {
-         width: 80%;
+            width: 80%;
          }
-         }
-         @media(max-width: 492px) {
+      }
+
+      @media(max-width: 492px) {
          .cw {
-         width: 90%;
+            width: 90%;
          }
-         }
-      </style>
-      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      }
+   </style>
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>   
+
+<body>
    <?php
-		if(isset($resetCheck)){
-			if($resetCheck == "invalid"){
-				echo "<script>
+   if (isset($resetCheck)) {
+      if ($resetCheck == "invalid") {
+         echo "<script>
 				Swal.fire({
 					icon: 'error',
 					title: 'Oops...',
 					text: 'Your new password must be at least 6 characters!',
 				  })
-				</script>";			
-			}else if($resetCheck == "different"){
-				echo "<script>
+				</script>";
+      } else if ($resetCheck == "different") {
+         echo "<script>
 				Swal.fire({
 					icon: 'error',
 					title: 'Oops...',
 					text: 'Password doesn\'t match!',
 				  })
-				</script>";			
-			}
-		}
-	?>
-      <div class="container d-flex justify-content-center align-items-center vh-100">
-         <div class="bg-white text-center p-5 mt-3 center">
-            <h3>Reset Password</h3>
-            <p>You can reset your password here.</p>
-            <form class="pb-3" action="function.php" method="post">
-               <div class="form-group">
-                  <input type="password" class="form-control" placeholder="New Password*" name="pass1" required>
-               </div>
-			      <div class="form-group">
-                  <input type="password" class="form-control" placeholder="Confirm New Password*" name="pass2" required>
-               </div>
-               <button type="submit" class="btn" name="btnReset" formmethod="POST">Reset Password</button>
-            </form>
-            
-         </div>
+				</script>";
+      }
+   }
+   ?>
+   <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="bg-white text-center p-5 mt-3 center">
+         <h3>Reset Password</h3>
+         <p>You can reset your password here.</p>
+         <form class="pb-3" action="function.php" method="post">
+            <div class="form-group">
+               <input type="password" class="form-control" placeholder="New Password*" name="pass1" required>
+            </div>
+            <div class="form-group">
+               <input type="password" class="form-control" placeholder="Confirm New Password*" name="pass2" required>
+            </div>
+            <button type="submit" class="btn" name="btnReset" formmethod="POST">Reset Password</button>
+         </form>
+
       </div>
+   </div>
 </body>
+
 </html>
 
 <?php
-   function valid(){      
-        if(!$GLOBALS['con']){
-            echo mysqli_error($GLOBALS['con']);
-        }else{
-            //Construct SQL statement
-            $vkey = $_SESSION['resetPassVkey'];
-            $email = $_SESSION['resetPass'];
-            $sql = "SELECT * FROM adopter WHERE email='$email' AND vkey='$vkey'";
-            $qry = mysqli_query($GLOBALS['con'], $sql);
-            $count = mysqli_num_rows($qry);        
-            if($count == 1){
-                return true;
-            }else{
-               header("Location: ../index.php");
-            }
-        }
+function valid()
+{
+   if (!$GLOBALS['con']) {
+      echo mysqli_error($GLOBALS['con']);
+   } else {
+      //Construct SQL statement
+      $vkey = $_SESSION['resetPassVkey'];
+      $email = $_SESSION['resetPass'];
+      $sql = "SELECT * FROM adopter WHERE email='$email' AND vkey='$vkey'";
+      $qry = mysqli_query($GLOBALS['con'], $sql);
+      $count = mysqli_num_rows($qry);
+      if ($count == 1) {
+         return true;
+      }
    }
+}
 ?>

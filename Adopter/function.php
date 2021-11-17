@@ -33,10 +33,11 @@ function updateProfile()
         // valid file extensions
         $extensions_arr = array("jpg", "jpeg", "png", "gif");
 
-        // Check extension
-        if (in_array($imageFileType, $extensions_arr)) {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)) {
 
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target)) {
+            // Check extension
+            if (in_array($imageFileType, $extensions_arr)) {
+
                 // Image db insert sql
                 $sql = "UPDATE adopter SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state', image='$image' WHERE email='$email'";
                 if (mysqli_query($GLOBALS['con'], $sql)) {
@@ -46,15 +47,15 @@ function updateProfile()
                     header("Location: accountadopter.php?update=failed");
                     exit();
                 }
+            }
+        } else {
+            $sql = "UPDATE adopter SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
+            if (mysqli_query($GLOBALS['con'], $sql)) {
+                header("Location: accountadopter.php?update=success");
+                exit();
             } else {
-                $sql = "UPDATE adopter SET username='$username', address1='$address1', address2='$address2', postcode='$postcode', city='$city', state='$state' WHERE email='$email'";
-                if (mysqli_query($GLOBALS['con'], $sql)) {
-                    header("Location: accountadopter.php?update=success");
-                    exit();
-                } else {
-                    header("Location: accountadopter.php?update=failed");
-                    exit();
-                }
+                header("Location: accountadopter.php?update=failed");
+                exit();
             }
         }
     }
